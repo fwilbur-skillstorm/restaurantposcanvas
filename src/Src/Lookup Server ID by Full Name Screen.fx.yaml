@@ -1,0 +1,90 @@
+"'Lookup Server ID by Full Name Screen' As screen":
+    Fill: =RGBA(168, 0, 0, 1)
+
+    lblRestaurantTitle_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        DisplayMode: =DisplayMode.View
+        FontWeight: =FontWeight.Bold
+        Height: =107
+        Size: =48
+        Text: ="Seth's heckin kitchen"
+        Underline: =true
+        Width: =1032
+        X: =164
+        Y: =51
+        ZIndex: =1
+
+    lblFullName As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =56
+        Size: =22
+        Text: ="FULL NAME"
+        Width: =227
+        X: =566
+        Y: =255
+        ZIndex: =2
+
+    txtEnterFullName As text:
+        Default: =""
+        Height: =47
+        HintText: ="Enter your Full Name"
+        Size: =16
+        Width: =407
+        X: =476
+        Y: =311
+        ZIndex: =3
+
+    btnLookupServerID As button:
+        Fill: =RGBA(54, 176, 75, 1)
+        Height: =53
+        OnSelect: |-
+            =UpdateContext({FullNameToLookUp: txtEnterFullName});
+            UpdateContext({ServerID: LookUp(OrderingStaff, 'Full Name' = FullNameToLookUp.Text, 'Order Staff ID')});
+            
+            If(!IsBlank(ServerID),
+                Notify("We found the ID you are looking for!", Success, 2500),
+                Notify("An ID was not found for the name '" & FullNameToLookUp.Text & "'.", Error, 2500)
+            );
+            
+            Reset(txtEnterFullName);
+        Text: ="Find"
+        Width: =171
+        X: =594
+        Y: =381
+        ZIndex: =4
+
+    lblYourServerID As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =48
+        Size: =22
+        Text: |-
+            =If(!IsBlank(ServerID), "Your Server ID is:", "")
+        Width: =506
+        X: =427
+        Y: =483
+        ZIndex: =5
+
+    lblServerIDFound As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =131
+        Size: =52
+        Text: =ServerID
+        Width: =506
+        X: =426
+        Y: =531
+        ZIndex: =6
+
+    BackIcon1_1 As icon.Reset:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Reset
+        OnSelect: =Navigate('Login Screen', Fade);
+        X: =40
+        Y: =40
+        ZIndex: =7
+

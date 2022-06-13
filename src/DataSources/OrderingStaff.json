@@ -1,0 +1,120 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "order_orderingstaffs",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "order_orderingstaff",
+    "MaxGetRowsCount": 500,
+    "Name": "OrderingStaff",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "kitchen_fullname": "Full Name",
+      "kitchen_pin": "PIN",
+      "kitchen_role": "Role",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "order_fullname": "Order Staff ID",
+      "order_orderingstaff_AsyncOperations": "System Jobs",
+      "order_orderingstaff_BulkDeleteFailures": "Bulk Delete Failures",
+      "order_orderingstaff_DuplicateBaseRecord": "duplicaterecord (order_orderingstaff_DuplicateBaseRecord)",
+      "order_orderingstaff_DuplicateMatchingRecord": "duplicaterecord (order_orderingstaff_DuplicateMatchingRecord)",
+      "order_orderingstaff_MailboxTrackingFolders": "mailboxtrackingfolder",
+      "order_orderingstaff_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "order_orderingstaff_ProcessSession": "Process Sessions",
+      "order_orderingstaff_SyncErrors": "syncerror",
+      "order_orderingstaffid": "Ordering Staff",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "OrderingStaff",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "OrderingStaff (Views)",
+    "Name": "_order_orderingstaff_views",
+    "RelatedEntityName": "OrderingStaff",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "659f03da-d4b2-4f62-9865-9773a47dfb1e": "Inactive Ordering Staff",
+      "8a098be3-8ab0-4669-900c-dbcd5a6a87a4": "Ordering Staff Associated View",
+      "c09befc9-4e1e-4e53-bf69-f5728f64d8ae": "Ordering Staff Lookup View",
+      "c2090a77-3f29-43d0-a220-224d0487fd10": "Ordering Staff Advanced Find View",
+      "ed49555c-d7d3-441b-a527-1c514d11abe4": "Active Ordering Staff"
+    }
+  },
+  {
+    "DisplayName": "Team Lead (OrderingStaff)",
+    "Name": "kitchen_order_orderingstaff_kitchen_teamlead",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "kitchen_teamlead",
+        "OptionSetReferenceEntityName": "OrderingStaff"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "kitchen_teamlead",
+    "RelatedEntityName": "OrderingStaff",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (OrderingStaff)",
+    "Name": "order_orderingstaff_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "OrderingStaff"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "OrderingStaff",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (OrderingStaff)",
+    "Name": "order_orderingstaff_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "OrderingStaff"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "OrderingStaff",
+    "Type": "OptionSetInfo"
+  }
+]
