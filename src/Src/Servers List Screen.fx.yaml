@@ -1,0 +1,99 @@
+"'Servers List Screen' As screen.'tabletLayout_HeaderAndGallery_ver3.0'":
+
+    RectQuickActionBar2 As rectangle:
+        Fill: =RGBA(168, 0, 0, 1)
+        Height: =64
+        Width: =Parent.Width
+        ZIndex: =1
+
+    "ServersListGallery As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+        Height: =Parent.Height - ServersListGallery.Y
+        Items: =Filter(OrderingStaff, 'OrderingStaff (Views)'.'Active Ordering Staff')
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =Min(104, Self.Height - 60)
+        Width: =Parent.Width
+        Y: =64
+        ZIndex: =1
+
+        ServerListServerName As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'Full Name'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =16
+            ZIndex: =1
+
+        ServerLIstServerID As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'Order Staff ID'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =ServerListServerName.Y + ServerListServerName.Height + 4
+            ZIndex: =2
+
+        NextArrow3 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: |-
+                =Select(Parent);
+                Navigate('Edit Server Screen', Fade);
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =3
+
+        Separator3 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =4
+
+    ServersListScreenTitle As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Height: =64
+        PaddingRight: =10
+        Text: ="Ordering Staff"
+        Width: =Parent.Width
+        ZIndex: =2
+
+    Icon1 As icon.Add:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Add
+        OnSelect: =Navigate('Add Server Screen', Fade);
+        Width: =50
+        X: =1301
+        ZIndex: =3
+
+    BackIcon As icon.Reset:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =46
+        Icon: =Icon.Reset
+        OnSelect: =Navigate('Logged In Landing Page Screen', Fade);
+        Width: =38
+        X: =17
+        Y: =9
+        ZIndex: =4
+

@@ -1,0 +1,76 @@
+"'Logged In Landing Page Screen' As screen":
+    Fill: =RGBA(168, 0, 0, 1)
+
+    lblRestaurantTitle_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        DisplayMode: =DisplayMode.View
+        FontWeight: =FontWeight.Bold
+        Height: =107
+        Size: =48
+        Text: ="Seth's heckin kitchen"
+        Underline: =true
+        Width: =1032
+        X: =164
+        Y: =51
+        ZIndex: =4
+
+    lblModifyServers As label:
+        Align: =Align.Center
+        Color: =RGBA(54, 176, 75, 1)
+        Height: =48
+        OnSelect: =If("Yes" in TeamLead, Navigate('Servers List Screen', Fade));
+        Size: =22
+        Text: =If("Yes" in TeamLead, "Modify Servers", "")
+        Underline: =true
+        Width: =256
+        X: =552
+        Y: =433
+        ZIndex: =8
+
+    lblGreetingMessage As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =138
+        Italic: =true
+        Size: =32
+        Text: |-
+            =If(!IsBlank(FullName),
+            "Welcome to the boneyard,
+            " & FullName & "!" & " Let's make that bread!",
+            "Hello...")
+        Width: =1032
+        X: =164
+        Y: =204
+        ZIndex: =9
+
+    lblViewYourOrders As label:
+        Align: =Align.Center
+        Color: =RGBA(54, 176, 75, 1)
+        Height: =53
+        OnSelect: =Navigate('Orders List Screen', Fade);
+        Size: =22
+        Text: ="View Your Orders"
+        Underline: =true
+        Width: =362
+        X: =499
+        Y: =342
+        ZIndex: =10
+
+    btnLogout As button:
+        Fill: =RGBA(54, 176, 75, 1)
+        Height: =55
+        OnSelect: |-
+            =Set(ServerID, Blank());
+            Set(FullName, Blank());
+            Set(TeamLead, Blank());
+            Navigate('Login Screen', Fade);
+            Notify("You have logged out.", NotificationType.Information);
+        Size: =22
+        Text: ="Logout"
+        Width: =166
+        X: =597
+        Y: =520
+        ZIndex: =11
+

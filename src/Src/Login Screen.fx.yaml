@@ -1,0 +1,94 @@
+"'Login Screen' As screen":
+    Fill: =RGBA(168, 0, 0, 1)
+
+    txtPIN As text:
+        Default: =""
+        Height: =56
+        HintText: ="PIN"
+        Mode: =TextMode.Password
+        Size: =18
+        Width: =130
+        X: =615
+        Y: =487
+        ZIndex: =1
+
+    txtServerID As text:
+        Default: =""
+        Height: =61
+        HintText: ="Server ID"
+        Size: =16
+        X: =520
+        Y: =314
+        ZIndex: =2
+
+    btnLogin As button:
+        Fill: =RGBA(54, 176, 75, 1)
+        OnSelect: |-
+            =Set(ServerID, txtServerID.Text);
+            Set(FullName, LookUp(OrderingStaff, 'Order Staff ID' = ServerID && PIN = txtPIN.Text, 'Full Name'));
+            Set(TeamLead, LookUp(OrderingStaff, 'Order Staff ID' = ServerID && PIN = txtPIN.Text, 'Team Lead'));
+            
+            If(!IsBlank(FullName),
+                Navigate('Logged In Landing Page Screen', Fade),
+                Notify("The login information provided does not match anything in our records.", NotificationType.Error)
+            );
+            
+            Reset(txtPIN);
+            Reset(txtServerID);
+        Text: ="Login"
+        X: =600
+        Y: =583
+        ZIndex: =3
+
+    lblRestaurantTitle As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        DisplayMode: =DisplayMode.View
+        FontWeight: =FontWeight.Bold
+        Height: =107
+        Size: =48
+        Text: ="Seth's heckin kitchen"
+        Underline: =true
+        Width: =1032
+        X: =164
+        Y: =51
+        ZIndex: =4
+
+    lblServerIDText As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =56
+        Size: =22
+        Text: ="SERVER ID"
+        Width: =165
+        X: =595
+        Y: =258
+        ZIndex: =5
+
+    lblPINText As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =56
+        Size: =22
+        Text: ="PIN"
+        Width: =165
+        X: =597
+        Y: =431
+        ZIndex: =6
+
+    lblForgotYourID As label:
+        Align: =Align.Center
+        Color: =RGBA(54, 176, 75, 1)
+        FontWeight: =FontWeight.Lighter
+        Height: =55
+        Italic: =true
+        OnSelect: =Navigate('Lookup Server ID by Full Name Screen', Fade);
+        Size: =16
+        Text: ="Forgot your ID?"
+        Width: =236
+        X: =562
+        Y: =375
+        ZIndex: =7
+
