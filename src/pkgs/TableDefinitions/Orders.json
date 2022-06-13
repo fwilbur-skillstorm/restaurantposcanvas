@@ -1,7 +1,7 @@
 {
   "DatasetName": "default.cds",
   "EntityName": "Orders",
-  "InstanceUrl": "https://org17449076.crm.dynamics.com/",
+  "InstanceUrl": "https://org8cd2e6f6.crm.dynamics.com/",
   "LocalReferenceDSJson": {
     "entitySetName": "kitchen_orders",
     "logicalName": "kitchen_order"
