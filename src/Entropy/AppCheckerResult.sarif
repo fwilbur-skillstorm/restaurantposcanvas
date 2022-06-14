@@ -23,10 +23,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 16,
+                  "charLength": 15,
                   "charOffset": 26,
                   "snippet": {
-                    "text": "EditTicketScreen"
+                    "text": "EditOrderScreen"
                   }
                 }
               },
@@ -39,7 +39,7 @@
           ],
           "message": {
             "arguments": [
-              "EditTicketScreen"
+              "EditOrderScreen"
             ],
             "id": "issue"
           },
@@ -141,7 +141,7 @@
                 },
                 "region": {
                   "charLength": 8,
-                  "charOffset": 36,
+                  "charOffset": 35,
                   "snippet": {
                     "text": "ThisItem"
                   }
@@ -181,7 +181,7 @@
                 },
                 "region": {
                   "charLength": 24,
-                  "charOffset": 57,
+                  "charOffset": 56,
                   "snippet": {
                     "text": "ConfirmationDeleteScreen"
                   }
@@ -220,10 +220,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 28,
+                  "charLength": 27,
                   "charOffset": 17,
                   "snippet": {
-                    "text": "Set(TicketToDelete,ThisItem)"
+                    "text": "Set(OrderToDelete,ThisItem)"
                   }
                 }
               },
@@ -242,6 +242,123 @@
           },
           "ruleId": "app-ErrIncompatibleCtxtVariableTypes",
           "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Orders List Screen'.MyTicketsScreenGalleryEditButton_1.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Orders List Screen'.MyTicketsScreenGalleryEditButton_1.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 6,
+                  "charOffset": 7,
+                  "snippet": {
+                    "text": "Parent"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Orders List Screen",
+                "type": "'Orders List Screen'.MyTicketsScreenGalleryEditButton_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrFunctionExpectsSelectableControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Orders List Screen'.MyTicketsScreenGalleryEditButton_1.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Orders List Screen'.MyTicketsScreenGalleryEditButton_1.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 14,
+                  "charOffset": 0,
+                  "snippet": {
+                    "text": "Select(Parent)"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Orders List Screen",
+                "type": "'Orders List Screen'.MyTicketsScreenGalleryEditButton_1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Select"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidArgs-Func",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Orders List Screen'.MyTicketsScreenGalleryEditButton_1.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Orders List Screen'.MyTicketsScreenGalleryEditButton_1.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 16,
+                  "charOffset": 26,
+                  "snippet": {
+                    "text": "EditTicketScreen"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Orders List Screen",
+                "type": "'Orders List Screen'.MyTicketsScreenGalleryEditButton_1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "EditTicketScreen"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 0
         },
         {
           "locations": [
@@ -1508,17 +1625,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.TicketToDelete"
+                  "fullyQualifiedName": "App.OrderToDelete"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.TicketToDelete",
+                  "fullyQualifiedName": "App.OrderToDelete",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "TicketToDelete",
+                "member": "OrderToDelete",
                 "module": "App",
                 "type": "App"
               }

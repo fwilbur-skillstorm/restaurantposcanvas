@@ -77,6 +77,7 @@
     "Lookup Server ID by Full Name Screen": 112,
     "MyTicketsScreenGalleryDeleteButton": 15,
     "MyTicketsScreenGalleryEditButton": 13,
+    "MyTicketsScreenGalleryEditButton_1": 120,
     "NewServerForm": 57,
     "NextArrow11": 49,
     "NextArrow3": 24,
@@ -122,7 +123,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "06/14/2022 20:42:37",
+  "HeaderLastSavedDateTimeUTC": "06/14/2022 20:44:25",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,
@@ -160,14 +161,14 @@
   "OrderPcfTemplate": {},
   "OrderTemplate": {},
   "OrderXMLTemplate": {
-    "button": 4,
+    "button": 0,
     "circle": 5,
     "combobox": 8,
     "form": 6,
-    "gallery": 3,
-    "icon": 2,
-    "label": 1,
-    "rectangle": 0,
+    "gallery": 4,
+    "icon": 3,
+    "label": 2,
+    "rectangle": 1,
     "text": 7
   },
   "PublishOrderIndices": {
@@ -247,6 +248,7 @@
     "Lookup Server ID by Full Name Screen": 83,
     "MyTicketsScreenGalleryDeleteButton": 77,
     "MyTicketsScreenGalleryEditButton": 75,
+    "MyTicketsScreenGalleryEditButton_1": 40,
     "NewServerForm": 31,
     "NextArrow11": 96,
     "NextArrow3": 26,
@@ -298,7 +300,7 @@
   "VolatileProperties": {
     "AnalysisLoadTime": 0.7029001,
     "ControlCount": {
-      "button": 10,
+      "button": 11,
       "circle": 1,
       "combobox": 2,
       "form": 3,
@@ -312,7 +314,7 @@
       "typedDataCard": 7
     },
     "DeserializationLoadTime": 0.9242415,
-    "ErrorCount": 6
+    "ErrorCount": 9
   },
   "WasLocalDatabaseReferencesEmpty": false
 }
