@@ -24,7 +24,7 @@
                 },
                 "region": {
                   "charLength": 17,
-                  "charOffset": 53,
+                  "charOffset": 60,
                   "snippet": {
                     "text": "'Status (Orders)'"
                   }
@@ -61,7 +61,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 50,
+                  "charOffset": 57,
                   "snippet": {
                     "text": "in"
                   }
