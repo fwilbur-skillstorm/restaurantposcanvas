@@ -36,6 +36,7 @@
     EditServerForm As form:
         DataSource: =OrderingStaff
         Height: =252
+        Item: =LookUp(OrderingStaff, 'Order Staff ID' = ThisRecord.'Order Staff ID')
         NumberOfColumns: =2
         X: =261
         Y: =233
