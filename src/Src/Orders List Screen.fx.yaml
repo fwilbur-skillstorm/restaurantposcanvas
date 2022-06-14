@@ -10,6 +10,7 @@
         Height: =640
         Items: =Filter(Orders, 'Server ID' = Value(ServerID))
         Layout: =Layout.Vertical
+        OnSelect: =Set(SelectedOrder,ThisItem)
         TemplatePadding: =0
         TemplateSize: =Min(96, Self.Height - 60)
         Width: =Parent.Width

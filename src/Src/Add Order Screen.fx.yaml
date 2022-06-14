@@ -86,7 +86,7 @@
             Navigate('Orders List Screen', Fade);
         Text: ="Create New Order"
         Width: =322
-        X: =490
-        Y: =574
+        X: =1040
+        Y: =694
         ZIndex: =2
 
