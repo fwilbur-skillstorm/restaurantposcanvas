@@ -7,7 +7,7 @@
         ZIndex: =1
 
     "OrdersListGallery As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
-        Height: =Parent.Height - OrdersListGallery.Y
+        Height: =640
         Items: =Filter(Orders, 'Orders (Views)'.'Active Orders')
         Layout: =Layout.Vertical
         TemplatePadding: =0
@@ -58,8 +58,8 @@
         FontWeight: =FontWeight.Bold
         Height: =64
         PaddingRight: =10
-        Text: |-
-            =ServerID & ": " & FullName & "'s Orders"
+        Size: =22
+        Text: =ServerID & " — " & FullName & "'s Orders"
         Width: =Parent.Width
         ZIndex: =2
 
@@ -73,4 +73,11 @@
         X: =17
         Y: =9
         ZIndex: =4
+
+    RectQuickActionBar1_1 As rectangle:
+        Fill: =RGBA(168, 0, 0, 1)
+        Height: =64
+        Width: =Parent.Width
+        Y: =704
+        ZIndex: =5
 
