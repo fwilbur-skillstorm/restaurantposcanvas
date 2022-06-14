@@ -82,7 +82,7 @@
         Color: =RGBA(255, 255, 255, 1)
         Icon: =Icon.Add
         OnSelect: |-
-            =NewForm(NewServerForm)
+            =NewForm(NewServerForm);
             Navigate('Add Server Screen', Fade);
         Width: =65
         X: =1301
