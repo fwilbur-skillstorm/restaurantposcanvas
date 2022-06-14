@@ -195,7 +195,9 @@
 
             DataCardKey6 As label:
                 AutoHeight: =true
+                Color: =RGBA(255, 255, 255, 1)
                 Height: =34
+                Size: =22
                 Text: =Parent.DisplayName
                 Width: =Parent.Width - 60
                 Wrap: =false
