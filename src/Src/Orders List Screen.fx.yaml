@@ -8,7 +8,7 @@
 
     "OrdersListGallery As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
         Height: =640
-        Items: =Filter(Orders, 'Server ID' = Value(ServerID) && "Active" in 'Status' )
+        Items: =Filter(Orders, And('Server ID' = Value(ServerID), "Active" in 'Status'))
         Layout: =Layout.Vertical
         TemplatePadding: =0
         TemplateSize: =Min(96, Self.Height - 60)
