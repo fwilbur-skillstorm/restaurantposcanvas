@@ -229,7 +229,7 @@
         OnSelect: |-
             =SubmitForm(NewServerForm);
             Navigate('Success Screen', Fade);
-            Notify("You have successfully added a new server to the roster!", NotificationType.Success);
+            Notify("You have successfully added " & DataCardValue1.Text & " to the roster!", NotificationType.Success);
         Size: =20
         Text: ="Create"
         Width: =176

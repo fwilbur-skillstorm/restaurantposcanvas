@@ -82,7 +82,7 @@
         Color: =RGBA(255, 255, 255, 1)
         Icon: =Icon.Add
         OnSelect: =Navigate('Add Server Screen', Fade);
-        Width: =50
+        Width: =65
         X: =1301
         ZIndex: =3
 
