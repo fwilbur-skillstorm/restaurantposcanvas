@@ -2,6 +2,7 @@
     Fill: =RGBA(168, 0, 0, 1)
 
     "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+        Height: =603
         Items: |
             =Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber))
         Layout: =Layout.Vertical
@@ -26,13 +27,13 @@
             ZIndex: =1
 
         Subtitle4 As label:
-            Height: =Self.Size * 1.8
+            Height: =48
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Text: =ThisItem.'Created On'
+            Text: =LookUp(Menus, 'Item Number' = ThisItem.'Menu Item'.'Item Number', Customizations)
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
             X: =32
