@@ -1,2 +1,58 @@
 Screen1 As screen:
+    Fill: =RGBA(168, 0, 0, 1)
+
+    CreateOrderForm As form:
+        DataSource: =Orders
+        X: =108
+        Y: =74
+        ZIndex: =1
+
+        "'Order Number_DataCard2' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="kitchen_ordernumber"
+            Default: =ThisItem.'Order Number'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@Orders],DataSourceInfo.DisplayName,"kitchen_ordernumber")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =266
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey9 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =15
+                ZIndex: =1
+
+            DataCardValue9 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey9.Y + DataCardKey9.Height + 5
+                ZIndex: =2
+
+    Button1 As button:
+        Fill: =RGBA(54, 176, 75, 1)
+        Height: =71
+        OnSelect: |-
+            =SubmitForm(CreateOrderForm);
+            Navigate('Orders List Screen');
+        Text: ="Create New Order"
+        Width: =322
+        X: =490
+        Y: =574
+        ZIndex: =2
 
