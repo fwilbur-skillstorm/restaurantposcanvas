@@ -83,7 +83,7 @@
         Height: =71
         OnSelect: |-
             =SubmitForm(CreateOrderForm);
-            Navigate('Orders List Screen');
+            Navigate('Orders List Screen', Fade);
         Text: ="Create New Order"
         Width: =322
         X: =490
