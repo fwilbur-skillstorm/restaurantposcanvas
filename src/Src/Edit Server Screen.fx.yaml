@@ -4,6 +4,7 @@
     SubmitNewServerButton_1 As button:
         Fill: =RGBA(54, 176, 75, 1)
         Height: =63
+        OnSelect: =SubmitForm(EditServerForm)
         Size: =20
         Text: ="Edit"
         Width: =176
