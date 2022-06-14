@@ -8,7 +8,7 @@
 
     "OrdersListGallery As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
         Height: =640
-        Items: =Filter(Orders, 'Server ID' = Value(ServerID))
+        Items: =Filter(Orders, 'Server ID' = Value(ServerID) && "Active" in 'Status (Orders)')
         Layout: =Layout.Vertical
         TemplatePadding: =0
         TemplateSize: =Min(96, Self.Height - 60)
@@ -23,7 +23,8 @@
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Text: =ThisItem.'Order Number'
+            Text: |-
+                ="Order number: " & ThisItem.'Order Number'
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
             X: =32
@@ -81,10 +82,12 @@
         Y: =704
         ZIndex: =5
 
-    Icon1_1 As icon.Add:
+    icnCreateOrder As icon.Add:
         Color: =RGBA(255, 255, 255, 1)
         Icon: =Icon.Add
-        OnSelect: =Navigate('Add Order Screen', Fade);
+        OnSelect: |-
+            =NewForm(CreateOrderForm);
+            Navigate('Add Order Screen', Fade);
         Width: =62
         X: =1303
         ZIndex: =6
