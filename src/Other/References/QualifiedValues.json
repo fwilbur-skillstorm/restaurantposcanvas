@@ -1,12 +1,20 @@
 {
   "QualifiedValues": [
     {
-      "Kind": "default.cds_kitchen_order_forms",
-      "Namespace": "Orders (Forms)",
+      "Kind": "default.cds_cre49_menu_forms",
+      "Namespace": "Menus (Forms)",
       "Values": {
-        "Billing Form": "0de3a297-3de8-ec11-bb3c-0022483065f1",
-        "Information": "728f3976-57c7-4af4-8eee-c9bfa2b7ca1d",
-        "Kitchen Order Form": "76b8ee22-fee8-ec11-bb3c-0022482b7e03"
+        "Information": "4c575a53-d9f0-4e3d-a585-483952da5989",
+        "Kitchen Menu quick view form": "c07c9966-0ce9-ec11-bb3c-0022482b7e03",
+        "Menu main form": "d9f82c58-3ce7-ec11-bb3c-0022483065f8"
+      }
+    },
+    {
+      "Kind": "default.cds_kitchen_orderdetail_forms",
+      "Namespace": "Order Details (Forms)",
+      "Values": {
+        "Information": "764c88d2-b0ae-4129-83df-fe7d5f849fcd",
+        "Kitchen Order Detail main form": "3114f053-16e9-ec11-bb3c-0022482b7e03"
       }
     },
     {
@@ -14,6 +22,15 @@
       "Namespace": "OrderingStaff (Forms)",
       "Values": {
         "Information": "11a9ee47-74ae-4be5-aaee-a906f634584b"
+      }
+    },
+    {
+      "Kind": "default.cds_kitchen_order_forms",
+      "Namespace": "Orders (Forms)",
+      "Values": {
+        "Billing Form": "0de3a297-3de8-ec11-bb3c-0022483065f1",
+        "Information": "728f3976-57c7-4af4-8eee-c9bfa2b7ca1d",
+        "Kitchen Order Form": "76b8ee22-fee8-ec11-bb3c-0022482b7e03"
       }
     }
   ]

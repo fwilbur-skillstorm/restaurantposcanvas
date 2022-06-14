@@ -1,0 +1,27 @@
+"'Billing Screen' As screen":
+
+    Label4 As label:
+        Align: =Align.Center
+        Fill: =RGBA(216, 59, 1, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =27
+        Size: =23
+        Text: |-
+            ="Order # " & Text(SelectedOrder.'Order Number')
+        Width: =1366
+        ZIndex: =2
+
+    Icon1 As icon.ArrowLeft:
+        Height: =27
+        Icon: =Icon.ArrowLeft
+        OnSelect: =Navigate('Orders List Screen', None);
+        Width: =61
+        ZIndex: =3
+
+    Rectangle2 As rectangle:
+        Fill: =RGBA(216, 59, 1, 1)
+        Height: =27
+        Width: =1366
+        Y: =741
+        ZIndex: =4
+

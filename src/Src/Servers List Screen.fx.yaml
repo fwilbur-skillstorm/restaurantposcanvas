@@ -10,6 +10,7 @@
         Height: =Parent.Height - ServersListGallery.Y
         Items: =Filter(OrderingStaff, 'OrderingStaff (Views)'.'Active Ordering Staff')
         Layout: =Layout.Vertical
+        OnSelect: =Set(SelectedStaff,ThisItem)
         TemplatePadding: =0
         TemplateSize: =Min(104, Self.Height - 60)
         Width: =Parent.Width

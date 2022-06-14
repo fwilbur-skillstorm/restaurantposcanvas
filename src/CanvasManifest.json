@@ -108,6 +108,7 @@
     "Edit Server Screen",
     "Orders List Screen",
     "Add Order Screen",
-    "Success Screen"
+    "Success Screen",
+    "Billing Screen"
   ]
 }

@@ -1,0 +1,132 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cre49_menus",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cre49_menu",
+    "MaxGetRowsCount": 500,
+    "Name": "Menus",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "{Attachments}": "Attachments",
+      "cre49_category": "Category",
+      "cre49_customizations": "Customizations",
+      "cre49_description": "Description",
+      "cre49_itemnumber": "Item Number",
+      "cre49_menu_Annotations": "Notes",
+      "cre49_menu_AsyncOperations": "System Jobs",
+      "cre49_menu_BulkDeleteFailures": "Bulk Delete Failures",
+      "cre49_menu_DuplicateBaseRecord": "Duplicate Records (cre49_menu_DuplicateBaseRecord)",
+      "cre49_menu_DuplicateMatchingRecord": "Duplicate Records (cre49_menu_DuplicateMatchingRecord)",
+      "cre49_menu_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cre49_menu_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cre49_menu_ProcessSession": "Process Sessions",
+      "cre49_menu_SyncErrors": "Sync Errors",
+      "cre49_menuid": "Menu",
+      "cre49_name": "Name",
+      "cre49_price": "Price",
+      "cre49_price_base": "Price (Base)",
+      "cre49_simplename": "Simple Name",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "exchangerate": "Exchange Rate",
+      "importsequencenumber": "Import Sequence Number",
+      "kitchen_kitchen_orderdetail_MenuItem_cre49_menu": "Order Details",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "transactioncurrencyid": "Currency",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Menus",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Menus (Views)",
+    "Name": "_cre49_menu_views",
+    "RelatedEntityName": "Menus",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "415bb50f-aa7e-4f70-a94f-06eeade70d79": "Menu Advanced Find View",
+      "4f216acd-87bc-4c32-9b4d-6565c85f3cdd": "Inactive Menus",
+      "8ddc8196-8b7c-4f30-8a0c-bdbd150c5276": "Menu Lookup View",
+      "d6c12fa0-c79e-42f2-b3e6-3c10b1016087": "Active Menus",
+      "e2582fa8-210d-4114-b772-303be4cdbc74": "Menu Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (Menus)",
+    "Name": "cre49_menu_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Menus"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Menus",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Menus)",
+    "Name": "cre49_menu_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Menus"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Menus",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Menu categories",
+    "Name": "cre49_menucategories",
+    "OptionSetInfoNameMapping": {
+      "1": "Drinks",
+      "2": "Starters",
+      "3": "Entrees",
+      "4": "Burgers/Sandwiches",
+      "5": "Desserts"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cre49_category",
+        "OptionSetReferenceEntityName": "Menus"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cre49_category",
+    "RelatedEntityName": "Menus",
+    "Type": "OptionSetInfo"
+  }
+]
