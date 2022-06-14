@@ -14,7 +14,7 @@
         TemplatePadding: =0
         TemplateSize: =Min(96, Self.Height - 60)
         Width: =Parent.Width
-        Y: =64
+        Y: =59
         ZIndex: =1
 
         Title1 As label:
