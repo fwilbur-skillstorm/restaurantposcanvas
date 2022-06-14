@@ -6,6 +6,7 @@
     "IsSampleData": false,
     "IsWritable": true,
     "LogicalName": "cre49_menu",
+    "MaxGetRowsCount": 500,
     "Name": "Menus",
     "NativeCDSDataSourceInfoNameMapping": {
       "_ownerid_value": "Owner",
