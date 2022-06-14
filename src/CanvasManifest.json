@@ -103,10 +103,11 @@
     "Login Screen",
     "Lookup Server ID by Full Name Screen",
     "Logged In Landing Page Screen",
-    "Orders List Screen",
-    "Success Screen",
     "Servers List Screen",
     "Add Server Screen",
-    "Edit Server Screen"
+    "Edit Server Screen",
+    "Orders List Screen",
+    "Add Order Screen",
+    "Success Screen"
   ]
 }

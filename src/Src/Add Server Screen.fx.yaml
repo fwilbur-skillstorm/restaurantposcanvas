@@ -4,7 +4,7 @@
     NewServerForm As form:
         DataSource: =OrderingStaff
         DefaultMode: =FormMode.New
-        Height: =174
+        Height: =255
         NumberOfColumns: =2
         Width: =1031
         X: =182
@@ -153,18 +153,88 @@
                 Y: =DataCardKey2.Y
                 ZIndex: =4
 
+        "'Team Lead_DataCard1' As typedDataCard.comboBoxOptionSetSingleEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="kitchen_teamlead"
+            Default: =ThisItem.'Team Lead'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@OrderingStaff],DataSourceInfo.DisplayName,"kitchen_teamlead")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue3.Selected.Value
+            Width: =515
+            WidthFit: =false
+            X: =23
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey3 As label:
+                AutoHeight: =true
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =34
+                Size: =22
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue3 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =[Parent.Default]
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                IsSearchable: =false
+                Items: =Choices('Team Lead (OrderingStaff)')
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =59
+                ZIndex: =2
+
+            ErrorMessage5 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue3.Y + DataCardValue3.Height
+                ZIndex: =3
+
+            StarVisible5 As label:
+                Align: =Align.Center
+                Height: =DataCardKey3.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey3.Y
+                ZIndex: =4
+
     SubmitNewServerButton As button:
         Fill: =RGBA(54, 176, 75, 1)
         Height: =63
         OnSelect: |-
             =SubmitForm(NewServerForm);
-            Navigate('Success Screen', Fade);
-            Notify("You have successfully added a new server to the roster!", NotificationType.Success);
+            Navigate('Servers List Screen', Fade);
+            Notify("You have successfully added " & DataCardValue1.Text & " to the roster!", NotificationType.Success, 2500);
         Size: =20
         Text: ="Create"
         Width: =176
         X: =595
-        Y: =466
+        Y: =556
         ZIndex: =2
 
     CreateNewServerLabelText As label:
