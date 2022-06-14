@@ -1,6 +1,66 @@
 "'Add Order Screen' As screen":
     Fill: =RGBA(168, 0, 0, 1)
 
+    "Gallery4 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+        Height: =567
+        Items: =Menus
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =131
+        Width: =770
+        Y: =84
+        ZIndex: =1
+
+        Subtitle6 As label:
+            Color: =RGBA(204, 204, 204, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =25
+            Text: =ThisItem.Name
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =17
+            Y: =22
+            ZIndex: =2
+
+        NextArrow9 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.Add
+            OnSelect: |-
+                =Collect(orderCart, {Name: ThisItem.Name, Price: ThisItem.Price})
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =3
+
+        Separator9 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =4
+
+        Label1 As label:
+            OnSelect: =Select(Parent)
+            Size: =20
+            Text: =ThisItem.Price
+            Width: =237
+            X: =17
+            Y: =67
+            ZIndex: =5
+
     CreateOrderForm As form:
         DataSource: =Orders
         DefaultMode: =FormMode.New
@@ -78,6 +138,54 @@
                 Y: =DataCardKey13.Y
                 ZIndex: =4
 
+    "Gallery5 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        Height: =327
+        Items: =orderCart
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =Min(96, Self.Height - 60)
+        Width: =592
+        X: =770
+        Y: =167
+        ZIndex: =1
+
+        Title10 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Name
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+        NextArrow11 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.Trash
+            OnSelect: =Remove(orderCart, ThisItem);
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =2
+
+        Separator11 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =3
+
     Button1 As button:
         Fill: =RGBA(54, 176, 75, 1)
         Height: =71
@@ -86,7 +194,50 @@
             Navigate('Orders List Screen', Fade);
         Text: ="Create New Order"
         Width: =322
-        X: =1040
-        Y: =694
+        X: =358
         ZIndex: =2
+
+    Rectangle1 As rectangle:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =79
+        Width: =592
+        X: =770
+        Y: =84
+        ZIndex: =3
+
+    Label2 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Height: =79
+        Size: =25
+        Text: ="Order Cart"
+        Width: =592
+        X: =770
+        Y: =84
+        ZIndex: =4
+
+    Label3 As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =56
+        Size: =25
+        Text: |-
+            =With ( {ST: Sum(orderCart, Price)}, "Subtotal: " & Text(ST, "$##.#0"))
+        Width: =294
+        X: =770
+        Y: =494
+        ZIndex: =5
+
+    Button2 As button:
+        Height: =101
+        OnSelect: |-
+            =
+            Patch(Orders, Defaults(Orders), {'Base Total': With({ST: Sum(orderCart, Price)}, ST)});
+            
+            Navigate('Orders List Screen', None)
+        Size: =25
+        Text: ="Place Order"
+        Width: =372
+        X: =785
+        Y: =550
+        ZIndex: =6
 

@@ -32,28 +32,24 @@
             Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
             ZIndex: =1
 
-        NextArrow1 As icon.ChevronRight:
-            AccessibleLabel: =Self.Tooltip
-            Height: =60
-            Icon: =Icon.ChevronRight
-            OnSelect: =Select(Parent)
-            PaddingBottom: =10
-            PaddingLeft: =10
-            PaddingRight: =10
-            PaddingTop: =10
-            TabIndex: =0
-            Tooltip: ="View item details"
-            Width: =60
-            X: =Parent.TemplateWidth - Self.Width - 5
-            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-            ZIndex: =2
-
         Separator1 As rectangle:
             Height: =1
             OnSelect: =Select(Parent)
             Width: =Parent.TemplateWidth
             Y: =Parent.TemplateHeight - 1
             ZIndex: =3
+
+        Button5 As button:
+            Height: =50
+            OnSelect: |-
+                =Select(Parent);
+                Navigate('Billing Screen', None);
+            Size: =20
+            Text: ="Pay"
+            Width: =147
+            X: =918
+            Y: =23
+            ZIndex: =4
 
     OrdersListGalleryTitle As label:
         Align: =Align.Center
