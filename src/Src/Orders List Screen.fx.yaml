@@ -65,7 +65,8 @@
             HoverFill: =ColorFade(MyTicketsScreenGalleryEditButton.Fill, 20%)
             OnSelect: |-
                 =Select(Parent);
-                Navigate(EditOrderScreen,ScreenTransition.None)
+                Set(ToEditOrderNumber, ThisItem.'Order Number');
+                Navigate('Edit Order Item Screen',ScreenTransition.Fade)
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
@@ -79,7 +80,7 @@
             RadiusTopRight: =20
             Size: =14
             Text: ="EDIT"
-            Width: =129
+            Width: =147
             X: =918
             Y: =101
             ZIndex: =5
