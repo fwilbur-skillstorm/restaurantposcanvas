@@ -228,7 +228,7 @@
         Height: =63
         OnSelect: |-
             =SubmitForm(NewServerForm);
-            Navigate('Success Screen', Fade);
+            Navigate('Servers List Screen', Fade);
             Notify("You have successfully added " & DataCardValue1.Text & " to the roster!", NotificationType.Success, 2500);
         Size: =20
         Text: ="Create"
