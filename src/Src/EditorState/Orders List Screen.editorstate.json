@@ -853,7 +853,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "MyTicketsScreenGalleryDeleteButton",
-      "ParentIndex": 6,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1223,7 +1223,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "MyTicketsScreenGalleryEditButton",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
