@@ -35,9 +35,77 @@
     EditServerForm As form:
         DataSource: =OrderingStaff
         Height: =252
+        NumberOfColumns: =2
         X: =261
         Y: =233
         ZIndex: =5
+
+        "'Team Lead_DataCard2' As typedDataCard.comboBoxOptionSetSingleEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="kitchen_teamlead"
+            Default: =ThisItem.'Team Lead'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@OrderingStaff],DataSourceInfo.DisplayName,"kitchen_teamlead")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue4.Selected.Value
+            Width: =400
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey4 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue4 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =[Parent.Default]
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                IsSearchable: =false
+                Items: =Choices('Team Lead (OrderingStaff)')
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey4.Y + DataCardKey4.Height + 5
+                ZIndex: =2
+
+            ErrorMessage6 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue4.Y + DataCardValue4.Height
+                ZIndex: =3
+
+            StarVisible6 As label:
+                Align: =Align.Center
+                Height: =DataCardKey4.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey4.Y
+                ZIndex: =4
 
         "'Full Name_DataCard2' As typedDataCard.textualEditCard":
             BorderStyle: =BorderStyle.Solid
@@ -50,7 +118,7 @@
             MaxLength: =DataSourceInfo([@OrderingStaff], DataSourceInfo.MaxLength, "kitchen_fullname")
             Required: =false
             Update: =DataCardValue5.Text
-            Width: =266
+            Width: =400
             X: =0
             Y: =0
             ZIndex: =1
@@ -118,7 +186,7 @@
             MaxLength: =DataSourceInfo([@OrderingStaff], DataSourceInfo.MaxLength, "kitchen_pin")
             Required: =false
             Update: =DataCardValue6.Text
-            Width: =266
+            Width: =400
             X: =1
             Y: =0
             ZIndex: =1
