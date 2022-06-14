@@ -3,7 +3,7 @@
 
     "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
         Items: |
-            =Filter('Order Details', ThisItem.'Order ID' = 'Order ID')
+            =Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber))
         Layout: =Layout.Vertical
         TemplatePadding: =0
         TemplateSize: =Min(104, Self.Height - 60)
