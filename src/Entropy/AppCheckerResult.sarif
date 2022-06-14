@@ -23,10 +23,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 2,
-                  "charOffset": 24,
+                  "charLength": 1,
+                  "charOffset": 27,
                   "snippet": {
-                    "text": "in"
+                    "text": "="
                   }
                 }
               },
@@ -39,14 +39,15 @@
           ],
           "message": {
             "arguments": [
-              "Filter"
+              "Number",
+              "Text"
             ],
             "id": "issue"
           },
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "app-SuggestRemoteExecutionHint-InOpRhs",
+          "ruleId": "app-ErrIncompatibleTypesForEquality-Left-Right",
           "ruleIndex": 0
         },
         {
@@ -1136,19 +1137,17 @@
           "name": "PowerApps app checker",
           "rules": [
             {
-              "id": "app-SuggestRemoteExecutionHint-InOpRhs",
+              "id": "app-ErrIncompatibleTypesForEquality-Left-Right",
               "messageStrings": {
                 "issue": {
-                  "text": "Delegation warning. The highlighted part of this formula might not work correctly on large data sets."
+                  "text": "Incompatible types for comparison. These types can't be compared: {0}, {1}."
                 }
               },
               "properties": {
                 "componentType": "app",
                 "howToFix": [
-                  "Change the item to the right of the \"in\" operator to be a column from the correct data source.",
-                  "If your data set exceeds the 500 record limit but contains less than 2,000 records, try resetting the limit.",
-                  "Try simplifying the formula.",
-                  "Try moving your data to a different data source."
+                  "You might need to convert the value to be the same type, such as converting a date string (e.g., \"12/31/2018\") to a date value.",
+                  "If you’re comparing records or tables, the field or column types must match exactly."
                 ],
                 "level": "Medium",
                 "primaryCategory": "formula",
