@@ -122,38 +122,3 @@
         X: =1303
         ZIndex: =6
 
-    MyTicketsScreenGalleryDeleteButton As button:
-        BorderColor: =RGBA(158, 11, 15, 1)
-        Color: =RGBA(158, 11, 15, 1)
-        DisabledBorderColor: =ColorFade(MyTicketsScreenGalleryDeleteButton.BorderColor, 70%)
-        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
-        DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
-        Fill: =RGBA(255, 255, 255, 1)
-        FocusedBorderColor: =MyTicketsScreenGalleryDeleteButton.BorderColor
-        FontWeight: =Semibold
-        Height: =54
-        HoverBorderColor: =ColorFade(MyTicketsScreenGalleryDeleteButton.BorderColor, 20%)
-        HoverColor: =MyTicketsScreenGalleryDeleteButton.Color
-        HoverFill: =ColorFade(MyTicketsScreenGalleryDeleteButton.Fill, 20%)
-        OnSelect: |-
-            =Select(Parent);
-            Set(OrderToDelete,ThisItem);
-            Navigate(ConfirmationDeleteScreen,None)
-        PaddingBottom: =0
-        PaddingLeft: =0
-        PaddingRight: =0
-        PaddingTop: =0
-        PressedBorderColor: =MyTicketsScreenGalleryDeleteButton.Fill
-        PressedColor: =MyTicketsScreenGalleryDeleteButton.Fill
-        PressedFill: =MyTicketsScreenGalleryDeleteButton.Color
-        RadiusBottomLeft: =20
-        RadiusBottomRight: =20
-        RadiusTopLeft: =20
-        RadiusTopRight: =20
-        Size: =14
-        Text: ="DELETE"
-        Width: =130
-        X: =55
-        Y: =170
-        ZIndex: =7
-
