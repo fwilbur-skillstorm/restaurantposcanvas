@@ -2,7 +2,6 @@
 
     Label4 As label:
         Align: =Align.Center
-        Color: =RGBA(219, 219, 219, 1)
         Fill: =RGBA(216, 59, 1, 1)
         FontWeight: =FontWeight.Bold
         Height: =27

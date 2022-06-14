@@ -6,7 +6,6 @@
     "IsSampleData": false,
     "IsWritable": true,
     "LogicalName": "kitchen_orderdetail",
-    "MaxGetRowsCount": 500,
     "Name": "Order Details",
     "NativeCDSDataSourceInfoNameMapping": {
       "_ownerid_value": "Owner",
