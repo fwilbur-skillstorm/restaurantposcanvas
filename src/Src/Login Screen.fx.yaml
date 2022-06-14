@@ -1,5 +1,5 @@
 "'Login Screen' As screen":
-    Fill: =RGBA(168, 0, 0, 1)
+    Fill: =RGBA(133, 0, 0, 1)
 
     txtPIN As text:
         Default: =""
