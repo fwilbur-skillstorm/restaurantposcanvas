@@ -44,7 +44,7 @@
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
         DisplayMode: =DisplayMode.View
-        FontWeight: =FontWeight.Bold
+        FontWeight: =Bold
         Height: =107
         Size: =48
         Text: ="Seth's heckin kitchen"

@@ -18,3 +18,10 @@
         Width: =61
         ZIndex: =3
 
+    Rectangle2 As rectangle:
+        Fill: =RGBA(216, 59, 1, 1)
+        Height: =27
+        Width: =1366
+        Y: =741
+        ZIndex: =4
+
