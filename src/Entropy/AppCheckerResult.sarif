@@ -23,10 +23,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 17,
-                  "charOffset": 60,
+                  "charLength": 6,
+                  "charOffset": 77,
                   "snippet": {
-                    "text": "'Status (Orders)'"
+                    "text": ".Label"
                   }
                 }
               },
@@ -38,12 +38,15 @@
             }
           ],
           "message": {
+            "arguments": [
+              "Label"
+            ],
             "id": "issue"
           },
           "properties": {
             "level": "High"
           },
-          "ruleId": "app-ErrStringExpected",
+          "ruleId": "app-ErrInvalidName",
           "ruleIndex": 0
         },
         {
@@ -1213,16 +1216,16 @@
           "name": "PowerApps app checker",
           "rules": [
             {
-              "id": "app-ErrStringExpected",
+              "id": "app-ErrInvalidName",
               "messageStrings": {
                 "issue": {
-                  "text": "Expected text. We expect text at this point in the formula."
+                  "text": "Name isn't valid. '{0}' isn't recognized."
                 }
               },
               "properties": {
                 "componentType": "app",
                 "howToFix": [
-                  "Edit your formula so that it evaluates to text at this point in the formula."
+                  "Remove or correct the reference to the name that isn't valid."
                 ],
                 "level": "High",
                 "primaryCategory": "formula",
