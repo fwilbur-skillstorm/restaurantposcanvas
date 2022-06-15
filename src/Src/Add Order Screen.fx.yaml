@@ -1,73 +1,13 @@
 "'Add Order Screen' As screen":
     Fill: =RGBA(168, 0, 0, 1)
 
-    "galMenuItems As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
-        Height: =567
-        Items: =Menus
-        Layout: =Layout.Vertical
-        TemplatePadding: =0
-        TemplateSize: =131
-        Width: =770
-        Y: =84
-        ZIndex: =1
-
-        lblItemName As label:
-            Color: =RGBA(204, 204, 204, 1)
-            FontWeight: =FontWeight.Bold
-            Height: =Self.Size * 1.8
-            OnSelect: =Select(Parent)
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            Size: =25
-            Text: =ThisItem.Name
-            VerticalAlign: =VerticalAlign.Top
-            Width: =Parent.TemplateWidth - 104
-            X: =17
-            Y: =22
-            ZIndex: =2
-
-        btnAddItem As icon.ChevronRight:
-            AccessibleLabel: =Self.Tooltip
-            Height: =60
-            Icon: =Icon.Add
-            OnSelect: |-
-                =Collect(orderCart, {Name: ThisItem.Name, Price: ThisItem.Price})
-            PaddingBottom: =10
-            PaddingLeft: =10
-            PaddingRight: =10
-            PaddingTop: =10
-            TabIndex: =0
-            Tooltip: ="View item details"
-            Width: =60
-            X: =Parent.TemplateWidth - Self.Width - 5
-            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-            ZIndex: =3
-
-        Separator9 As rectangle:
-            Height: =1
-            OnSelect: =Select(Parent)
-            Width: =Parent.TemplateWidth
-            Y: =Parent.TemplateHeight - 1
-            ZIndex: =4
-
-        lblPrice As label:
-            OnSelect: =Select(Parent)
-            Size: =20
-            Text: =ThisItem.Price
-            Width: =237
-            X: =17
-            Y: =67
-            ZIndex: =5
-
     CreateOrderForm As form:
         DataSource: =Orders
         DefaultMode: =FormMode.New
         Height: =271
         Width: =620
-        X: =345
-        Y: =148
+        X: =15
+        Y: =33
         ZIndex: =1
 
         "'Server ID_DataCard4' As typedDataCard.numberEditCard":
@@ -138,12 +78,102 @@
                 Y: =DataCardKey13.Y
                 ZIndex: =4
 
+    "galMenuItems As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+        Height: =620
+        Items: =Menus
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =Min(168, Self.Height - 60)
+        Width: =770
+        Y: =84
+        ZIndex: =1
+
+        Title1 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'Item Number'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =16
+            ZIndex: =1
+
+        Subtitle1 As label:
+            Color: =RGBA(204, 204, 204, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =25
+            Text: =ThisItem.Description
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =Title1.Y + Title1.Height + 2
+            ZIndex: =2
+
+        Body1 As label:
+            Height: =Self.Size * 4
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: |
+                =ThisItem.Name
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =Subtitle1.Y + Subtitle1.Height + 4
+            ZIndex: =3
+
+        NextArrow1 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.Add
+            OnSelect: |-
+                =Collect(orderCart, {Name: ThisItem.Name, Price: ThisItem.Price})
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator2 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Label1 As label:
+            OnSelect: =Select(Parent)
+            Text: |-
+                =Text(ThisItem.Price, "$##.#0")
+            Width: =85
+            X: =548
+            Y: =12
+            ZIndex: =6
+
     "galCartItems As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
         Height: =327
         Items: =orderCart
         Layout: =Layout.Vertical
         TemplatePadding: =0
-        TemplateSize: =Min(96, Self.Height - 60)
+        TemplateSize: =170
         Width: =592
         X: =770
         Y: =167
@@ -185,6 +215,22 @@
             Width: =Parent.TemplateWidth
             Y: =Parent.TemplateHeight - 1
             ZIndex: =3
+
+        Label5 As label:
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.
+            X: =32
+            Y: =115
+            ZIndex: =4
+
+        Button1 As button:
+            Height: =63
+            OnSelect: =Select(Parent)
+            Text: ="Add Customization"
+            Width: =174
+            X: =353
+            Y: =103
+            ZIndex: =5
 
     btnCreateNewOrder As button:
         Fill: =RGBA(54, 176, 75, 1)
@@ -240,4 +286,10 @@
         X: =785
         Y: =550
         ZIndex: =6
+
+    RectQuickActionBar2_1 As rectangle:
+        Height: =64
+        Width: =Parent.Width
+        Y: =704
+        ZIndex: =7
 

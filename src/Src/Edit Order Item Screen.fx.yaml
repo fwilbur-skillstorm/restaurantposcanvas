@@ -19,7 +19,7 @@
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Text: =LookUp(Menus, 'Item Number' = ThisItem.'Menu Item'.'Item Number', 'Name')
+            Text: =LookUp(Menus, 'Item Number' = ThisItem.'Menu Item'.'Item Number', Name)
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
             X: =32
