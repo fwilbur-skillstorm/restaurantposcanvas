@@ -82,6 +82,7 @@
     BackIcon1_1 As icon.Reset:
         BorderColor: =RGBA(255, 255, 255, 1)
         Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255, 1)
         Icon: =Icon.Reset
         OnSelect: =Navigate('Login Screen', Fade);
         X: =40

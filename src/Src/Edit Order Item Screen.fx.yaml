@@ -1,7 +1,7 @@
 "'Edit Order Item Screen' As screen":
     Fill: =RGBA(168, 0, 0, 1)
 
-    "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+    "galMenuItem As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
         Height: =603
         Items: |
             =Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber))
@@ -12,7 +12,7 @@
         Y: =135
         ZIndex: =1
 
-        Title6 As label:
+        lblMenuItemName As label:
             Height: =Self.Size * 1.8
             OnSelect: =Select(Parent)
             PaddingBottom: =0
@@ -26,7 +26,7 @@
             Y: =16
             ZIndex: =1
 
-        Subtitle4 As label:
+        txtMenuItemCustomization As label:
             Height: =48
             OnSelect: =Select(Parent)
             PaddingBottom: =0
@@ -37,7 +37,7 @@
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
             X: =32
-            Y: =Title6.Y + Title6.Height + 4
+            Y: =lblMenuItemName.Y + lblMenuItemName.Height + 4
             ZIndex: =2
 
         NextArrow6 As icon.ChevronRight:

@@ -74,3 +74,11 @@
         Y: =520
         ZIndex: =11
 
+    "'imgSeth''sBrewery_1' As image":
+        Height: =363
+        Image: =SethsBrewery
+        Width: =304
+        X: =42
+        Y: =18
+        ZIndex: =12
+
