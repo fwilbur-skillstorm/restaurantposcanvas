@@ -87,7 +87,7 @@
         Y: =84
         ZIndex: =3
 
-        Title1 As label:
+        lblItemNumber As label:
             Height: =Self.Size * 1.8
             OnSelect: =Select(Parent)
             PaddingBottom: =0
@@ -101,7 +101,7 @@
             Y: =16
             ZIndex: =1
 
-        Subtitle1 As label:
+        lblItemName As label:
             Color: =RGBA(204, 204, 204, 1)
             FontWeight: =FontWeight.Bold
             Height: =Self.Size * 1.8
@@ -111,14 +111,14 @@
             PaddingRight: =0
             PaddingTop: =0
             Size: =25
-            Text: =ThisItem.Description
+            Text: =ThisItem.Name
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
             X: =32
-            Y: =Title1.Y + Title1.Height + 2
+            Y: =lblItemNumber.Y + lblItemNumber.Height + 2
             ZIndex: =2
 
-        Body1 As label:
+        lblItemDescription As label:
             Height: =Self.Size * 4
             OnSelect: =Select(Parent)
             PaddingBottom: =0
@@ -126,11 +126,11 @@
             PaddingRight: =0
             PaddingTop: =0
             Text: |
-                =ThisItem.Name
+                =ThisItem.Description
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
             X: =32
-            Y: =Subtitle1.Y + Subtitle1.Height + 4
+            Y: =lblItemName.Y + lblItemName.Height + 4
             ZIndex: =3
 
         NextArrow1 As icon.ChevronRight:
@@ -157,7 +157,7 @@
             Y: =Parent.TemplateHeight - 1
             ZIndex: =5
 
-        Label1 As label:
+        lblItemPrice As label:
             OnSelect: =Select(Parent)
             Text: |-
                 =Text(ThisItem.Price, "$##.#0")
