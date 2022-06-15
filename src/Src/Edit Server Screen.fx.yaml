@@ -1,10 +1,10 @@
 "'Edit Server Screen' As screen":
     Fill: =RGBA(168, 0, 0, 1)
 
-    SubmitNewServerButton_1 As button:
+    btnSubmitServerChange As button:
         Fill: =RGBA(54, 176, 75, 1)
         Height: =63
-        OnSelect: =SubmitForm(EditServerForm)
+        OnSelect: =SubmitForm(frmEditServer)
         Size: =20
         Text: ="Edit"
         Width: =176
@@ -12,7 +12,7 @@
         Y: =503
         ZIndex: =2
 
-    CreateNewServerLabelText_1 As label:
+    txtEditServerLabel As label:
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
         FontWeight: =FontWeight.Bold
@@ -33,7 +33,7 @@
         Y: =40
         ZIndex: =4
 
-    EditServerForm As form:
+    frmEditServer As form:
         DataSource: =OrderingStaff
         Height: =252
         Item: =LookUp(OrderingStaff, 'Order Staff ID' = ThisRecord.'Order Staff ID')
@@ -52,13 +52,13 @@
             Height: =50
             MaxLength: =DataSourceInfo([@OrderingStaff], DataSourceInfo.MaxLength, "kitchen_fullname")
             Required: =false
-            Update: =DataCardValue5.Text
+            Update: =txtEditFullName.Text
             Width: =400
             X: =0
             Y: =0
             ZIndex: =1
 
-            DataCardKey5 As label:
+            lblEditFullName As label:
                 AutoHeight: =true
                 Color: =RGBA(255, 255, 255, 1)
                 Height: =34
@@ -70,7 +70,7 @@
                 Y: =10
                 ZIndex: =1
 
-            DataCardValue5 As text:
+            txtEditFullName As text:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 Default: =Parent.Default
                 DelayOutput: =true
@@ -85,7 +85,7 @@
                 Tooltip: =Parent.DisplayName
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardKey5.Y + DataCardKey5.Height + 5
+                Y: =lblEditFullName.Y + lblEditFullName.Height + 5
                 ZIndex: =2
 
             ErrorMessage3 As label:
@@ -100,17 +100,17 @@
                 Visible: =Parent.DisplayMode=DisplayMode.Edit
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardValue5.Y + DataCardValue5.Height
+                Y: =txtEditFullName.Y + txtEditFullName.Height
                 ZIndex: =3
 
             StarVisible3 As label:
                 Align: =Align.Center
-                Height: =DataCardKey5.Height
+                Height: =lblEditFullName.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                 Width: =30
                 Wrap: =false
-                Y: =DataCardKey5.Y
+                Y: =lblEditFullName.Y
                 ZIndex: =4
 
         PIN_DataCard2 As typedDataCard.textualEditCard:
@@ -123,13 +123,13 @@
             Height: =50
             MaxLength: =DataSourceInfo([@OrderingStaff], DataSourceInfo.MaxLength, "kitchen_pin")
             Required: =false
-            Update: =DataCardValue6.Text
+            Update: =txtServerPin.Text
             Width: =400
             X: =1
             Y: =0
             ZIndex: =1
 
-            DataCardKey6 As label:
+            lblServerPin As label:
                 AutoHeight: =true
                 Color: =RGBA(255, 255, 255, 1)
                 Height: =34
@@ -141,7 +141,7 @@
                 Y: =10
                 ZIndex: =1
 
-            DataCardValue6 As text:
+            txtServerPin As text:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 Default: =Parent.Default
                 DelayOutput: =true
@@ -156,7 +156,7 @@
                 Tooltip: =Parent.DisplayName
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardKey6.Y + DataCardKey6.Height + 5
+                Y: =lblServerPin.Y + lblServerPin.Height + 5
                 ZIndex: =2
 
             ErrorMessage4 As label:
@@ -171,17 +171,17 @@
                 Visible: =Parent.DisplayMode=DisplayMode.Edit
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardValue6.Y + DataCardValue6.Height
+                Y: =txtServerPin.Y + txtServerPin.Height
                 ZIndex: =3
 
             StarVisible4 As label:
                 Align: =Align.Center
-                Height: =DataCardKey6.Height
+                Height: =lblServerPin.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                 Width: =30
                 Wrap: =false
-                Y: =DataCardKey6.Y
+                Y: =lblServerPin.Y
                 ZIndex: =4
 
         "'Team Lead_DataCard2' As typedDataCard.comboBoxOptionSetSingleEditCard":
@@ -193,13 +193,13 @@
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
-            Update: =DataCardValue4.Selected.Value
+            Update: =drpTeamLead.Selected.Value
             Width: =400
             X: =0
             Y: =1
             ZIndex: =1
 
-            DataCardKey4 As label:
+            lblTeamLead As label:
                 AutoHeight: =true
                 Color: =RGBA(255, 255, 255, 1)
                 Height: =34
@@ -211,7 +211,7 @@
                 Y: =10
                 ZIndex: =1
 
-            DataCardValue4 As combobox:
+            drpTeamLead As combobox:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 DefaultSelectedItems: =[Parent.Default]
                 DisplayFields: =["Value"]
@@ -226,7 +226,7 @@
                 Tooltip: =Parent.DisplayName
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardKey4.Y + DataCardKey4.Height + 5
+                Y: =lblTeamLead.Y + lblTeamLead.Height + 5
                 ZIndex: =2
 
             ErrorMessage6 As label:
@@ -241,16 +241,16 @@
                 Visible: =Parent.DisplayMode=DisplayMode.Edit
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardValue4.Y + DataCardValue4.Height
+                Y: =drpTeamLead.Y + drpTeamLead.Height
                 ZIndex: =3
 
             StarVisible6 As label:
                 Align: =Align.Center
-                Height: =DataCardKey4.Height
+                Height: =lblTeamLead.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                 Width: =30
                 Wrap: =false
-                Y: =DataCardKey4.Y
+                Y: =lblTeamLead.Y
                 ZIndex: =4
 

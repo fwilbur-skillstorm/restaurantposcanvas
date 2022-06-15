@@ -66,7 +66,7 @@
     btnSubmitMenuItemChange As button:
         Fill: =RGBA(54, 176, 75, 1)
         Height: =63
-        OnSelect: =SubmitForm(EditOrderItemForm)
+        OnSelect: =SubmitForm(frmEditOrderItem)
         Size: =20
         Text: ="Edit"
         Width: =176
@@ -74,7 +74,7 @@
         Y: =435
         ZIndex: =2
 
-    EditMenuItemLabelText As label:
+    txtEditMenuItemLabel As label:
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
         FontWeight: =FontWeight.Bold
@@ -95,7 +95,7 @@
         Y: =40
         ZIndex: =4
 
-    EditOrderItemForm As form:
+    frmEditOrderItem As form:
         DataSource: ='Order Details'
         Height: =252
         Item: =LookUp(OrderingStaff, 'Order Staff ID' = ThisRecord.'Order Staff ID')
@@ -114,13 +114,13 @@
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
-            Update: =DataCardValue9.Selected
+            Update: =txtMenuItem.Selected
             Width: =514
             X: =0
             Y: =0
             ZIndex: =1
 
-            DataCardKey9 As label:
+            lblMenuItem As label:
                 AutoHeight: =true
                 Height: =34
                 Text: =Parent.DisplayName
@@ -130,7 +130,7 @@
                 Y: =10
                 ZIndex: =1
 
-            DataCardValue9 As combobox:
+            txtMenuItem As combobox:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 DefaultSelectedItems: =Parent.Default
                 DisplayFields: =["cre49_itemnumber"]
@@ -138,12 +138,12 @@
                 Items: =Choices([@'Order Details'].kitchen_MenuItem)
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["cre49_itemnumber"]
-                SearchItems: =Search(Choices([@'Order Details'].kitchen_MenuItem),DataCardValue9.SearchText,"cre49_itemnumber")
+                SearchItems: =Search(Choices([@'Order Details'].kitchen_MenuItem),txtMenuItem.SearchText,"cre49_itemnumber")
                 SelectMultiple: =false
                 Tooltip: =Parent.DisplayName
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardKey9.Y + DataCardKey9.Height + 5
+                Y: =lblMenuItem.Y + lblMenuItem.Height + 5
                 ZIndex: =2
 
             ErrorMessage7 As label:
@@ -158,17 +158,17 @@
                 Visible: =Parent.DisplayMode=DisplayMode.Edit
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardValue9.Y + DataCardValue9.Height
+                Y: =txtMenuItem.Y + txtMenuItem.Height
                 ZIndex: =3
 
             StarVisible7 As label:
                 Align: =Align.Center
-                Height: =DataCardKey9.Height
+                Height: =lblMenuItem.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                 Width: =30
                 Wrap: =false
-                Y: =DataCardKey9.Y
+                Y: =lblMenuItem.Y
                 ZIndex: =4
 
         "'Customization Request_DataCard1' As typedDataCard.textualEditCard":
@@ -181,13 +181,13 @@
             Height: =50
             MaxLength: =DataSourceInfo([@'Order Details'], DataSourceInfo.MaxLength, "kitchen_customizationrequest")
             Required: =false
-            Update: =DataCardValue10.Text
+            Update: =txtCustomizationRequest.Text
             Width: =514
             X: =0
             Y: =1
             ZIndex: =1
 
-            DataCardKey10 As label:
+            lblCustomizationRequest As label:
                 AutoHeight: =true
                 Height: =34
                 Text: =Parent.DisplayName
@@ -197,7 +197,7 @@
                 Y: =10
                 ZIndex: =1
 
-            DataCardValue10 As text:
+            txtCustomizationRequest As text:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 Default: =Parent.Default
                 DelayOutput: =true
@@ -211,7 +211,7 @@
                 Tooltip: =Parent.DisplayName
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardKey10.Y + DataCardKey10.Height + 5
+                Y: =lblCustomizationRequest.Y + lblCustomizationRequest.Height + 5
                 ZIndex: =2
 
             ErrorMessage8 As label:
@@ -226,16 +226,16 @@
                 Visible: =Parent.DisplayMode=DisplayMode.Edit
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardValue10.Y + DataCardValue10.Height
+                Y: =txtCustomizationRequest.Y + txtCustomizationRequest.Height
                 ZIndex: =3
 
             StarVisible8 As label:
                 Align: =Align.Center
-                Height: =DataCardKey10.Height
+                Height: =lblCustomizationRequest.Height
                 Text: ="*"
                 Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                 Width: =30
                 Wrap: =false
-                Y: =DataCardKey10.Y
+                Y: =lblCustomizationRequest.Y
                 ZIndex: =4
 

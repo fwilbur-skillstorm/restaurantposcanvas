@@ -1,5 +1,5 @@
 "'Login Screen' As screen":
-    Fill: =RGBA(133, 0, 0, 1)
+    Fill: =RGBA(216, 59, 1, 1)
 
     txtPIN As text:
         Default: =""
@@ -8,8 +8,8 @@
         Mode: =TextMode.Password
         Size: =18
         Width: =130
-        X: =615
-        Y: =487
+        X: =613
+        Y: =556
         ZIndex: =1
 
     txtServerID As text:
@@ -36,18 +36,18 @@
             Reset(txtPIN);
             Reset(txtServerID);
         Text: ="Login"
-        X: =600
-        Y: =583
+        X: =598
+        Y: =652
         ZIndex: =3
 
     lblRestaurantTitle As label:
         Align: =Align.Center
-        Color: =RGBA(255, 255, 255, 1)
         DisplayMode: =DisplayMode.View
+        Fill: =RGBA(235, 252, 251, 1)
         FontWeight: =Bold
         Height: =107
         Size: =48
-        Text: ="Seth's heckin kitchen"
+        Text: ="Welcome"
         Underline: =true
         Width: =1032
         X: =164
@@ -56,31 +56,33 @@
 
     lblServerIDText As label:
         Align: =Align.Center
-        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(235, 252, 251, 1)
         FontWeight: =FontWeight.Bold
         Height: =56
         Size: =22
         Text: ="SERVER ID"
         Width: =165
         X: =595
-        Y: =258
+        Y: =238
         ZIndex: =5
 
     lblPINText As label:
         Align: =Align.Center
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(0, 13, 75, 1)
+        Fill: =RGBA(235, 252, 251, 1)
         FontWeight: =FontWeight.Bold
         Height: =56
         Size: =22
         Text: ="PIN"
         Width: =165
-        X: =597
-        Y: =431
+        X: =595
+        Y: =479
         ZIndex: =6
 
     lblForgotYourID As label:
         Align: =Align.Center
         Color: =RGBA(54, 176, 75, 1)
+        Fill: =RGBA(235, 252, 251, 1)
         FontWeight: =FontWeight.Lighter
         Height: =55
         Italic: =true
@@ -89,6 +91,14 @@
         Text: ="Forgot your ID?"
         Width: =236
         X: =562
-        Y: =375
+        Y: =399
         ZIndex: =7
+
+    "'imgSeth''sBrewery' As image":
+        Height: =488
+        Image: =SethsBrewery
+        Width: =459
+        X: =25
+        Y: =238
+        ZIndex: =8
 
