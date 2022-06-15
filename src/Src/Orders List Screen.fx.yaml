@@ -66,8 +66,7 @@
             OnSelect: |-
                 =Select(Parent);
                 Set(ToEditOrderNumber, ThisItem.'Order Number');
-                Reset(txtCustomizationRequest2);
-                Navigate('Add Order Screen',ScreenTransition.Fade);
+                Navigate('Add Items To Order Screen',ScreenTransition.Fade);
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
@@ -120,7 +119,7 @@
         Icon: =Icon.Add
         OnSelect: |-
             =NewForm(CreateOrderForm);
-            Navigate('Add Order Screen', Fade);
+            Navigate('Add Items To Order Screen', Fade);
         Width: =62
         X: =1303
         ZIndex: =6

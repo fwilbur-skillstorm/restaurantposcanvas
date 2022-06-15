@@ -94,39 +94,35 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.galMenuItems.NextArrow1.OnSelect"
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galMenuItems.NextArrow1.OnSelect"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.galMenuItems.NextArrow1.OnSelect",
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galMenuItems.NextArrow1.OnSelect",
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 64,
-                  "charOffset": 0,
+                  "charOffset": 65,
                   "snippet": {
-                    "text": "Collect(orderCart, {Name: ThisItem.Name, Price: ThisItem.Price})"
+                    "text": ""
                   }
                 }
               },
               "properties": {
                 "member": "OnSelect",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.galMenuItems.NextArrow1"
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.galMenuItems.NextArrow1"
               }
             }
           ],
           "message": {
-            "arguments": [
-              "Collect"
-            ],
             "id": "issue"
           },
           "properties": {
             "level": "High"
           },
-          "ruleId": "app-ErrInvalidArgs-Func",
+          "ruleId": "app-ErrOperandExpected",
           "ruleIndex": 2
         },
         {
@@ -134,36 +130,39 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.galMenuItems.NextArrow1.OnSelect"
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galMenuItems.NextArrow1.OnSelect"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.galMenuItems.NextArrow1.OnSelect",
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galMenuItems.NextArrow1.OnSelect",
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 9,
-                  "charOffset": 8,
+                  "charOffset": 65,
                   "snippet": {
-                    "text": "orderCart"
+                    "text": ""
                   }
                 }
               },
               "properties": {
                 "member": "OnSelect",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.galMenuItems.NextArrow1"
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.galMenuItems.NextArrow1"
               }
             }
           ],
           "message": {
+            "arguments": [
+              "CurlyClose",
+              "Eof"
+            ],
             "id": "issue"
           },
           "properties": {
             "level": "High"
           },
-          "ruleId": "app-ErrBadType",
+          "ruleId": "app-ErrExpectedFound-Ex-Fnd",
           "ruleIndex": 3
         },
         {
@@ -171,69 +170,72 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.NextArrow11.OnSelect"
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galMenuItems.NextArrow1.OnSelect"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.NextArrow11.OnSelect",
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galMenuItems.NextArrow1.OnSelect",
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 8,
-                  "charOffset": 18,
+                  "charOffset": 65,
                   "snippet": {
-                    "text": "ThisItem"
+                    "text": ""
                   }
                 }
               },
               "properties": {
                 "member": "OnSelect",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.galCartItems.NextArrow11"
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.galMenuItems.NextArrow1"
               }
             }
           ],
           "message": {
+            "arguments": [
+              "ParenClose",
+              "Eof"
+            ],
             "id": "issue"
           },
           "properties": {
-            "level": "Medium"
+            "level": "High"
           },
-          "ruleId": "app-ErrCollectionDoesNotAcceptThisType",
-          "ruleIndex": 4
+          "ruleId": "app-ErrExpectedFound-Ex-Fnd",
+          "ruleIndex": 3
         },
         {
           "locations": [
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.NextArrow11.OnSelect"
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galMenuItems.NextArrow1.OnSelect"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.NextArrow11.OnSelect",
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galMenuItems.NextArrow1.OnSelect",
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 27,
-                  "charOffset": 0,
+                  "charLength": 1,
+                  "charOffset": 5,
                   "snippet": {
-                    "text": "Remove(orderCart, ThisItem)"
+                    "text": "("
                   }
                 }
               },
               "properties": {
                 "member": "OnSelect",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.galCartItems.NextArrow11"
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.galMenuItems.NextArrow1"
               }
             }
           ],
           "message": {
             "arguments": [
-              "Remove"
+              "Patch"
             ],
             "id": "issue"
           },
@@ -241,39 +243,40 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidArgs-Func",
-          "ruleIndex": 2
+          "ruleIndex": 4
         },
         {
           "locations": [
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.NextArrow11.OnSelect"
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galMenuItems.NextArrow1.OnSelect"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.NextArrow11.OnSelect",
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galMenuItems.NextArrow1.OnSelect",
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 9,
-                  "charOffset": 7,
+                  "charLength": 1,
+                  "charOffset": 50,
                   "snippet": {
-                    "text": "orderCart"
+                    "text": "{"
                   }
                 }
               },
               "properties": {
                 "member": "OnSelect",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.galCartItems.NextArrow11"
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.galMenuItems.NextArrow1"
               }
             }
           ],
           "message": {
             "arguments": [
-              "Table",
+              "kitchen_MenuItem",
+              "Record",
               "Error"
             ],
             "id": "issue"
@@ -281,7 +284,7 @@
           "properties": {
             "level": "High"
           },
-          "ruleId": "app-ErrBadType-ExpectedType-ProvidedType",
+          "ruleId": "app-ErrTypeError-Arg-Expected-Found",
           "ruleIndex": 5
         },
         {
@@ -289,92 +292,12 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.NextArrow11.OnSelect"
+                  "fullyQualifiedName": "'Add Items To Order Screen'.lblSubtotal.Text"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.NextArrow11.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 9,
-                  "charOffset": 7,
-                  "snippet": {
-                    "text": "orderCart"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.galCartItems.NextArrow11"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Remove"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrNeedCollection-Func",
-          "ruleIndex": 6
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Add Order Screen'.lblSubtotal.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.lblSubtotal.Text",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 5,
-                  "charOffset": 27,
-                  "snippet": {
-                    "text": "Price"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.lblSubtotal"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Price"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Add Order Screen'.lblSubtotal.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.lblSubtotal.Text",
+                  "fullyQualifiedName": "'Add Items To Order Screen'.lblSubtotal.Text",
                   "relativeAddress": 0
                 },
                 "region": {
@@ -387,89 +310,48 @@
               },
               "properties": {
                 "member": "Text",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.lblSubtotal"
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.lblSubtotal"
               }
             }
           ],
           "message": {
             "arguments": [
-              "Number",
-              "Error"
+              "orderCart"
             ],
             "id": "issue"
           },
           "properties": {
             "level": "High"
           },
-          "ruleId": "app-ErrBadType-ExpectedType-ProvidedType",
-          "ruleIndex": 5
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 1
         },
         {
           "locations": [
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.lblSubtotal.Text"
+                  "fullyQualifiedName": "'Add Items To Order Screen'.lblSubtotal.Text"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.lblSubtotal.Text",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 21,
-                  "charOffset": 12,
-                  "snippet": {
-                    "text": "Sum(orderCart, Price)"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.lblSubtotal"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Sum"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidArgs-Func",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Add Order Screen'.btnPlaceOrder.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.btnPlaceOrder.OnSelect",
+                  "fullyQualifiedName": "'Add Items To Order Screen'.lblSubtotal.Text",
                   "relativeAddress": 0
                 },
                 "region": {
                   "charLength": 5,
-                  "charOffset": 74,
+                  "charOffset": 27,
                   "snippet": {
                     "text": "Price"
                   }
                 }
               },
               "properties": {
-                "member": "OnSelect",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.btnPlaceOrder"
+                "member": "Text",
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.lblSubtotal"
               }
             }
           ],
@@ -490,67 +372,26 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.btnPlaceOrder.OnSelect"
+                  "fullyQualifiedName": "'Add Items To Order Screen'.lblSubtotal.Text"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.btnPlaceOrder.OnSelect",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 9,
-                  "charOffset": 63,
-                  "snippet": {
-                    "text": "orderCart"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.btnPlaceOrder"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Number",
-              "Error"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrBadType-ExpectedType-ProvidedType",
-          "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Add Order Screen'.btnPlaceOrder.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.btnPlaceOrder.OnSelect",
+                  "fullyQualifiedName": "'Add Items To Order Screen'.lblSubtotal.Text",
                   "relativeAddress": 0
                 },
                 "region": {
                   "charLength": 21,
-                  "charOffset": 59,
+                  "charOffset": 12,
                   "snippet": {
                     "text": "Sum(orderCart, Price)"
                   }
                 }
               },
               "properties": {
-                "member": "OnSelect",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.btnPlaceOrder"
+                "member": "Text",
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.lblSubtotal"
               }
             }
           ],
@@ -564,7 +405,127 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidArgs-Func",
-          "ruleIndex": 2
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Add Items To Order Screen'.btnPlaceOrder.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Add Items To Order Screen'.btnPlaceOrder.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 9,
+                  "charOffset": 63,
+                  "snippet": {
+                    "text": "orderCart"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.btnPlaceOrder"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "orderCart"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Add Items To Order Screen'.btnPlaceOrder.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Add Items To Order Screen'.btnPlaceOrder.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 5,
+                  "charOffset": 74,
+                  "snippet": {
+                    "text": "Price"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.btnPlaceOrder"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Price"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Add Items To Order Screen'.btnPlaceOrder.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Add Items To Order Screen'.btnPlaceOrder.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 21,
+                  "charOffset": 59,
+                  "snippet": {
+                    "text": "Sum(orderCart, Price)"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.btnPlaceOrder"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Sum"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidArgs-Func",
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -594,7 +555,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -624,7 +585,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -654,7 +615,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -684,7 +645,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 9
+          "ruleIndex": 8
         },
         {
           "locations": [
@@ -714,7 +675,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -744,7 +705,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 9
+          "ruleIndex": 8
         },
         {
           "locations": [
@@ -774,7 +735,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -804,7 +765,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -834,7 +795,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -864,7 +825,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -894,7 +855,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -924,7 +885,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -954,7 +915,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -984,7 +945,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -1014,7 +975,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -1044,7 +1005,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -1074,7 +1035,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -1104,7 +1065,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -1134,7 +1095,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -1164,7 +1125,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -1194,7 +1155,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 9
+          "ruleIndex": 8
         },
         {
           "locations": [
@@ -1224,7 +1185,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -1254,7 +1215,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -1284,7 +1245,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -1314,67 +1275,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Orders List Screen'.icnCreateOrder.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Orders List Screen'.icnCreateOrder.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Orders List Screen",
-                "type": "'Orders List Screen'.icnCreateOrder"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 7
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Orders List Screen'.icnCreateOrder.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Orders List Screen'.icnCreateOrder.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "Orders List Screen",
-                "type": "'Orders List Screen'.icnCreateOrder"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
         },
         {
           "locations": [
@@ -1404,7 +1305,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -1434,7 +1335,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -1464,7 +1365,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -1494,26 +1395,26 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.galMenuItems.AccessibleLabel"
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galMenuItems.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.galMenuItems.AccessibleLabel",
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galMenuItems.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.galMenuItems"
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.galMenuItems"
               }
             }
           ],
@@ -1524,26 +1425,26 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.galMenuItems.TabIndex"
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galMenuItems.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.galMenuItems.TabIndex",
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galMenuItems.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.galMenuItems"
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.galMenuItems"
               }
             }
           ],
@@ -1554,26 +1455,26 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.txtCustomizationRequest2.AccessibleLabel"
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galCartItems.txtCustomizationRequest2.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.txtCustomizationRequest2.AccessibleLabel",
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galCartItems.txtCustomizationRequest2.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.galCartItems.txtCustomizationRequest2"
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.galCartItems.txtCustomizationRequest2"
               }
             }
           ],
@@ -1584,26 +1485,26 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.AccessibleLabel"
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galCartItems.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.AccessibleLabel",
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galCartItems.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.galCartItems"
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.galCartItems"
               }
             }
           ],
@@ -1614,26 +1515,26 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.TabIndex"
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galCartItems.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.TabIndex",
+                  "fullyQualifiedName": "'Add Items To Order Screen'.galCartItems.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.galCartItems"
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.galCartItems"
               }
             }
           ],
@@ -1644,7 +1545,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -1674,7 +1575,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -1704,7 +1605,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -1734,7 +1635,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -1764,7 +1665,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -1794,7 +1695,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -1824,7 +1725,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -1854,7 +1755,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -1884,7 +1785,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -1914,7 +1815,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -1944,7 +1845,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -1974,7 +1875,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -2004,26 +1905,26 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.BackIcon1_4.TabIndex"
+                  "fullyQualifiedName": "'Add Items To Order Screen'.BackIcon1_4.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.BackIcon1_4.TabIndex",
+                  "fullyQualifiedName": "'Add Items To Order Screen'.BackIcon1_4.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.BackIcon1_4"
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.BackIcon1_4"
               }
             }
           ],
@@ -2034,26 +1935,26 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.BackIcon1_4.AccessibleLabel"
+                  "fullyQualifiedName": "'Add Items To Order Screen'.BackIcon1_4.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.BackIcon1_4.AccessibleLabel",
+                  "fullyQualifiedName": "'Add Items To Order Screen'.BackIcon1_4.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.BackIcon1_4"
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.BackIcon1_4"
               }
             }
           ],
@@ -2064,26 +1965,26 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.txtItemSearch.AccessibleLabel"
+                  "fullyQualifiedName": "'Add Items To Order Screen'.txtItemSearch.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.txtItemSearch.AccessibleLabel",
+                  "fullyQualifiedName": "'Add Items To Order Screen'.txtItemSearch.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "Add Order Screen",
-                "type": "'Add Order Screen'.txtItemSearch"
+                "module": "Add Items To Order Screen",
+                "type": "'Add Items To Order Screen'.txtItemSearch"
               }
             }
           ],
@@ -2094,7 +1995,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -2124,7 +2025,7 @@
             "level": "Medium"
           },
           "ruleId": "app-UnusedVariables",
-          "ruleIndex": 10
+          "ruleIndex": 9
         }
       ],
       "tool": {
@@ -2164,6 +2065,40 @@
               }
             },
             {
+              "id": "app-ErrOperandExpected",
+              "messageStrings": {
+                "issue": {
+                  "text": "Expected an operand. The formula or expression expects a valid operand. For example, you can add the operand '2' to the expression ' 1 +_' so that the result is '3'. Or, you can add the operand \"there\" to the expression '\"Hi \"& _ ' so that the result is 'Hi there'."
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Supply an operand value that will complete the expression. Ensure that the operand's type (text, number, date, or true/false) fits the expression. Match numbers with numbers, text with text, and so on. For example, '1 + \"Hi\"' isn't valid, but '1 + 2' is valid."
+                ],
+                "level": "High",
+                "primaryCategory": "formula",
+                "whyFix": ""
+              }
+            },
+            {
+              "id": "app-ErrExpectedFound-Ex-Fnd",
+              "messageStrings": {
+                "issue": {
+                  "text": "Unexpected characters. The formula contains '{0}' where '{1}' is expected."
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Remove or replace the unexpected characters with an expected character."
+                ],
+                "level": "High",
+                "primaryCategory": "formula",
+                "whyFix": ""
+              }
+            },
+            {
               "id": "app-ErrInvalidArgs-Func",
               "messageStrings": {
                 "issue": {
@@ -2178,55 +2113,10 @@
               }
             },
             {
-              "id": "app-ErrBadType",
+              "id": "app-ErrTypeError-Arg-Expected-Found",
               "messageStrings": {
                 "issue": {
-                  "text": "Invalid argument type."
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "level": "High",
-                "primaryCategory": "formula",
-                "whyFix": ""
-              }
-            },
-            {
-              "id": "app-ErrCollectionDoesNotAcceptThisType",
-              "messageStrings": {
-                "issue": {
-                  "text": "Incompatible type. The collection can't contain values of this type."
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "howToFix": [
-                  "You might need to convert the type of the item using, for example, a Datevalue, Text, or Value function."
-                ],
-                "level": "Medium",
-                "primaryCategory": "formula",
-                "whyFix": ""
-              }
-            },
-            {
-              "id": "app-ErrBadType-ExpectedType-ProvidedType",
-              "messageStrings": {
-                "issue": {
-                  "text": "Invalid argument type ({1}). Expecting a {0} value instead."
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "level": "High",
-                "primaryCategory": "formula",
-                "whyFix": ""
-              }
-            },
-            {
-              "id": "app-ErrNeedCollection-Func",
-              "messageStrings": {
-                "issue": {
-                  "text": "The first argument of '{0}' should be a collection."
+                  "text": "The type of this argument '{0}' does not match the expected type '{1}'. Found type '{2}'."
                 }
               },
               "properties": {

@@ -1,4 +1,4 @@
-"'Add Order Screen' As screen":
+"'Add Items To Order Screen' As screen":
     Fill: =RGBA(168, 0, 0, 1)
 
     RectQuickActionBar2_1 As rectangle:
@@ -10,7 +10,7 @@
 
     "galCartItems As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
         Height: =481
-        Items: ='Order Details'
+        Items: =Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber))
         Layout: =Layout.Vertical
         TemplatePadding: =0
         TemplateSize: =170
@@ -20,7 +20,7 @@
         ZIndex: =2
 
         Title10 As label:
-            Height: =53
+            Height: =41
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
@@ -37,7 +37,8 @@
             AccessibleLabel: =Self.Tooltip
             Height: =60
             Icon: =Icon.Trash
-            OnSelect: =Remove(orderCart, ThisItem);
+            OnSelect: |
+                =Remove('Order Details', ThisItem);
             PaddingBottom: =10
             PaddingLeft: =10
             PaddingRight: =10
@@ -45,7 +46,8 @@
             TabIndex: =0
             Tooltip: ="View item details"
             Width: =60
-            X: =515
+            X: =496
+            Y: =7
             ZIndex: =2
 
         Separator11 As rectangle:
@@ -76,7 +78,7 @@
 
     "galMenuItems As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
         Height: =620
-        Items: =Filter(Menus, txtItemSearch.Text in 'Item Number' || txtItemSearch.Text in Description || txtItemSearch.Text in Category)
+        Items: =Filter(Menus, txtItemSearch.Text in 'Item Number' || txtItemSearch.Text in Description)
         Layout: =Layout.Vertical
         ShowScrollbar: =false
         TemplatePadding: =0
@@ -136,7 +138,7 @@
             Height: =60
             Icon: =Icon.Add
             OnSelect: |-
-                =Collect(orderCart, {Name: ThisItem.Name, Price: ThisItem.Price})
+                =Patch('Order Details', Defaults('Order Details'), { 'Menu Item': 
             PaddingBottom: =10
             PaddingLeft: =10
             PaddingRight: =10

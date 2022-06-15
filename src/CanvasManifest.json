@@ -108,8 +108,9 @@
     "Edit Server Screen",
     "Orders List Screen",
     "Edit Order Item Screen",
-    "Add Order Screen",
+    "Add Items To Order Screen",
     "Success Screen",
-    "Billing Screen"
+    "Billing Screen",
+    "Create Order Screen"
   ]
 }
