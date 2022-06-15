@@ -8,8 +8,8 @@
         Layout: =Layout.Vertical
         TemplatePadding: =0
         TemplateSize: =Min(104, Self.Height - 60)
-        X: =672
-        Y: =135
+        X: =660
+        Y: =126
         ZIndex: =1
 
         lblMenuItemName As label:
