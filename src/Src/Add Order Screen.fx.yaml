@@ -1,7 +1,7 @@
 "'Add Order Screen' As screen":
     Fill: =RGBA(168, 0, 0, 1)
 
-    "Gallery4 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+    "galMenuItems As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
         Height: =567
         Items: =Menus
         Layout: =Layout.Vertical
@@ -138,7 +138,7 @@
                 Y: =DataCardKey13.Y
                 ZIndex: =4
 
-    "Gallery5 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+    "galCartItems As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
         Height: =327
         Items: =orderCart
         Layout: =Layout.Vertical

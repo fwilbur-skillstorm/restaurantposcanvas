@@ -684,19 +684,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.Gallery4.AccessibleLabel"
+                  "fullyQualifiedName": "'Add Order Screen'.galMenuItems.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.Gallery4.AccessibleLabel",
+                  "fullyQualifiedName": "'Add Order Screen'.galMenuItems.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Add Order Screen",
-                "type": "'Add Order Screen'.Gallery4"
+                "type": "'Add Order Screen'.galMenuItems"
               }
             }
           ],
@@ -714,19 +714,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.Gallery4.TabIndex"
+                  "fullyQualifiedName": "'Add Order Screen'.galMenuItems.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.Gallery4.TabIndex",
+                  "fullyQualifiedName": "'Add Order Screen'.galMenuItems.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Add Order Screen",
-                "type": "'Add Order Screen'.Gallery4"
+                "type": "'Add Order Screen'.galMenuItems"
               }
             }
           ],
@@ -774,19 +774,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.Gallery5.AccessibleLabel"
+                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.Gallery5.AccessibleLabel",
+                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Add Order Screen",
-                "type": "'Add Order Screen'.Gallery5"
+                "type": "'Add Order Screen'.galCartItems"
               }
             }
           ],
@@ -804,19 +804,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Order Screen'.Gallery5.TabIndex"
+                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Order Screen'.Gallery5.TabIndex",
+                  "fullyQualifiedName": "'Add Order Screen'.galCartItems.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Add Order Screen",
-                "type": "'Add Order Screen'.Gallery5"
+                "type": "'Add Order Screen'.galCartItems"
               }
             }
           ],
