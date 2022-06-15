@@ -66,7 +66,7 @@
             OnSelect: |-
                 =Select(Parent);
                 Set(ToEditOrderNumber, ThisItem.'Order Number');
-                Navigate('Edit Order Item Screen',ScreenTransition.Fade)
+                Navigate('Add Order Screen',ScreenTransition.Fade)
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
