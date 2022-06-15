@@ -66,7 +66,8 @@
             OnSelect: |-
                 =Select(Parent);
                 Set(ToEditOrderNumber, ThisItem.'Order Number');
-                Navigate('Add Order Screen',ScreenTransition.Fade)
+                Reset(txtCustomizationRequest2);
+                Navigate('Add Order Screen',ScreenTransition.Fade);
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
@@ -82,7 +83,7 @@
             Text: ="EDIT"
             Width: =147
             X: =918
-            Y: =101
+            Y: =98
             ZIndex: =5
 
     txtOrdersListGalleryTitle As label:
