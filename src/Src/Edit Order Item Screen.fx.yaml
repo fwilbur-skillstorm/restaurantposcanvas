@@ -70,8 +70,8 @@
         Size: =20
         Text: ="Edit"
         Width: =176
-        X: =81
-        Y: =435
+        X: =52
+        Y: =458
         ZIndex: =2
 
     txtEditMenuItemLabel As label:
@@ -105,7 +105,7 @@
         Y: =206
         ZIndex: =5
 
-        "'Menu Item_DataCard1' As typedDataCard.comboBoxEditCard":
+        crdMenuItem As typedDataCard.comboBoxEditCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="kitchen_MenuItem"
             Default: =ThisItem.'Menu Item'
@@ -171,7 +171,7 @@
                 Y: =lblMenuItem.Y
                 ZIndex: =4
 
-        "'Customization Request_DataCard1' As typedDataCard.textualEditCard":
+        crdCustomizationRequest As typedDataCard.textualEditCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="kitchen_customizationrequest"
             Default: =ThisItem.'Customization Request'

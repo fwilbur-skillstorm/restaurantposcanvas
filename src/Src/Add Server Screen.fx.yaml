@@ -11,7 +11,7 @@
         Y: =277
         ZIndex: =1
 
-        "'Full Name_DataCard1' As typedDataCard.textualEditCard":
+        "'crdNewServerFull Name' As typedDataCard.textualEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="kitchen_fullname"
             Default: =ThisItem.'Full Name'
