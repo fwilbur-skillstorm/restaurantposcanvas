@@ -384,19 +384,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Servers List Screen'.ServersListGallery.AccessibleLabel"
+                  "fullyQualifiedName": "'Servers List Screen'.galServersList.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Servers List Screen'.ServersListGallery.AccessibleLabel",
+                  "fullyQualifiedName": "'Servers List Screen'.galServersList.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Servers List Screen",
-                "type": "'Servers List Screen'.ServersListGallery"
+                "type": "'Servers List Screen'.galServersList"
               }
             }
           ],
@@ -414,19 +414,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Servers List Screen'.ServersListGallery.TabIndex"
+                  "fullyQualifiedName": "'Servers List Screen'.galServersList.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Servers List Screen'.ServersListGallery.TabIndex",
+                  "fullyQualifiedName": "'Servers List Screen'.galServersList.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Servers List Screen",
-                "type": "'Servers List Screen'.ServersListGallery"
+                "type": "'Servers List Screen'.galServersList"
               }
             }
           ],
@@ -924,19 +924,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Server Screen'.frmNewServer.PIN_DataCard1.txtAddServerPin.AccessibleLabel"
+                  "fullyQualifiedName": "'Add Server Screen'.frmNewServer.crdNewServerPin.txtAddServerPin.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Server Screen'.frmNewServer.PIN_DataCard1.txtAddServerPin.AccessibleLabel",
+                  "fullyQualifiedName": "'Add Server Screen'.frmNewServer.crdNewServerPin.txtAddServerPin.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Add Server Screen",
-                "type": "'Add Server Screen'.frmNewServer.PIN_DataCard1.txtAddServerPin"
+                "type": "'Add Server Screen'.frmNewServer.crdNewServerPin.txtAddServerPin"
               }
             }
           ],
@@ -954,19 +954,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Add Server Screen'.frmNewServer.'Team Lead_DataCard1'.drpNewServerTeamLead.AccessibleLabel"
+                  "fullyQualifiedName": "'Add Server Screen'.frmNewServer.crdNewServerTeamLead.drpNewServerTeamLead.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Add Server Screen'.frmNewServer.'Team Lead_DataCard1'.drpNewServerTeamLead.AccessibleLabel",
+                  "fullyQualifiedName": "'Add Server Screen'.frmNewServer.crdNewServerTeamLead.drpNewServerTeamLead.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Add Server Screen",
-                "type": "'Add Server Screen'.frmNewServer.'Team Lead_DataCard1'.drpNewServerTeamLead"
+                "type": "'Add Server Screen'.frmNewServer.crdNewServerTeamLead.drpNewServerTeamLead"
               }
             }
           ],
@@ -1104,19 +1104,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Edit Server Screen'.frmEditServer.'Full Name_DataCard2'.txtEditFullName.AccessibleLabel"
+                  "fullyQualifiedName": "'Edit Server Screen'.frmEditServer.'crdEditServerFull Name'.txtEditFullName.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Edit Server Screen'.frmEditServer.'Full Name_DataCard2'.txtEditFullName.AccessibleLabel",
+                  "fullyQualifiedName": "'Edit Server Screen'.frmEditServer.'crdEditServerFull Name'.txtEditFullName.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Edit Server Screen",
-                "type": "'Edit Server Screen'.frmEditServer.'Full Name_DataCard2'.txtEditFullName"
+                "type": "'Edit Server Screen'.frmEditServer.'crdEditServerFull Name'.txtEditFullName"
               }
             }
           ],
@@ -1134,19 +1134,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Edit Server Screen'.frmEditServer.PIN_DataCard2.txtServerPin.AccessibleLabel"
+                  "fullyQualifiedName": "'Edit Server Screen'.frmEditServer.crdEditServerPIN.txtServerPin.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Edit Server Screen'.frmEditServer.PIN_DataCard2.txtServerPin.AccessibleLabel",
+                  "fullyQualifiedName": "'Edit Server Screen'.frmEditServer.crdEditServerPIN.txtServerPin.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Edit Server Screen",
-                "type": "'Edit Server Screen'.frmEditServer.PIN_DataCard2.txtServerPin"
+                "type": "'Edit Server Screen'.frmEditServer.crdEditServerPIN.txtServerPin"
               }
             }
           ],
@@ -1164,19 +1164,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Edit Server Screen'.frmEditServer.'Team Lead_DataCard2'.drpTeamLead.AccessibleLabel"
+                  "fullyQualifiedName": "'Edit Server Screen'.frmEditServer.'crdEditServerTeam Lead'.drpTeamLead.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Edit Server Screen'.frmEditServer.'Team Lead_DataCard2'.drpTeamLead.AccessibleLabel",
+                  "fullyQualifiedName": "'Edit Server Screen'.frmEditServer.'crdEditServerTeam Lead'.drpTeamLead.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Edit Server Screen",
-                "type": "'Edit Server Screen'.frmEditServer.'Team Lead_DataCard2'.drpTeamLead"
+                "type": "'Edit Server Screen'.frmEditServer.'crdEditServerTeam Lead'.drpTeamLead"
               }
             }
           ],

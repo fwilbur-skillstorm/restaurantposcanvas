@@ -82,7 +82,7 @@
                 Y: =lblNewServerFullName.Y
                 ZIndex: =4
 
-        PIN_DataCard1 As typedDataCard.textualEditCard:
+        crdNewServerPin As typedDataCard.textualEditCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="kitchen_pin"
             Default: =ThisItem.PIN
@@ -153,7 +153,7 @@
                 Y: =lblAddServerPin.Y
                 ZIndex: =4
 
-        "'Team Lead_DataCard1' As typedDataCard.comboBoxOptionSetSingleEditCard":
+        crdNewServerTeamLead As typedDataCard.comboBoxOptionSetSingleEditCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="kitchen_teamlead"
             Default: =ThisItem.'Team Lead'

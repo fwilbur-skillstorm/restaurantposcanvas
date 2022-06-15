@@ -42,7 +42,7 @@
         Y: =233
         ZIndex: =5
 
-        "'Full Name_DataCard2' As typedDataCard.textualEditCard":
+        "'crdEditServerFull Name' As typedDataCard.textualEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="kitchen_fullname"
             Default: =ThisItem.'Full Name'
@@ -113,7 +113,7 @@
                 Y: =lblEditFullName.Y
                 ZIndex: =4
 
-        PIN_DataCard2 As typedDataCard.textualEditCard:
+        crdEditServerPIN As typedDataCard.textualEditCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="kitchen_pin"
             Default: =ThisItem.PIN
@@ -184,7 +184,7 @@
                 Y: =lblServerPin.Y
                 ZIndex: =4
 
-        "'Team Lead_DataCard2' As typedDataCard.comboBoxOptionSetSingleEditCard":
+        "'crdEditServerTeam Lead' As typedDataCard.comboBoxOptionSetSingleEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="kitchen_teamlead"
             Default: =ThisItem.'Team Lead'

@@ -6,8 +6,8 @@
         Width: =Parent.Width
         ZIndex: =1
 
-    "ServersListGallery As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
-        Height: =Parent.Height - ServersListGallery.Y
+    "galServersList As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+        Height: =Parent.Height - galServersList.Y
         Items: =Filter(OrderingStaff, 'OrderingStaff (Views)'.'Active Ordering Staff')
         Layout: =Layout.Vertical
         OnSelect: =Set(SelectedStaff,ThisItem)
