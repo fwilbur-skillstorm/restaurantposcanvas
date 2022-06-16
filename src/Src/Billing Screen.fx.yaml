@@ -126,9 +126,3 @@
         Y: =366
         ZIndex: =11
 
-    Label3 As label:
-        Text: ="Text"
-        X: =129
-        Y: =406
-        ZIndex: =12
-
