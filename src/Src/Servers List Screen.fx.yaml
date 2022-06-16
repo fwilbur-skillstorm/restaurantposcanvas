@@ -6,8 +6,8 @@
         Width: =Parent.Width
         ZIndex: =1
 
-    "ServersListGallery As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
-        Height: =Parent.Height - ServersListGallery.Y
+    "galServersList As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+        Height: =Parent.Height - galServersList.Y
         Items: =Filter(OrderingStaff, 'OrderingStaff (Views)'.'Active Ordering Staff')
         Layout: =Layout.Vertical
         OnSelect: =Set(SelectedStaff,ThisItem)
@@ -17,7 +17,7 @@
         Y: =64
         ZIndex: =1
 
-        ServerListServerName As label:
+        lblServerListServerName As label:
             Height: =Self.Size * 1.8
             OnSelect: =Select(Parent)
             PaddingBottom: =0
@@ -31,7 +31,7 @@
             Y: =16
             ZIndex: =1
 
-        ServerLIstServerID As label:
+        lblServerLIstServerID As label:
             Height: =Self.Size * 1.8
             OnSelect: =Select(Parent)
             PaddingBottom: =0
@@ -42,7 +42,7 @@
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
             X: =32
-            Y: =ServerListServerName.Y + ServerListServerName.Height + 4
+            Y: =lblServerListServerName.Y + lblServerListServerName.Height + 4
             ZIndex: =2
 
         NextArrow3 As icon.ChevronRight:
@@ -70,7 +70,7 @@
             Y: =Parent.TemplateHeight - 1
             ZIndex: =4
 
-    ServersListScreenTitle As label:
+    lblServersListScreenTitle As label:
         Align: =Align.Center
         FontWeight: =FontWeight.Bold
         Height: =64
@@ -83,13 +83,13 @@
         Color: =RGBA(255, 255, 255, 1)
         Icon: =Icon.Add
         OnSelect: |-
-            =NewForm(NewServerForm);
+            =NewForm(frmNewServer);
             Navigate('Add Server Screen', Fade);
         Width: =65
         X: =1301
         ZIndex: =3
 
-    BackIcon As icon.Reset:
+    icnBack As icon.Reset:
         BorderColor: =RGBA(255, 255, 255, 1)
         Color: =RGBA(255, 255, 255, 1)
         Height: =46

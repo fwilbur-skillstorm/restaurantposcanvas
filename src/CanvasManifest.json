@@ -107,7 +107,8 @@
     "Add Server Screen",
     "Edit Server Screen",
     "Orders List Screen",
-    "Add Order Screen",
+    "Edit Order Item Screen",
+    "Add Items To Order Screen",
     "Success Screen",
     "Billing Screen"
   ]

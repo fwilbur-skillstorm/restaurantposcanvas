@@ -8,7 +8,7 @@
         FontWeight: =FontWeight.Bold
         Height: =107
         Size: =48
-        Text: ="Seth's heckin kitchen"
+        Text: ="Seth's Brewery"
         Underline: =true
         Width: =1032
         X: =164
@@ -73,4 +73,12 @@
         X: =597
         Y: =520
         ZIndex: =11
+
+    "'imgSeth''sBrewery_1' As image":
+        Height: =363
+        Image: =SethsBrewery
+        Width: =304
+        X: =42
+        Y: =18
+        ZIndex: =12
 

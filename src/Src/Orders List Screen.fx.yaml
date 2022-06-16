@@ -17,7 +17,7 @@
         Y: =59
         ZIndex: =1
 
-        Title1 As label:
+        lblOrderNumber As label:
             Height: =Self.Size * 1.8
             OnSelect: =Select(Parent)
             PaddingBottom: =0
@@ -39,7 +39,7 @@
             Y: =Parent.TemplateHeight - 1
             ZIndex: =3
 
-        Button5 As button:
+        btnPay As button:
             Height: =50
             OnSelect: |-
                 =Select(Parent);
@@ -51,41 +51,43 @@
             Y: =23
             ZIndex: =4
 
-        MyTicketsScreenGalleryEditButton As button:
+        btnEditOrderItem As button:
             BorderColor: =RGBA(158, 11, 15, 1)
-            DisabledBorderColor: =ColorFade(MyTicketsScreenGalleryEditButton.BorderColor, 70%)
+            DisabledBorderColor: =ColorFade(btnEditOrderItem.BorderColor, 70%)
             DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
             DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
             Fill: =RGBA(158, 11, 15, 1)
-            FocusedBorderColor: =MyTicketsScreenGalleryEditButton.BorderColor
+            FocusedBorderColor: =btnEditOrderItem.BorderColor
             FontWeight: =Semibold
             Height: =54
-            HoverBorderColor: =ColorFade(MyTicketsScreenGalleryEditButton.BorderColor, 20%)
-            HoverColor: =MyTicketsScreenGalleryEditButton.Color
-            HoverFill: =ColorFade(MyTicketsScreenGalleryEditButton.Fill, 20%)
+            HoverBorderColor: =ColorFade(btnEditOrderItem.BorderColor, 20%)
+            HoverColor: =btnEditOrderItem.Color
+            HoverFill: =ColorFade(btnEditOrderItem.Fill, 20%)
             OnSelect: |-
                 =Select(Parent);
-                Navigate(EditTicketScreen,ScreenTransition.None)
+                Set(ToEditOrderNumber, ThisItem.'Order Number');
+                Navigate('Add Items To Order Screen',ScreenTransition.Fade);
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            PressedBorderColor: =MyTicketsScreenGalleryEditButton.Fill
-            PressedColor: =MyTicketsScreenGalleryEditButton.Fill
-            PressedFill: =MyTicketsScreenGalleryEditButton.Color
+            PressedBorderColor: =btnEditOrderItem.Fill
+            PressedColor: =btnEditOrderItem.Fill
+            PressedFill: =btnEditOrderItem.Color
             RadiusBottomLeft: =20
             RadiusBottomRight: =20
             RadiusTopLeft: =20
             RadiusTopRight: =20
             Size: =14
             Text: ="EDIT"
-            Width: =129
+            Width: =147
             X: =918
-            Y: =101
+            Y: =98
             ZIndex: =5
 
-    OrdersListGalleryTitle As label:
+    txtOrdersListGalleryTitle As label:
         Align: =Align.Center
+        Fill: =RGBA(221, 136, 51, 1)
         FontWeight: =FontWeight.Bold
         Height: =64
         PaddingRight: =10
@@ -94,7 +96,7 @@
         Width: =Parent.Width
         ZIndex: =2
 
-    BackIcon2 As icon.Reset:
+    icnOrderListBack As icon.Reset:
         BorderColor: =RGBA(255, 255, 255, 1)
         Color: =RGBA(255, 255, 255, 1)
         Height: =46
@@ -106,54 +108,9 @@
         ZIndex: =4
 
     RectQuickActionBar1_1 As rectangle:
-        Fill: =RGBA(168, 0, 0, 1)
+        Fill: =RGBA(221, 136, 51, 1)
         Height: =64
         Width: =Parent.Width
         Y: =704
         ZIndex: =5
-
-    icnCreateOrder As icon.Add:
-        Color: =RGBA(255, 255, 255, 1)
-        Icon: =Icon.Add
-        OnSelect: |-
-            =NewForm(CreateOrderForm);
-            Navigate('Add Order Screen', Fade);
-        Width: =62
-        X: =1303
-        ZIndex: =6
-
-    MyTicketsScreenGalleryDeleteButton As button:
-        BorderColor: =RGBA(158, 11, 15, 1)
-        Color: =RGBA(158, 11, 15, 1)
-        DisabledBorderColor: =ColorFade(MyTicketsScreenGalleryDeleteButton.BorderColor, 70%)
-        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
-        DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
-        Fill: =RGBA(255, 255, 255, 1)
-        FocusedBorderColor: =MyTicketsScreenGalleryDeleteButton.BorderColor
-        FontWeight: =Semibold
-        Height: =54
-        HoverBorderColor: =ColorFade(MyTicketsScreenGalleryDeleteButton.BorderColor, 20%)
-        HoverColor: =MyTicketsScreenGalleryDeleteButton.Color
-        HoverFill: =ColorFade(MyTicketsScreenGalleryDeleteButton.Fill, 20%)
-        OnSelect: |-
-            =Select(Parent);
-            Set(TicketToDelete,ThisItem);
-            Navigate(ConfirmationDeleteScreen,None)
-        PaddingBottom: =0
-        PaddingLeft: =0
-        PaddingRight: =0
-        PaddingTop: =0
-        PressedBorderColor: =MyTicketsScreenGalleryDeleteButton.Fill
-        PressedColor: =MyTicketsScreenGalleryDeleteButton.Fill
-        PressedFill: =MyTicketsScreenGalleryDeleteButton.Color
-        RadiusBottomLeft: =20
-        RadiusBottomRight: =20
-        RadiusTopLeft: =20
-        RadiusTopRight: =20
-        Size: =14
-        Text: ="DELETE"
-        Width: =130
-        X: =55
-        Y: =170
-        ZIndex: =7
 
