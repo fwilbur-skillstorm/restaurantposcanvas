@@ -60,7 +60,6 @@
 
     lblYourServerID As label:
         Align: =Align.Center
-        Color: =RGBA(255, 255, 255, 1)
         Height: =48
         Size: =22
         Text: |-
@@ -72,13 +71,15 @@
 
     lblServerIDFound As label:
         Align: =Align.Center
-        Color: =RGBA(255, 255, 255, 1)
-        Height: =131
+        BorderColor: =RGBA(118, 0, 0, 1)
+        BorderStyle: =BorderStyle.Dotted
+        BorderThickness: =1
+        Height: =124
         Size: =52
         Text: =ServerID
-        Width: =506
-        X: =426
-        Y: =531
+        Width: =273
+        X: =543
+        Y: =548
         ZIndex: =6
 
     BackIcon1_1 As icon.Reset:
