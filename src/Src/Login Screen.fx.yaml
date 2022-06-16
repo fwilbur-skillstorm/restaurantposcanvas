@@ -2,27 +2,35 @@
     Fill: =RGBA(216, 59, 1, 1)
 
     txtPIN As text:
+        BorderColor: =RGBA(118, 0, 0, 1)
         Default: =""
+        Fill: =RGBA(226, 156, 126, 1)
         Height: =56
         HintText: ="PIN"
+        HoverBorderColor: =RGBA(172, 62, 11, 1)
         Mode: =TextMode.Password
         Size: =18
         Width: =130
-        X: =613
-        Y: =556
+        X: =615
+        Y: =501
         ZIndex: =1
 
     txtServerID As text:
+        BorderColor: =RGBA(118, 0, 0, 1)
         Default: =""
+        Fill: =RGBA(226, 156, 126, 1)
         Height: =61
         HintText: ="Server ID"
+        HoverBorderColor: =RGBA(172, 62, 11, 1)
+        HoverFill: =RGBA(238, 204, 204, 1)
         Size: =16
         X: =520
-        Y: =314
+        Y: =294
         ZIndex: =2
 
     btnLogin As button:
-        Fill: =RGBA(54, 176, 75, 1)
+        Fill: =RGBA(118, 0, 0, 1)
+        Height: =60
         OnSelect: |-
             =Set(ServerID, txtServerID.Text);
             Set(FullName, LookUp(OrderingStaff, 'Order Staff ID' = ServerID && PIN = txtPIN.Text, 'Full Name'));
@@ -35,20 +43,23 @@
             
             Reset(txtPIN);
             Reset(txtServerID);
+        Size: =22
         Text: ="Login"
-        X: =598
-        Y: =652
+        Width: =213
+        X: =571
+        Y: =589
         ZIndex: =3
 
     lblRestaurantTitle As label:
         Align: =Align.Center
         DisplayMode: =DisplayMode.View
-        Fill: =RGBA(235, 252, 251, 1)
+        Font: =Font.'Lato Black'
         FontWeight: =Bold
-        Height: =107
+        Height: =150
         Size: =48
-        Text: ="Welcome"
-        Underline: =true
+        Text: |-
+            ="Seth's Brewery's
+            Wait Staff"
         Width: =1032
         X: =164
         Y: =51
@@ -56,7 +67,7 @@
 
     lblServerIDText As label:
         Align: =Align.Center
-        Fill: =RGBA(235, 252, 251, 1)
+        Font: =Font.Lato
         FontWeight: =FontWeight.Bold
         Height: =56
         Size: =22
@@ -68,37 +79,28 @@
 
     lblPINText As label:
         Align: =Align.Center
-        Color: =RGBA(0, 13, 75, 1)
-        Fill: =RGBA(235, 252, 251, 1)
+        Font: =Font.Lato
         FontWeight: =FontWeight.Bold
         Height: =56
         Size: =22
         Text: ="PIN"
         Width: =165
         X: =595
-        Y: =479
+        Y: =445
         ZIndex: =6
 
     lblForgotYourID As label:
         Align: =Align.Center
         Color: =RGBA(54, 176, 75, 1)
-        Fill: =RGBA(235, 252, 251, 1)
-        FontWeight: =FontWeight.Lighter
+        Font: =Font.Lato
         Height: =55
         Italic: =true
         OnSelect: =Navigate('Lookup Server ID by Full Name Screen', Fade);
         Size: =16
         Text: ="Forgot your ID?"
+        Underline: =true
         Width: =236
         X: =562
-        Y: =399
+        Y: =355
         ZIndex: =7
-
-    "'imgSeth''sBrewery' As image":
-        Height: =488
-        Image: =SethsBrewery
-        Width: =459
-        X: =41
-        Y: =238
-        ZIndex: =8
 
