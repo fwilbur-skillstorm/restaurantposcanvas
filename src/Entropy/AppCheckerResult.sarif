@@ -1678,6 +1678,36 @@
           },
           "ruleId": "app-UnusedVariables",
           "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Billing Screen'.PTWindowVisible"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Billing Screen'.PTWindowVisible",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "PTWindowVisible",
+                "module": "Billing Screen",
+                "type": "'Billing Screen'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 5
         }
       ],
       "tool": {

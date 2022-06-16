@@ -104,6 +104,9 @@
 
     btnBPay As button:
         Height: =48
+        OnSelect: |-
+            =UpdateContext({PTWindowVisible: true}); // PT = Payment Type
+            Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Tip: Value(txtTipAmtInput.Text)});
         Text: ="Pay"
         Width: =184
         X: =948
@@ -125,4 +128,30 @@
         X: =249
         Y: =366
         ZIndex: =11
+
+    Rectangle3 As rectangle:
+        BorderColor: =RGBA(216, 59, 1, 1)
+        BorderThickness: =5
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =248
+        Width: =480
+        X: =416
+        Y: =260
+        ZIndex: =12
+
+    Button1 As button:
+        Height: =162
+        Text: ="Cash"
+        Width: =181
+        X: =444
+        Y: =303
+        ZIndex: =13
+
+    Button1_1 As button:
+        Height: =162
+        Text: ="Credit"
+        Width: =181
+        X: =683
+        Y: =303
+        ZIndex: =14
 
