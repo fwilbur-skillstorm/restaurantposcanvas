@@ -6,6 +6,7 @@
     "IsSampleData": false,
     "IsWritable": true,
     "LogicalName": "host_hosttables",
+    "MaxGetRowsCount": 500,
     "Name": "HostTables",
     "NativeCDSDataSourceInfoNameMapping": {
       "_ownerid_value": "Owner",
