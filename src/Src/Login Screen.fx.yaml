@@ -96,7 +96,7 @@
 
     lblForgotYourID As label:
         Align: =Align.Center
-        Color: =RGBA(54, 176, 75, 1)
+        Color: =RGBA(141, 198, 63, 1)
         Font: =Font.Lato
         Height: =55
         Italic: =true
