@@ -1,10 +1,10 @@
 "'Logged In Landing Page Screen' As screen":
-    Fill: =RGBA(168, 0, 0, 1)
+    Fill: =RGBA(216, 59, 1, 1)
 
     lblRestaurantTitle_1 As label:
         Align: =Align.Center
-        Color: =RGBA(255, 255, 255, 1)
         DisplayMode: =DisplayMode.View
+        Font: =Font.'Lato Black'
         FontWeight: =FontWeight.Bold
         Height: =107
         Size: =48
@@ -17,7 +17,8 @@
 
     lblModifyServers As label:
         Align: =Align.Center
-        Color: =RGBA(54, 176, 75, 1)
+        Color: =RGBA(141, 198, 63, 1)
+        Font: =Font.Lato
         Height: =48
         OnSelect: =If("Yes" in TeamLead, Navigate('Servers List Screen', Fade));
         Size: =22
@@ -30,8 +31,7 @@
 
     lblGreetingMessage As label:
         Align: =Align.Center
-        Color: =RGBA(255, 255, 255, 1)
-        FontWeight: =FontWeight.Semibold
+        Font: =Font.Lato
         Height: =138
         Italic: =true
         Size: =32
@@ -42,12 +42,13 @@
             "Hello...")
         Width: =1032
         X: =164
-        Y: =204
+        Y: =158
         ZIndex: =9
 
     lblViewYourOrders As label:
         Align: =Align.Center
-        Color: =RGBA(54, 176, 75, 1)
+        Color: =RGBA(141, 198, 63, 1)
+        Font: =Font.Lato
         Height: =53
         OnSelect: =Navigate('Orders List Screen', Fade);
         Size: =22
@@ -59,8 +60,10 @@
         ZIndex: =10
 
     btnLogout As button:
-        Fill: =RGBA(54, 176, 75, 1)
+        Fill: =RGBA(118, 0, 0, 1)
+        Font: =Font.Lato
         Height: =55
+        HoverFill: =ColorFade(RGBA(178, 0, 0, 1), -20%)
         OnSelect: |-
             =Set(ServerID, Blank());
             Set(FullName, Blank());
@@ -71,14 +74,6 @@
         Text: ="Logout"
         Width: =166
         X: =597
-        Y: =520
+        Y: =541
         ZIndex: =11
-
-    "'imgSeth''sBrewery_1' As image":
-        Height: =363
-        Image: =SethsBrewery
-        Width: =304
-        X: =42
-        Y: =18
-        ZIndex: =12
 

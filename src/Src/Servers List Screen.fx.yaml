@@ -1,7 +1,7 @@
 "'Servers List Screen' As screen.'tabletLayout_HeaderAndGallery_ver3.0'":
 
     RectQuickActionBar2 As rectangle:
-        Fill: =RGBA(168, 0, 0, 1)
+        Fill: =RGBA(216, 59, 1, 1)
         Height: =64
         Width: =Parent.Width
         ZIndex: =1
@@ -72,15 +72,17 @@
 
     lblServersListScreenTitle As label:
         Align: =Align.Center
-        FontWeight: =FontWeight.Bold
+        Color: =RGBA(0, 0, 0, 1)
+        Font: =Font.'Lato Black'
         Height: =64
         PaddingRight: =10
+        Size: =26
         Text: ="Ordering Staff"
         Width: =Parent.Width
         ZIndex: =2
 
     icnCreateServer As icon.Add:
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(0, 0, 0, 1)
         Icon: =Icon.Add
         OnSelect: |-
             =NewForm(frmNewServer);
@@ -91,7 +93,7 @@
 
     icnBack As icon.Reset:
         BorderColor: =RGBA(255, 255, 255, 1)
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(0, 0, 0, 1)
         Height: =46
         Icon: =Icon.Reset
         OnSelect: =Navigate('Logged In Landing Page Screen', Fade);
