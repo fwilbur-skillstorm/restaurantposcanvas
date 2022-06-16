@@ -7,6 +7,8 @@
         ZIndex: =1
 
     "OrdersListGallery As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        BorderColor: =RGBA(216, 59, 1, 1)
+        Fill: =RGBA(235, 235, 235, 1)
         Height: =640
         Items: =Filter(Orders, Status = 'Status (Orders)'.Active && 'Server ID' = Value(ServerID))
         Layout: =Layout.Vertical
@@ -20,18 +22,20 @@
         ZIndex: =1
 
         lblOrderNumber As label:
-            Height: =Self.Size * 1.8
+            Font: =Font.Lato
+            Height: =43
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            Size: =22
             Text: |-
                 ="Order number: " & ThisItem.'Order Number'
             VerticalAlign: =VerticalAlign.Top
-            Width: =Parent.TemplateWidth - 104
-            X: =52
-            Y: =30
+            Width: =843
+            X: =47
+            Y: =98
             ZIndex: =1
 
         Separator1 As rectangle:
@@ -42,6 +46,7 @@
             ZIndex: =3
 
         btnPay As button:
+            Fill: =RGBA(141, 198, 63, 1)
             Height: =50
             OnSelect: |-
                 =Select(Parent);
@@ -58,7 +63,7 @@
             DisabledBorderColor: =ColorFade(btnEditOrderItem.BorderColor, 70%)
             DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
             DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
-            Fill: =RGBA(158, 11, 15, 1)
+            Fill: =RGBA(172, 62, 11, 1)
             FocusedBorderColor: =btnEditOrderItem.BorderColor
             FontWeight: =Semibold
             Height: =54
@@ -88,6 +93,7 @@
             ZIndex: =5
 
         Button2 As button:
+            Fill: =RGBA(118, 0, 0, 1)
             OnSelect: |-
                 =Select(Parent);
                 Set(ToEditOrderNumber, ThisItem.'Order Number');
@@ -97,13 +103,31 @@
             Y: =105
             ZIndex: =6
 
+        lblOrderNumber_1 As label:
+            Font: =Font.Lato
+            Height: =43
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =22
+            Text: |-
+                ="Table number: " & ThisItem.'Table'.'Table ID'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =843
+            X: =47
+            Y: =26
+            ZIndex: =7
+
     txtOrdersListGalleryTitle As label:
         Align: =Align.Center
-        Fill: =RGBA(221, 136, 51, 1)
+        Fill: =RGBA(216, 59, 1, 1)
+        Font: =Font.'Lato Black'
         FontWeight: =FontWeight.Bold
         Height: =64
         PaddingRight: =10
-        Size: =22
+        Size: =26
         Text: =ServerID & " — " & FullName & "'s Orders"
         Width: =Parent.Width
         ZIndex: =2
@@ -120,7 +144,7 @@
         ZIndex: =4
 
     RectQuickActionBar1_1 As rectangle:
-        Fill: =RGBA(221, 136, 51, 1)
+        Fill: =RGBA(216, 59, 1, 1)
         Height: =64
         Width: =Parent.Width
         Y: =704
