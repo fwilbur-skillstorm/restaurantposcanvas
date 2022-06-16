@@ -114,13 +114,3 @@
         Y: =704
         ZIndex: =5
 
-    icnCreateOrder As icon.Add:
-        Color: =RGBA(255, 255, 255, 1)
-        Icon: =Icon.Add
-        OnSelect: |-
-            =NewForm(CreateOrderForm);
-            Navigate('Add Items To Order Screen', Fade);
-        Width: =62
-        X: =1303
-        ZIndex: =6
-

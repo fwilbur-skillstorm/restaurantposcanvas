@@ -1,0 +1,145 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "host_hosttableses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "host_hosttables",
+    "Name": "HostTables",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "{Attachments}": "Attachments",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "host_availabilitystatus": "Availability Status",
+      "host_capacity": "Capacity",
+      "host_hosttables_Annotations": "Notes",
+      "host_hosttables_AsyncOperations": "System Jobs",
+      "host_hosttables_BulkDeleteFailures": "Bulk Delete Failures",
+      "host_hosttables_DuplicateBaseRecord": "Duplicate Records (host_hosttables_DuplicateBaseRecord)",
+      "host_hosttables_DuplicateMatchingRecord": "Duplicate Records (host_hosttables_DuplicateMatchingRecord)",
+      "host_hosttables_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "host_hosttables_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "host_hosttables_ProcessSession": "Process Sessions",
+      "host_hosttables_SyncErrors": "Sync Errors",
+      "host_hosttablesid": "HostTables",
+      "host_name": "Table ID",
+      "importsequencenumber": "Import Sequence Number",
+      "kitchen_kitchen_order_Table_host_hosttables": "Orders",
+      "kitchen_section": "Section",
+      "kitchen_ServerID": "Server ID",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "HostTables",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "HostTables (Views)",
+    "Name": "_host_hosttables_views",
+    "RelatedEntityName": "HostTables",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "39c60fbf-1171-42b5-b775-518ba2adbbd4": "HostTables Advanced Find View",
+      "5250e482-57cc-478f-b1a1-da44315925aa": "Active HostTables",
+      "6687b915-1ee5-4f89-a612-575a17706237": "Inactive HostTables",
+      "8559863a-ce5a-4f35-bc4c-bc375a6b4434": "HostTables Associated View",
+      "cd82202d-07ef-497c-8219-9e55c49ab3ed": "HostTables Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Availability Status (HostTables)",
+    "Name": "host_hosttables_host_availabilitystatus",
+    "OptionSetInfoNameMapping": {
+      "0": "Occupied",
+      "1": "Empty"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "host_availabilitystatus",
+        "OptionSetReferenceEntityName": "HostTables"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "host_availabilitystatus",
+    "RelatedEntityName": "HostTables",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (HostTables)",
+    "Name": "host_hosttables_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "HostTables"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "HostTables",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (HostTables)",
+    "Name": "host_hosttables_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "HostTables"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "HostTables",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Table Section",
+    "Name": "kitchen_tablesection",
+    "OptionSetInfoNameMapping": {
+      "105320000": "Table",
+      "105320001": "Booth",
+      "105320002": "Outside Table",
+      "105320003": "Bar"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "kitchen_section",
+        "OptionSetReferenceEntityName": "HostTables"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "kitchen_section",
+    "RelatedEntityName": "HostTables",
+    "Type": "OptionSetInfo"
+  }
+]

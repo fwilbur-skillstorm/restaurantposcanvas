@@ -30,6 +30,7 @@
       "kitchen_orderstatus": "OrderStatus",
       "kitchen_serverid": "Server ID",
       "kitchen_servername": "Server Name",
+      "kitchen_Table": "Table",
       "modifiedby": "Modified By",
       "modifiedon": "Modified On",
       "modifiedonbehalfby": "Modified By (Delegate)",

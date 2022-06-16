@@ -9,31 +9,32 @@
         ZIndex: =1
 
     "galCartItems As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
-        Height: =481
+        Height: =579
         Items: =Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber))
         Layout: =Layout.Vertical
+        ShowScrollbar: =false
         TemplatePadding: =0
         TemplateSize: =170
         Width: =592
         X: =770
-        Y: =163
+        Y: =129
         ZIndex: =2
 
-        Title10 As label:
+        lblEditOrderItemName As label:
             Height: =41
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Text: =ThisItem.'Menu Item'.Description
+            Text: =ThisItem.'Menu Item'.Name
             VerticalAlign: =VerticalAlign.Top
             Width: =488
             X: =39
             Y: =7
             ZIndex: =1
 
-        NextArrow11 As icon.ChevronRight:
+        btnDeleteFromCart As icon.ChevronRight:
             AccessibleLabel: =Self.Tooltip
             Height: =60
             Icon: =Icon.Trash
@@ -138,7 +139,7 @@
             Height: =60
             Icon: =Icon.Add
             OnSelect: |-
-                =Patch('Order Details', Defaults('Order Details'), { 'Menu Item': 
+                =Patch('Order Details', Defaults('Order Details'), { 'Menu Item': ThisItem, 'Order ID': Value(ToEditOrderNumber)})
             PaddingBottom: =10
             PaddingLeft: =10
             PaddingRight: =10
@@ -185,32 +186,16 @@
         Y: =46
         ZIndex: =5
 
-    lblSubtotal As label:
-        FontWeight: =FontWeight.Semibold
-        Height: =56
-        Size: =25
-        Text: |-
-            =With ( {ST: Sum(orderCart, Price)}, "Subtotal: " & Text(ST, "$##.#0"))
-        Width: =294
-        X: =800
-        Y: =712
-        ZIndex: =6
-
     btnPlaceOrder As button:
         Height: =37
-        OnSelect: |-
-            =
-            Patch(Orders, Defaults(Orders), {'Base Total': With({ST: Sum(orderCart, Price)}, ST)});
-            
-            Navigate('Orders List Screen', None)
         Size: =25
         Text: ="Place Order"
         Width: =199
         X: =1148
         Y: =717
-        ZIndex: =7
+        ZIndex: =6
 
-    Label6 As label:
+    lblEditOrderTopSeparator As label:
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
         Fill: =RGBA(172, 62, 11, 1)
@@ -221,7 +206,7 @@
             ="Order #" & ToEditOrderNumber
         Width: =1366
         Y: =1
-        ZIndex: =8
+        ZIndex: =7
 
     BackIcon1_4 As icon.Reset:
         BorderColor: =RGBA(255, 255, 255, 1)
@@ -233,7 +218,7 @@
             Navigate('Orders List Screen', Fade);
         Width: =41
         Y: =1
-        ZIndex: =9
+        ZIndex: =8
 
     lblItemSearch As label:
         Height: =38
@@ -241,12 +226,23 @@
         Width: =73
         X: =26
         Y: =46
-        ZIndex: =10
+        ZIndex: =9
 
     txtItemSearch As text:
         Default: =""
         HintText: ="Item Search"
         X: =99
         Y: =46
+        ZIndex: =10
+
+    lblSubtotal As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =56
+        Size: =25
+        Text: |
+            ="Subtotal: " & Text(Sum(Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber)), 'Menu Item'.Price), "$##.#0")
+        Width: =294
+        X: =812
+        Y: =708
         ZIndex: =11
 
