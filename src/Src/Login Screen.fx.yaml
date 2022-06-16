@@ -35,7 +35,7 @@
         Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
         Height: =60
-        HoverFill: =ColorFade(RGBA(168, 0, 0, 1), -20%)
+        HoverFill: =ColorFade(RGBA(178, 0, 0, 1), -20%)
         OnSelect: |-
             =Set(ServerID, txtServerID.Text);
             Set(FullName, LookUp(OrderingStaff, 'Order Staff ID' = ServerID && PIN = txtPIN.Text, 'Full Name'));
