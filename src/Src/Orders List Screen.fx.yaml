@@ -113,7 +113,7 @@
             PaddingTop: =0
             Size: =22
             Text: |-
-                ="Table number: " & ThisItem.'Table'.'Table ID'
+                ="Table number: " & ThisItem.Table.'Table ID'
             VerticalAlign: =VerticalAlign.Top
             Width: =843
             X: =47
