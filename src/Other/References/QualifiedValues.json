@@ -39,6 +39,14 @@
       "Values": {
         "Information": "b82f00f3-3249-4a22-adca-a8680d4437ec"
       }
+    },
+    {
+      "Kind": "default.cds_kitchen_kitchenticket_forms",
+      "Namespace": "Kitchen Tickets (Forms)",
+      "Values": {
+        "Information": "5072a304-5561-46b9-9eba-feb826eedfa6",
+        "Kitchen Ticket Mgmt main form": "8c540735-f4eb-ec11-bb3d-000d3a1620c6"
+      }
     }
   ]
 }

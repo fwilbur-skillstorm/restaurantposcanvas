@@ -85,6 +85,16 @@
             Y: =98
             ZIndex: =5
 
+        Button2 As button:
+            OnSelect: |-
+                =Select(Parent);
+                Set(ToEditOrderNumber, ThisItem.'Order Number');
+                Navigate('Submit To Kitchen',ScreenTransition.Fade);
+            Text: ="Kitchen"
+            X: =1125
+            Y: =105
+            ZIndex: =6
+
     txtOrdersListGalleryTitle As label:
         Align: =Align.Center
         Fill: =RGBA(221, 136, 51, 1)

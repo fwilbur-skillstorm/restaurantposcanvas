@@ -83,7 +83,7 @@
     "DocumentType": "App",
     "EnableInstrumentation": false,
     "FileID": "29b84d4a-786f-4b5d-bf05-834b49c0da87",
-    "Id": "29b84d4a-786f-4b5d-bf05-834b49c0da87",
+    "Id": "7e896e14-f8be-4bd1-8db1-4fc29b5415a2",
     "InstrumentationKey": "",
     "Name": "Ordering",
     "OriginatingVersion": "1.324"
@@ -109,6 +109,7 @@
     "Orders List Screen",
     "Edit Order Item Screen",
     "Add Items To Order Screen",
+    "Submit To Kitchen",
     "Success Screen",
     "Billing Screen"
   ]

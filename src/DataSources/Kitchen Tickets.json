@@ -1,0 +1,100 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "kitchen_kitchentickets",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "kitchen_kitchenticket",
+    "Name": "Kitchen Tickets",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "kitchen_kitchenstatus": "Kitchen Status",
+      "kitchen_kitchenticket_AsyncOperations": "System Jobs",
+      "kitchen_kitchenticket_BulkDeleteFailures": "Bulk Delete Failures",
+      "kitchen_kitchenticket_DuplicateBaseRecord": "Duplicate Records (kitchen_kitchenticket_DuplicateBaseRecord)",
+      "kitchen_kitchenticket_DuplicateMatchingRecord": "Duplicate Records (kitchen_kitchenticket_DuplicateMatchingRecord)",
+      "kitchen_KitchenTicket_kitchen_KitchenTick": "Order Details",
+      "kitchen_kitchenticket_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "kitchen_kitchenticket_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "kitchen_kitchenticket_ProcessSession": "Process Sessions",
+      "kitchen_kitchenticket_SyncErrors": "Sync Errors",
+      "kitchen_kitchenticketid": "Kitchen Ticket",
+      "kitchen_name": "Ticket Number",
+      "kitchen_Order": "Order",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Kitchen Tickets",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Kitchen Tickets (Views)",
+    "Name": "_kitchen_kitchenticket_views",
+    "RelatedEntityName": "Kitchen Tickets",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "15275970-0b0d-4c37-b25a-ccadc6905597": "Kitchen Ticket Advanced Find View",
+      "6a0b7d15-f3eb-ec11-bb3d-000d3a1620c6": "Kitchen Ticket Queue",
+      "6c1cd0b5-fce0-4dc1-b1d9-85cf49528315": "Kitchen Ticket Lookup View",
+      "755d6c38-2464-42c7-8c6c-4181658e135f": "Inactive Kitchen Tickets",
+      "d7a77b05-1883-4680-a025-62ead82f25b7": "Kitchen Ticket Associated View",
+      "fe6dee25-8ea6-413a-b729-bcc63900339a": "Active Kitchen Tickets"
+    }
+  },
+  {
+    "DisplayName": "Status (Kitchen Tickets)",
+    "Name": "kitchen_kitchenticket_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Kitchen Tickets"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Kitchen Tickets",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Kitchen Tickets)",
+    "Name": "kitchen_kitchenticket_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Kitchen Tickets"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Kitchen Tickets",
+    "Type": "OptionSetInfo"
+  }
+]

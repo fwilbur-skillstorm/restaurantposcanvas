@@ -133,6 +133,10 @@
       "OptionSetReferenceItem0": {
         "OptionSetReferenceColumnName": "kitchen_orderstatus",
         "OptionSetReferenceEntityName": "Orders"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "kitchen_kitchenstatus",
+        "OptionSetReferenceEntityName": "Kitchen Tickets"
       }
     },
     "OptionSetTypeKey": "PicklistType",
