@@ -5,6 +5,7 @@
         BorderColor: =RGBA(118, 0, 0, 1)
         Default: =""
         Fill: =RGBA(226, 156, 126, 1)
+        Font: =Font.Lato
         Height: =56
         HintText: ="PIN"
         HoverBorderColor: =RGBA(172, 62, 11, 1)
@@ -19,6 +20,7 @@
         BorderColor: =RGBA(118, 0, 0, 1)
         Default: =""
         Fill: =RGBA(226, 156, 126, 1)
+        Font: =Font.Lato
         Height: =61
         HintText: ="Server ID"
         HoverBorderColor: =RGBA(172, 62, 11, 1)
@@ -31,6 +33,7 @@
     btnLogin As button:
         DisabledFill: =RGBA(168, 0, 0, 1)
         Fill: =RGBA(118, 0, 0, 1)
+        Font: =Font.Lato
         Height: =60
         HoverFill: =ColorFade(RGBA(168, 0, 0, 1), -20%)
         OnSelect: |-

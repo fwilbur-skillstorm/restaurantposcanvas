@@ -29,6 +29,7 @@
         BorderColor: =RGBA(118, 0, 0, 1)
         Default: =""
         Fill: =RGBA(226, 156, 126, 1)
+        Font: =Font.Lato
         Height: =47
         HintText: ="Enter your Full Name"
         HoverBorderColor: =RGBA(172, 62, 11, 1)
@@ -40,7 +41,9 @@
 
     btnLookupServerID As button:
         Fill: =RGBA(118, 0, 0, 1)
+        Font: =Font.Lato
         Height: =53
+        HoverFill: =ColorFade(RGBA(178, 0, 0, 1), -20%)
         OnSelect: |-
             =UpdateContext({FullNameToLookUp: txtEnterFullName});
             UpdateContext({ServerID: LookUp(OrderingStaff, 'Full Name' = FullNameToLookUp.Text, 'Order Staff ID')});
@@ -60,6 +63,7 @@
 
     lblYourServerID As label:
         Align: =Align.Center
+        Font: =Font.Lato
         Height: =48
         Size: =22
         Text: |-
@@ -74,6 +78,7 @@
         BorderColor: =RGBA(118, 0, 0, 1)
         BorderStyle: =BorderStyle.Dotted
         BorderThickness: =1
+        Font: =Font.'Lato Black'
         Height: =124
         Size: =52
         Text: =ServerID
