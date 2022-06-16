@@ -1,5 +1,52 @@
 "'Billing Screen' As screen":
 
+    "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+        Height: =281
+        Items: =Filter('Order Details', 'Order ID' = Value(SelectedOrder.'Order Number'))
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =33
+        Width: =1366
+        Y: =27
+        ZIndex: =1
+
+        Title2 As label:
+            Height: =25
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =15
+            Text: =ThisItem.'Menu Item'.Name
+            VerticalAlign: =VerticalAlign.Top
+            Width: =310
+            X: =32
+            ZIndex: =1
+
+        Subtitle2 As label:
+            Height: =25
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: |-
+                =Text(ThisItem.'Menu Item'.Price, "$##.#0")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =81
+            X: =1053
+            Y: =4
+            ZIndex: =2
+
+        Separator5 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =4
+
     Label4 As label:
         Align: =Align.Center
         Fill: =RGBA(216, 59, 1, 1)
@@ -14,7 +61,9 @@
     Icon1 As icon.ArrowLeft:
         Height: =27
         Icon: =Icon.ArrowLeft
-        OnSelect: =Navigate('Orders List Screen', None);
+        OnSelect: |-
+            =Navigate('Orders List Screen', None);
+            Reset(txtTipAmtInput)
         Width: =61
         ZIndex: =3
 
@@ -24,4 +73,62 @@
         Width: =1366
         Y: =741
         ZIndex: =4
+
+    txtBSubtotal As label:
+        Text: |-
+            ="Subtotal: " & Text(SelectedOrder.'Base Total',"$##.#0")
+        X: =948
+        Y: =366
+        ZIndex: =5
+
+    txtBTax As label:
+        Text: |-
+            ="Tax: " & Text(SelectedOrder.Tax,"$##.#0")
+        X: =948
+        Y: =406
+        ZIndex: =6
+
+    txtBTip As label:
+        Text: |-
+            ="Tip: " & Text(Value(txtTipAmtInput.Text), "$#0.#00")
+        X: =948
+        Y: =446
+        ZIndex: =7
+
+    txtBTotal As label:
+        Text: |-
+            ="Total: " & Text(SelectedOrder.'Grand Total',"$##.#0")
+        X: =948
+        Y: =486
+        ZIndex: =8
+
+    btnBPay As button:
+        Height: =48
+        Text: ="Pay"
+        Width: =184
+        X: =948
+        Y: =526
+        ZIndex: =9
+
+    txtTipAmt As label:
+        Text: |-
+            ="Tip Amount: " 
+        Width: =120
+        X: =129
+        Y: =366
+        ZIndex: =10
+
+    txtTipAmtInput As text:
+        Default: ="0"
+        Format: =TextFormat.Number
+        Width: =116
+        X: =249
+        Y: =366
+        ZIndex: =11
+
+    Label3 As label:
+        Text: ="Text"
+        X: =129
+        Y: =406
+        ZIndex: =12
 
