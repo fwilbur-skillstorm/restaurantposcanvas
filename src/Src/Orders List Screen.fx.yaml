@@ -8,13 +8,15 @@
 
     "OrdersListGallery As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
         Height: =640
-        Items: =Filter(Orders, 'Server ID' = Value(ServerID))
+        Items: =Filter(Orders, Status = 'Status (Orders)'.Active && 'Server ID' = Value(ServerID))
         Layout: =Layout.Vertical
         OnSelect: =Set(SelectedOrder,ThisItem)
+        ShowScrollbar: =false
         TemplatePadding: =0
-        TemplateSize: =232
+        TemplateSize: =187
+        Transition: =Transition.Push
         Width: =Parent.Width
-        Y: =59
+        Y: =64
         ZIndex: =1
 
         lblOrderNumber As label:
