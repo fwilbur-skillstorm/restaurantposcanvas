@@ -6,6 +6,7 @@
     "IsSampleData": false,
     "IsWritable": true,
     "LogicalName": "kitchen_kitchenticket",
+    "MaxGetRowsCount": 500,
     "Name": "Kitchen Tickets",
     "NativeCDSDataSourceInfoNameMapping": {
       "_ownerid_value": "Owner",

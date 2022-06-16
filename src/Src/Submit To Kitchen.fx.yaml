@@ -45,7 +45,13 @@
             AccessibleLabel: =Self.Tooltip
             Height: =60
             Icon: =Icon.ChevronRight
-            OnSelect: =Select(Parent)
+            OnSelect: |-
+                =Select(Parent);
+                UpdateContext({
+                    menuItemName: "ted",
+                    menuItemDescrition: "ted"
+                   
+                });
             PaddingBottom: =10
             PaddingLeft: =10
             PaddingRight: =10
@@ -91,10 +97,10 @@
     btnPlaceOrder_1 As button:
         Height: =37
         Size: =25
-        Text: ="Place Order"
+        Text: ="Delivered"
         Width: =199
-        X: =1128
-        Y: =717
+        X: =1115
+        Y: =626
         ZIndex: =6
 
     lblEditOrderTopSeparator_1 As label:
@@ -125,7 +131,7 @@
     Label1 As label:
         Height: =58
         Size: =28
-        Text: ="Food Name"
+        Text: =menuItemName
         Width: =743
         X: =623
         Y: =46
@@ -160,7 +166,53 @@
         Size: =22
         TabIndex: =
         Width: =240
-        X: =1004
-        Y: =64
+        X: =1126
+        Y: =304
         ZIndex: =12
+
+    Label1_3 As label:
+        DisplayMode: =DisplayMode.View
+        Height: =54
+        Size: =28
+        Text: ="Kitchen Suggestions"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =410
+        X: =623
+        Y: =321
+        ZIndex: =13
+
+    Label1_4 As label:
+        DisplayMode: =DisplayMode.View
+        Height: =54
+        Size: =28
+        Text: ="(Details)"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =410
+        X: =623
+        Y: =389
+        ZIndex: =14
+
+    Label1_5 As label:
+        DisplayMode: =DisplayMode.View
+        Height: =54
+        Size: =28
+        Text: ="Completed By Kitchen"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =410
+        X: =623
+        Y: =609
+        ZIndex: =15
+
+    Button3 As button:
+        Size: =25
+        Text: ="Submit"
+        X: =201
+        Y: =717
+        ZIndex: =16
+
+    Dropdown1 As dropdown:
+        Items: =Choices('Order Details'.'Kitchen Approved')
+        X: =1038
+        Y: =184
+        ZIndex: =17
 

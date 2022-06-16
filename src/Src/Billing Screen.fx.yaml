@@ -47,61 +47,6 @@
             Y: =Parent.TemplateHeight - 1
             ZIndex: =4
 
-    Label4 As label:
-        Align: =Align.Center
-        Fill: =RGBA(216, 59, 1, 1)
-        FontWeight: =FontWeight.Bold
-        Height: =27
-        Size: =23
-        Text: |-
-            ="Order # " & Text(SelectedOrder.'Order Number')
-        Width: =1366
-        ZIndex: =2
-
-    Icon1 As icon.ArrowLeft:
-        Height: =27
-        Icon: =Icon.ArrowLeft
-        OnSelect: |-
-            =Navigate('Orders List Screen', None);
-            Reset(txtTipAmtInput)
-        Width: =61
-        ZIndex: =3
-
-    Rectangle2 As rectangle:
-        Fill: =RGBA(216, 59, 1, 1)
-        Height: =27
-        Width: =1366
-        Y: =741
-        ZIndex: =4
-
-    txtBSubtotal As label:
-        Text: |-
-            ="Subtotal: " & Text(SelectedOrder.'Base Total',"$##.#0")
-        X: =948
-        Y: =366
-        ZIndex: =5
-
-    txtBTax As label:
-        Text: |-
-            ="Tax: " & Text(SelectedOrder.Tax,"$##.#0")
-        X: =948
-        Y: =406
-        ZIndex: =6
-
-    txtBTip As label:
-        Text: |-
-            ="Tip: " & Text(Value(txtTipAmtInput.Text), "$#0.#00")
-        X: =948
-        Y: =446
-        ZIndex: =7
-
-    txtBTotal As label:
-        Text: |-
-            ="Total: " & Text(SelectedOrder.'Grand Total',"$##.#0")
-        X: =948
-        Y: =486
-        ZIndex: =8
-
     btnBPay As button:
         Height: =48
         OnSelect: |-
@@ -111,47 +56,211 @@
         Width: =184
         X: =948
         Y: =526
-        ZIndex: =9
+        ZIndex: =2
+
+    txtBTotal As label:
+        Text: |-
+            ="Total: " & Text(SelectedOrder.'Grand Total',"$##.#0")
+        X: =948
+        Y: =486
+        ZIndex: =3
+
+    txtBTip As label:
+        Text: |-
+            ="Tip: " & Text(Value(txtTipAmtInput.Text), "$#0.#00")
+        X: =948
+        Y: =446
+        ZIndex: =4
+
+    txtBTax As label:
+        Text: |-
+            ="Tax: " & Text(SelectedOrder.Tax,"$##.#0")
+        X: =948
+        Y: =406
+        ZIndex: =5
+
+    txtBSubtotal As label:
+        Text: |-
+            ="Subtotal: " & Text(SelectedOrder.'Base Total',"$##.#0")
+        X: =948
+        Y: =366
+        ZIndex: =6
 
     txtTipAmt As label:
         Text: |-
             ="Tip Amount: " 
         Width: =120
-        X: =129
-        Y: =366
-        ZIndex: =10
+        X: =83
+        Y: =463
+        ZIndex: =7
 
     txtTipAmtInput As text:
         Default: ="0"
         Format: =TextFormat.Number
         Width: =116
-        X: =249
-        Y: =366
+        X: =203
+        Y: =463
+        ZIndex: =8
+
+    LightOutbg As rectangle:
+        Fill: =RGBA(153, 153, 153, 0.4)
+        Height: =714
+        Width: =1366
+        Y: =27
+        ZIndex: =9
+
+    Label4 As label:
+        Align: =Align.Center
+        Fill: =RGBA(216, 59, 1, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =27
+        Size: =23
+        Text: |-
+            ="Order # " & Text(SelectedOrder.'Order Number')
+        Width: =1366
+        ZIndex: =10
+
+    Icon1 As icon.ArrowLeft:
+        Height: =27
+        Icon: =Icon.ArrowLeft
+        OnSelect: |-
+            =Navigate('Orders List Screen', None);
+            Reset(txtTipAmtInput)
+        Width: =61
         ZIndex: =11
 
-    Rectangle3 As rectangle:
+    Rectangle2 As rectangle:
+        Fill: =RGBA(216, 59, 1, 1)
+        Height: =27
+        Width: =1366
+        Y: =741
+        ZIndex: =12
+
+    CashCreditWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
         BorderThickness: =5
         Fill: =RGBA(255, 255, 255, 1)
         Height: =248
+        Visible: =PTWindowVisible
         Width: =480
-        X: =416
+        X: =443
         Y: =260
-        ZIndex: =12
-
-    Button1 As button:
-        Height: =162
-        Text: ="Cash"
-        Width: =181
-        X: =444
-        Y: =303
         ZIndex: =13
 
-    Button1_1 As button:
+    btnCash As button:
         Height: =162
-        Text: ="Credit"
+        Text: ="Cash"
+        Visible: =PTWindowVisible
         Width: =181
-        X: =683
-        Y: =303
+        X: =484
+        Y: =308
         ZIndex: =14
+
+    btnCredit As button:
+        Height: =162
+        OnSelect: |-
+            =UpdateContext({PTWindowVisible: false}); 
+            UpdateContext({CreditWindowVisble: true});
+        Text: ="Credit"
+        Visible: =PTWindowVisible
+        Width: =181
+        X: =710
+        Y: =303
+        ZIndex: =15
+
+    Icon2 As icon.Cancel:
+        Height: =27
+        Icon: =Icon.Cancel
+        OnSelect: |-
+            =UpdateContext({PTWindowVisible: false}); 
+        Visible: =PTWindowVisible
+        Width: =32
+        X: =891
+        Y: =260
+        ZIndex: =16
+
+    CreditWindow As rectangle:
+        BorderColor: =RGBA(216, 59, 1, 1)
+        BorderThickness: =5
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =248
+        Visible: =CreditWindowVisble
+        Width: =480
+        X: =443
+        Y: =265
+        ZIndex: =17
+
+    lblCreditCardNum As label:
+        FontWeight: =FontWeight.Bold
+        Text: |-
+            ="Credit Card #"
+        Visible: =CreditWindowVisble
+        Width: =139
+        X: =461
+        Y: =337
+        ZIndex: =18
+
+    inputCreditCardNum As text:
+        Default: =""
+        Format: =TextFormat.Number
+        MaxLength: =16
+        Visible: =CreditWindowVisble
+        Width: =299
+        X: =603
+        Y: =337
+        ZIndex: =19
+
+    btnCreditSubmit As button:
+        OnSelect: |
+            =If((Len(inputCreditCardNum.Text) = 16), UpdateContext({CreditWindowVisble: false}), 
+                UpdateContext({ErrorWindowVisble: true})
+            );
+        Text: ="Submit"
+        Visible: =CreditWindowVisble
+        X: =742
+        Y: =411
+        ZIndex: =20
+
+    exitCreditWindow As icon.Cancel:
+        Height: =24
+        Icon: =Icon.Cancel
+        OnSelect: |-
+            =UpdateContext({CreditWindowVisble: false})
+        Visible: =CreditWindowVisble
+        Width: =34
+        X: =889
+        Y: =267
+        ZIndex: =21
+
+    Rectangle4 As rectangle:
+        BorderColor: =RGBA(216, 59, 1, 1)
+        BorderThickness: =5
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =123
+        Visible: =ErrorWindowVisble
+        Width: =339
+        X: =513
+        Y: =322
+        ZIndex: =22
+
+    Label3 As label:
+        Fill: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =29
+        Text: |-
+            ="Error: Invalid credit card number"
+        Visible: =ErrorWindowVisble
+        Width: =322
+        X: =522
+        Y: =338
+        ZIndex: =23
+
+    Button4 As button:
+        OnSelect: |-
+            =UpdateContext({ErrorWindowVisble: false})
+        Text: ="Confirm"
+        Visible: =ErrorWindowVisble
+        X: =603
+        Y: =386
+        ZIndex: =24
 
