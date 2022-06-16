@@ -1804,6 +1804,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Submit To Kitchen'.Dropdown1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Submit To Kitchen'.Dropdown1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Submit To Kitchen",
+                "type": "'Submit To Kitchen'.Dropdown1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.SelectedStaff"
                 }
               ],
@@ -1847,6 +1877,36 @@
                 "member": "PTWindowVisible",
                 "module": "Billing Screen",
                 "type": "'Billing Screen'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Submit To Kitchen'.menuItemDescrition"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Submit To Kitchen'.menuItemDescrition",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "menuItemDescrition",
+                "module": "Submit To Kitchen",
+                "type": "'Submit To Kitchen'"
               }
             }
           ],

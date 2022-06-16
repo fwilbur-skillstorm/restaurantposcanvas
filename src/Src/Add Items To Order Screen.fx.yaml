@@ -189,7 +189,7 @@
     btnPlaceOrder As button:
         Height: =37
         Size: =25
-        Text: ="Place Order"
+        Text: ="Next"
         Width: =199
         X: =1148
         Y: =717
