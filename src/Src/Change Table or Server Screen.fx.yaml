@@ -31,7 +31,7 @@
         HoverFill: =ColorFade(RGBA(178, 0, 0, 1), -20%)
         OnSelect: |
             =SubmitForm(frmUpdateHostTables);
-            Patch(Orders, LookUp(Orders, 'Order Number' = OrderToReassign), {'Server ID': 1000});
+            Patch(Orders, LookUp(Orders, 'Order Number' = OrderToReassign), {'Server ID': Value(DataCardValue4.Selected.'Order Staff ID')});
             Navigate('Orders List Screen', Fade);
             Notify("You have reassigned order #" & OrderToReassign & ".", Success);
             Set(OrderToReassign, Blank());
