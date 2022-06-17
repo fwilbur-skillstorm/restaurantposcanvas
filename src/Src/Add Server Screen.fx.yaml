@@ -197,6 +197,7 @@
                 DisplayFields: =["Value"]
                 DisplayMode: =Parent.DisplayMode
                 Font: =Font.Lato
+                HoverFill: =RGBA(190, 0, 0, 1)
                 IsSearchable: =false
                 Items: =Choices('Team Lead (OrderingStaff)')
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
