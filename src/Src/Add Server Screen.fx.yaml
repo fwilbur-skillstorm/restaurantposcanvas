@@ -2,6 +2,7 @@
     Fill: =RGBA(216, 59, 1, 1)
 
     frmNewServer As form:
+        BorderColor: =RGBA(118, 0, 0, 1)
         DataSource: =OrderingStaff
         DefaultMode: =FormMode.New
         Height: =255
@@ -122,7 +123,9 @@
                 Default: =Parent.Default
                 DelayOutput: =true
                 DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(226, 156, 126, 1)
                 Font: =Font.Lato
+                HoverBorderColor: =RGBA(118, 0, 0, 1)
                 MaxLength: =Parent.MaxLength
                 PaddingLeft: =5
                 RadiusBottomLeft: =0
@@ -197,6 +200,7 @@
                 DefaultSelectedItems: =[Parent.Default]
                 DisplayFields: =["Value"]
                 DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(226, 156, 126, 1)
                 Font: =Font.Lato
                 HoverFill: =RGBA(190, 0, 0, 1)
                 IsSearchable: =false
