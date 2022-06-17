@@ -36,7 +36,7 @@
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Text: =ThisItem.'Customization Request'
+            Text: =If(!IsBlank(ThisItem.'Customization Request'), ThisItem.'Customization Request', "(No customizations).")
             VerticalAlign: =VerticalAlign.Top
             Width: =680
             X: =32
@@ -48,8 +48,11 @@
             Height: =60
             Icon: =Icon.ChevronRight
             OnSelect: |-
-                =Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp(Orders, 'Order Number' = ToEditOrderNumber)});
-                UpdateIf('Order Details', 'Order ID' = Value(ToEditOrderNumber) && IsBlank('Sent to Kitchen'), {
+                =If(!IsBlank(LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber) && 'Sent to Kitchen' = Blank(), 'Menu Item'.Name)),
+                    Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp(Orders, 'Order Number' = ToEditOrderNumber)}),
+                    Notify("No new items to send to kitchen!", Error, 2500));
+                
+                Patch('Order Details', ThisItem, {
                     'Kitchen Ticket': LookUp('Kitchen Tickets', Order.'Order Number' = ToEditOrderNumber),
                     'Sent to Kitchen': Now()
                 })
@@ -94,7 +97,7 @@
 
     Gallery4 As gallery.galleryVertical:
         Height: =687
-        Items: =Filter('Kitchen Tickets', 'Status' = 'Status (Kitchen Tickets)'.Active && Order.'Order Number' = ToEditOrderNumber)
+        Items: =Filter('Kitchen Tickets', Status = 'Status (Kitchen Tickets)'.Active && Order.'Order Number' = ToEditOrderNumber)
         Layout: =Layout.Vertical
         TemplateSize: =205
         Width: =420
@@ -123,6 +126,7 @@
             ZIndex: =2
 
     btnSendToKitchen As button:
+        Font: =Font.Lato
         Height: =60
         OnSelect: |-
             =If(!IsBlank(LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber) && 'Sent to Kitchen' = Blank(), 'Menu Item'.Name)),
@@ -133,9 +137,10 @@
                 'Kitchen Ticket': LookUp('Kitchen Tickets', Order.'Order Number' = ToEditOrderNumber),
                 'Sent to Kitchen': Now()
             })
-        Text: ="Button"
-        Width: =188
-        X: =273
+        Size: =22
+        Text: ="Send to Kitchen"
+        Width: =261
+        X: =246
         Y: =655
         ZIndex: =3
 
@@ -159,8 +164,7 @@
         FontWeight: =FontWeight.Bold
         Height: =45
         Size: =22
-        Text: |-
-            ="Order #" & ToEditOrderNumber
+        Text: =
         Width: =1366
         Y: =723
         ZIndex: =5
