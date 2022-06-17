@@ -1,15 +1,10 @@
 "'Orders List Screen' As screen.'tabletLayout_HeaderAndGallery_ver3.0'":
-
-    RectQuickActionBar1 As rectangle:
-        Fill: =RGBA(168, 0, 0, 1)
-        Height: =64
-        Width: =Parent.Width
-        ZIndex: =1
+    Fill: =RGBA(237, 237, 237, 1)
 
     "OrdersListGallery As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
         BorderColor: =RGBA(216, 59, 1, 1)
         Fill: =RGBA(235, 235, 235, 1)
-        Height: =640
+        Height: =678
         Items: |-
             =If("Yes" in TeamLead,
                 SortByColumns(Filter(Orders, Status = 'Status (Orders)'.Active), "kitchen_ordernumber", Ascending),
@@ -22,12 +17,12 @@
         TemplateSize: =187
         Transition: =Transition.Push
         Width: =Parent.Width
-        Y: =64
+        Y: =45
         ZIndex: =1
 
         lblOrderNumber As label:
             Font: =Font.Lato
-            Height: =43
+            Height: =45
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
@@ -37,9 +32,9 @@
             Text: |-
                 ="Table number: " & ThisItem.Table.'Table ID'
             VerticalAlign: =VerticalAlign.Top
-            Width: =843
+            Width: =334
             X: =47
-            Y: =98
+            Y: =93
             ZIndex: =1
 
         Separator1 As rectangle:
@@ -140,7 +135,7 @@
             OnSelect: |-
                 =Set(OrderToReassign, ThisItem.'Order Number');
                 Set(ServerToReassign, ThisItem.'Server ID');
-                Set(TableIDForUpdate, LookUp('Orders', 'Order Number' = OrderToReassign, Table.'Table ID'));
+                Set(TableIDForUpdate, LookUp(Orders, 'Order Number' = OrderToReassign, Table.'Table ID'));
                 Navigate('Change Table or Server Screen', Fade);
             Size: =22
             Text: ="Reassign"
@@ -150,33 +145,52 @@
             Y: =18
             ZIndex: =8
 
+        lblServerID As label:
+            Color: =RGBA(116, 116, 116, 1)
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Normal
+            Height: =52
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =22
+            Text: |-
+                =If("Yes" in TeamLead, "Server ID: " & ThisItem.'Server ID', "")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =334
+            X: =381
+            Y: =26
+            ZIndex: =9
+
     txtOrdersListGalleryTitle As label:
         Align: =Align.Center
         Fill: =RGBA(216, 59, 1, 1)
         Font: =Font.'Lato Black'
         FontWeight: =FontWeight.Bold
-        Height: =64
+        Height: =45
         PaddingRight: =10
         Size: =26
-        Text: =If(!IsBlank(ServerID), ServerID & " — " & FullName & "'s Orders", "No Server Logged In!")
+        Text: |-
+            =If("No" in TeamLead, "Server #" & ServerID & " — " & FullName & "'s Orders", "Full Order List (Server: #" & ServerID & " — " & FullName & ")")
         Width: =Parent.Width
         ZIndex: =2
 
     icnOrderListBack As icon.Reset:
         BorderColor: =RGBA(255, 255, 255, 1)
         Color: =RGBA(255, 255, 255, 1)
-        Height: =46
+        Height: =45
         Icon: =Icon.Reset
         OnSelect: =Navigate('Logged In Landing Page Screen', Fade);
-        Width: =38
-        X: =17
-        Y: =9
+        Width: =33
+        X: =14
         ZIndex: =4
 
     RectQuickActionBar1_1 As rectangle:
         Fill: =RGBA(216, 59, 1, 1)
-        Height: =64
+        Height: =45
         Width: =Parent.Width
-        Y: =704
+        Y: =723
         ZIndex: =5
 
