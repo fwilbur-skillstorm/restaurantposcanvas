@@ -1,14 +1,45 @@
 "'Submit Whole Order to Kitchen Screen' As screen":
     Fill: =RGBA(216, 59, 1, 1)
 
+    Gallery4 As gallery.galleryVertical:
+        BorderThickness: =1
+        Height: =687
+        Items: =Filter('Kitchen Tickets', 'Kitchen Tickets (Views)'.'Active Kitchen Tickets')
+        Layout: =Layout.Vertical
+        TemplateSize: =205
+        X: =684
+        Y: =52
+        ZIndex: =1
+
+        Label7 As label:
+            Height: =42
+            OnSelect: =Select(Parent)
+            Text: |-
+                ="Ticket Number: " & ThisItem.'Ticket Number'
+            Width: =283
+            X: =32
+            Y: =24
+            ZIndex: =1
+
+        Label9 As label:
+            Height: =35
+            OnSelect: =Select(Parent)
+            Text: |-
+                ="Order Number: " & ThisItem.'Order'.'Order Number'
+            Width: =210
+            X: =32
+            Y: =80
+            ZIndex: =2
+
     "galOrderDetailsToSend As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+        Height: =512
         Items: =Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber))
         Layout: =Layout.Vertical
         TemplatePadding: =0
         TemplateSize: =168
-        Width: =810
-        X: =47
-        Y: =87
+        Width: =597
+        X: =56
+        Y: =136
         ZIndex: =1
 
         Title4 As label:
@@ -102,7 +133,7 @@
     btnSendToKitchen As button:
         Height: =60
         OnSelect: |-
-            =Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: 
+            =Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp('Orders', 'Order Number' = ToEditOrderNumber)});
         Text: ="Button"
         Width: =188
         X: =273
