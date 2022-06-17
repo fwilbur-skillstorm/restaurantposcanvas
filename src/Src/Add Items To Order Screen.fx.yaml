@@ -1,11 +1,11 @@
 "'Add Items To Order Screen' As screen":
-    Fill: =RGBA(168, 0, 0, 1)
+    Fill: =RGBA(235, 235, 235, 1)
 
     RectQuickActionBar2_1 As rectangle:
-        Fill: =RGBA(172, 62, 11, 1)
-        Height: =64
+        Fill: =RGBA(216, 59, 1, 1)
+        Height: =45
         Width: =Parent.Width
-        Y: =704
+        Y: =723
         ZIndex: =1
 
     "galCartItems As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
@@ -36,6 +36,7 @@
 
         btnDeleteFromCart As icon.ChevronRight:
             AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(118, 0, 0, 1)
             Height: =60
             Icon: =Icon.Trash
             OnSelect: |
@@ -47,8 +48,8 @@
             TabIndex: =0
             Tooltip: ="View item details"
             Width: =60
-            X: =496
-            Y: =7
+            X: =511
+            Y: =48
             ZIndex: =2
 
         Separator11 As rectangle:
@@ -59,9 +60,11 @@
             ZIndex: =3
 
         txtCustomizationRequest2 As text:
+            BorderColor: =RGBA(172, 62, 11, 1)
             Default: =ThisItem.'Customization Request'
             Height: =110
             HintText: ="Enter Customization"
+            HoverBorderColor: =RGBA(118, 0, 0, 1)
             Mode: =TextMode.MultiLine
             OnSelect: =Select(Parent)
             Width: =334
@@ -70,11 +73,14 @@
             ZIndex: =6
 
         btnUpdateCustomization As button:
+            Fill: =RGBA(118, 0, 0, 1)
+            Font: =Font.Lato
             OnSelect: |
                 =Patch('Order Details', LookUp('Order Details', Name = ThisItem.Name), {'Customization Request': txtCustomizationRequest2.Text})
+            Size: =18
             Text: ="Update"
-            X: =415
-            Y: =77
+            X: =411
+            Y: =118
             ZIndex: =7
 
     "galMenuItems As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
@@ -89,7 +95,9 @@
         ZIndex: =3
 
         lblItemNumber As label:
-            Height: =Self.Size * 1.8
+            Color: =RGBA(116, 116, 116, 1)
+            Font: =Font.Lato
+            Height: =36
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
@@ -97,21 +105,21 @@
             PaddingTop: =0
             Text: =ThisItem.'Item Number'
             VerticalAlign: =VerticalAlign.Top
-            Width: =Parent.TemplateWidth - 104
+            Width: =403
             X: =32
             Y: =16
             ZIndex: =1
 
         lblItemName As label:
-            Color: =RGBA(204, 204, 204, 1)
+            Font: =Font.'Lato Black'
             FontWeight: =FontWeight.Bold
-            Height: =Self.Size * 1.8
+            Height: =35
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Size: =25
+            Size: =24
             Text: =ThisItem.Name
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
@@ -120,12 +128,14 @@
             ZIndex: =2
 
         lblItemDescription As label:
+            Font: =Font.'Lato Light'
             Height: =Self.Size * 4
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            Size: =18
             Text: |
                 =ThisItem.Description
             VerticalAlign: =VerticalAlign.Top
@@ -136,6 +146,7 @@
 
         NextArrow1 As icon.ChevronRight:
             AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(0, 0, 0, 1)
             Height: =60
             Icon: =Icon.Add
             OnSelect: |-
@@ -177,6 +188,7 @@
 
     lblOrderCart As label:
         Align: =Align.Center
+        Fill: =RGBA(235, 235, 235, 1)
         FontWeight: =FontWeight.Bold
         Height: =79
         Size: =25
@@ -191,14 +203,14 @@
         Size: =25
         Text: ="Next"
         Width: =199
-        X: =1148
-        Y: =717
+        X: =1149
+        Y: =727
         ZIndex: =6
 
     lblEditOrderTopSeparator As label:
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
-        Fill: =RGBA(172, 62, 11, 1)
+        Fill: =RGBA(216, 59, 1, 1)
         FontWeight: =FontWeight.Bold
         Height: =45
         Size: =22
@@ -221,7 +233,8 @@
         ZIndex: =8
 
     lblItemSearch As label:
-        Height: =38
+        Font: =Font.Lato
+        Size: =14
         Text: ="Search"
         Width: =73
         X: =26
@@ -237,12 +250,12 @@
 
     lblSubtotal As label:
         FontWeight: =FontWeight.Semibold
-        Height: =56
+        Height: =45
         Size: =25
         Text: |
             ="Subtotal: " & Text(Sum(Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber)), 'Menu Item'.Price), "$##.#0")
         Width: =294
         X: =812
-        Y: =708
+        Y: =723
         ZIndex: =11
 

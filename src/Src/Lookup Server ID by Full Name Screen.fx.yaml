@@ -49,8 +49,8 @@
             UpdateContext({ServerID: LookUp(OrderingStaff, 'Full Name' = FullNameToLookUp.Text, 'Order Staff ID')});
             
             If(!IsBlank(ServerID),
-                Notify("We found the ID you are looking for!", Success, 2500),
-                Notify("An ID was not found for the name '" & FullNameToLookUp.Text & "'.", Error, 2500)
+                Notify("We found the ID you are looking for!", Success, 2000),
+                Notify("An ID was not found for the name '" & FullNameToLookUp.Text & "'.", Error, 2000)
             );
             
             Reset(txtEnterFullName);
@@ -77,7 +77,6 @@
         Align: =Align.Center
         BorderColor: =RGBA(118, 0, 0, 1)
         BorderStyle: =BorderStyle.Dotted
-        BorderThickness: =1
         Font: =Font.'Lato Black'
         Height: =124
         Size: =52

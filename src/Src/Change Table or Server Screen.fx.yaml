@@ -1,0 +1,158 @@
+"'Change Table or Server Screen' As screen":
+    Fill: =RGBA(216, 59, 1, 1)
+
+    lblReassignTableOrServer As label:
+        Align: =Align.Center
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =143
+        Size: =48
+        Text: ="Change Table/Server"
+        Width: =670
+        X: =351
+        ZIndex: =3
+
+    BackIcon1_3 As icon.Reset:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        Icon: =Icon.Reset
+        OnSelect: |-
+            =Navigate('Orders List Screen', Fade);
+            Set(OrderToReassign, Blank());
+        X: =40
+        Y: =40
+        ZIndex: =4
+
+    btnReassignAction As button:
+        DisabledFill: =RGBA(168, 0, 0, 1)
+        Fill: =RGBA(118, 0, 0, 1)
+        Font: =Font.Lato
+        Height: =60
+        HoverFill: =ColorFade(RGBA(178, 0, 0, 1), -20%)
+        OnSelect: |
+            =SubmitForm(frmUpdateHostTables);
+            Patch('Orders', LookUp('Orders', 'Order Number' = OrderToReassign), {'Server ID': DataCardValue4});
+            Navigate('Orders List Screen', Fade);
+            Notify("You have reassigned order #" & OrderToReassign & ".", Success);
+            Set(OrderToReassign, Blank());
+            Set(TableIDForUpdate, Blank());
+            Set(ServerToReassign, Blank());
+        Size: =22
+        Text: ="Reassign"
+        Width: =213
+        X: =578
+        Y: =510
+        ZIndex: =5
+
+    frmUpdateHostTables As form:
+        BorderColor: =RGBA(118, 0, 0, 1)
+        DataSource: =HostTables
+        Height: =137
+        Item: =LookUp('HostTables', 'Table ID' = TableIDForUpdate)
+        NumberOfColumns: =1
+        Width: =826
+        X: =284
+        Y: =324
+        ZIndex: =6
+
+        "'Server ID_DataCard1' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="kitchen_ServerID"
+            Default: =ThisItem.'Server ID'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@HostTables],DataSourceInfo.DisplayName,"kitchen_ServerID")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue4.Selected
+            Width: =826
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey4 As label:
+                AutoHeight: =true
+                Color: =RGBA(0, 0, 0, 1)
+                Font: =Font.Lato
+                Height: =34
+                Size: =22
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue4 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                ChevronBackground: =RGBA(118, 0, 0, 1)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["order_fullname"]
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(226, 156, 126, 1)
+                Font: =Font.Lato
+                InputTextPlaceholder: ="Select Server by ID"
+                Items: =Choices([@HostTables].kitchen_ServerID)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["order_fullname"]
+                SearchItems: =Search(Choices([@HostTables].kitchen_ServerID),DataCardValue4.SearchText,"order_fullname")
+                SelectionFill: =RGBA(168, 0, 0, 1)
+                SelectMultiple: =false
+                Size: =16
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey4.Y + DataCardKey4.Height + 5
+                ZIndex: =2
+
+            ErrorMessage8 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue4.Y + DataCardValue4.Height
+                ZIndex: =3
+
+            StarVisible8 As label:
+                Align: =Align.Center
+                Height: =DataCardKey4.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey4.Y
+                ZIndex: =4
+
+    lblForOrderNumber As label:
+        Align: =Align.Center
+        DisplayMode: =DisplayMode.View
+        Font: =Font.Lato
+        Height: =69
+        Size: =28
+        Text: |-
+            ="What is being reassigned:"
+        Width: =466
+        X: =452
+        Y: =160
+        ZIndex: =7
+
+    lblOrderToReassign As label:
+        Align: =Align.Center
+        DisplayMode: =DisplayMode.View
+        Font: =Font.Lato
+        Height: =69
+        Size: =28
+        Text: |-
+            ="Server #" & ServerToReassign & "'s Order #" & OrderToReassign & " at Table #" & TableIDForUpdate
+        Width: =1364
+        X: =1
+        Y: =229
+        ZIndex: =8
+
