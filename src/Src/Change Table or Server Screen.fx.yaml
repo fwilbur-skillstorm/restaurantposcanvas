@@ -17,8 +17,8 @@
         Color: =RGBA(0, 0, 0, 1)
         Icon: =Icon.Reset
         OnSelect: |-
-            =Set(OrderToReassign, Blank());
-            Navigate('Orders List Screen', Fade);
+            =Navigate('Orders List Screen', Fade);
+            Set(OrderToReassign, Blank());
         X: =40
         Y: =40
         ZIndex: =4
@@ -31,6 +31,7 @@
         HoverFill: =ColorFade(RGBA(178, 0, 0, 1), -20%)
         OnSelect: |
             =SubmitForm(frmUpdateHostTables);
+            Patch('Orders', LookUp('Orders', 'Order Number' = OrderToReassign), {Table: LookUp(HostTables, 'Table ID' = TableIDForUpdate)});
             Navigate('Orders List Screen', Fade);
             Notify("You have reassigned order #" & OrderToReassign & ".", Success);
             Set(OrderToReassign, Blank());
@@ -148,7 +149,7 @@
         Height: =69
         Size: =28
         Text: |-
-            ="Server #" & OrderToReassign & " at Table #" & TableIDForUpdate
+            ="Order #" & OrderToReassign & " at Table #" & TableIDForUpdate
         Width: =1364
         X: =1
         Y: =229
