@@ -1,7 +1,7 @@
 "'Change Table or Server Screen' As screen":
     Fill: =RGBA(216, 59, 1, 1)
 
-    txtEditMenuItemLabel As label:
+    lblReassignTableOrServer As label:
         Align: =Align.Center
         Font: =Font.'Lato Black'
         FontWeight: =FontWeight.Bold
@@ -21,7 +21,7 @@
         Y: =40
         ZIndex: =4
 
-    btnLogin_2 As button:
+    btnReassignAction As button:
         DisabledFill: =RGBA(168, 0, 0, 1)
         Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
@@ -30,14 +30,15 @@
         Size: =22
         Text: ="Reassign"
         Width: =213
-        X: =579
-        Y: =589
+        X: =578
+        Y: =510
         ZIndex: =5
 
-    Form1 As form:
+    frmUpdateHostTables As form:
         BorderColor: =RGBA(118, 0, 0, 1)
         DataSource: =HostTables
         Height: =137
+        Item: =LookUp('HostTables', 'Table ID' = LookUp('Orders', 'Order ID' = OrOrderToReassign, )
         NumberOfColumns: =2
         Width: =826
         X: =284
@@ -195,7 +196,7 @@
                 Y: =DataCardKey4.Y
                 ZIndex: =4
 
-    Label2 As label:
+    lblForOrderNumber As label:
         Align: =Align.Center
         DisplayMode: =DisplayMode.View
         Font: =Font.Lato
@@ -208,16 +209,23 @@
         Y: =160
         ZIndex: =7
 
-    Label2_1 As label:
+    lblOrderToReassign As label:
         Align: =Align.Center
         DisplayMode: =DisplayMode.View
         Font: =Font.Lato
         Height: =69
         Size: =28
-        Text: |-
-            ="For Order Number:"
+        Text: =OrderToReassign
         Width: =466
         X: =453
         Y: =229
         ZIndex: =8
+
+    Label5 As label:
+        Height: =120
+        Text: =LookUp('Orders', 'Order Number' = 1004).Table.'Table ID'
+        Width: =243
+        X: =1075
+        Y: =166
+        ZIndex: =9
 
