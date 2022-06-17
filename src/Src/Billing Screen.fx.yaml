@@ -1,13 +1,14 @@
 "'Billing Screen' As screen":
 
     "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
-        Height: =281
+        BorderColor: =RGBA(118, 0, 0, 1)
+        Height: =292
         Items: =Filter('Order Details', 'Order ID' = Value(SelectedOrder.'Order Number'))
         Layout: =Layout.Vertical
         TemplatePadding: =0
-        TemplateSize: =33
+        TemplateSize: =28
         Width: =1366
-        Y: =27
+        Y: =45
         ZIndex: =1
 
         Title2 As label:
@@ -104,9 +105,9 @@
 
     LightOutbg As rectangle:
         Fill: =RGBA(153, 153, 153, 0.4)
-        Height: =677
+        Height: =342
         Width: =1366
-        Y: =45
+        Y: =337
         ZIndex: =9
 
     Label4 As label:
