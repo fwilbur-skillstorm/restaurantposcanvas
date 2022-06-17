@@ -25,7 +25,7 @@
             Height: =35
             OnSelect: =Select(Parent)
             Text: |-
-                ="Order Number: " & ThisItem.'Order'.'Order Number'
+                ="Order Number: " & ThisItem.Order.'Order Number'
             Width: =210
             X: =32
             Y: =80
@@ -110,10 +110,12 @@
             ZIndex: =5
 
         Label5 As label:
+            Height: =42
             OnSelect: =Select(Parent)
             Text: |-
                 =If(IsBlank(ThisItem.'Sent to Kitchen'), "Not yet sent...", "Sent At: " & ThisItem.'Sent to Kitchen')
-            X: =370
+            Width: =247
+            X: =272
             Y: =14
             ZIndex: =6
 
@@ -141,16 +143,15 @@
     btnSendToKitchen As button:
         Height: =60
         OnSelect: |-
-            =ClearCollect(ItemsToSendToKitchen, galOrderDetailsToSend.AllItems);
-            Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp('Orders', 'Order Number' = ToEditOrderNumber)});
+            =Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp(Orders, 'Order Number' = ToEditOrderNumber)});
             
-            ForAll(ItemsToSendToKitchen,
-                Patch('Order Details', LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber)), {
-                'Kitchen Ticket': LookUp('Kitchen Tickets', Order.'Order Number' = ToEditOrderNumber)
-            }))
+            UpdateIf('Order Details', 'Order ID' = Value(ToEditOrderNumber) && IsBlank('Sent to Kitchen'), {
+                'Kitchen Ticket': LookUp('Kitchen Tickets', Order.'Order Number' = ToEditOrderNumber),
+                'Sent to Kitchen': Now()
+            })
         Text: ="Button"
         Width: =188
         X: =273
-        Y: =679
+        Y: =665
         ZIndex: =3
 
