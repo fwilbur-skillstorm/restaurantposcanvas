@@ -200,6 +200,7 @@
 
     btnPlaceOrder As button:
         Height: =37
+        OnSelect: =Navigate('Submit Whole Order to Kitchen Screen', Fade);
         Size: =25
         Text: ="Next"
         Width: =199
