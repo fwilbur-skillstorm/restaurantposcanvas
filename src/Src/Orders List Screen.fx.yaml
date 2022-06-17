@@ -47,15 +47,15 @@
 
         btnPay As button:
             Fill: =RGBA(141, 198, 63, 1)
-            Height: =50
+            Height: =59
             OnSelect: |-
                 =Select(Parent);
                 Navigate('Billing Screen', None);
             Size: =20
             Text: ="Pay"
-            Width: =147
-            X: =918
-            Y: =23
+            Width: =190
+            X: =901
+            Y: =19
             ZIndex: =4
 
         btnEditOrderItem As button:
@@ -65,8 +65,9 @@
             DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
             Fill: =RGBA(172, 62, 11, 1)
             FocusedBorderColor: =btnEditOrderItem.BorderColor
-            FontWeight: =Semibold
-            Height: =54
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Normal
+            Height: =59
             HoverBorderColor: =ColorFade(btnEditOrderItem.BorderColor, 20%)
             HoverColor: =btnEditOrderItem.Color
             HoverFill: =ColorFade(btnEditOrderItem.Fill, 20%)
@@ -85,22 +86,24 @@
             RadiusBottomRight: =20
             RadiusTopLeft: =20
             RadiusTopRight: =20
-            Size: =14
-            Text: ="EDIT"
-            Width: =147
-            X: =918
-            Y: =98
+            Size: =20
+            Text: ="Edit"
+            Width: =190
+            X: =901
+            Y: =93
             ZIndex: =5
 
         Button2 As button:
             Fill: =RGBA(118, 0, 0, 1)
+            Height: =60
             OnSelect: |-
                 =Select(Parent);
                 Set(ToEditOrderNumber, ThisItem.'Order Number');
                 Navigate('Submit To Kitchen',ScreenTransition.Fade);
             Text: ="Kitchen"
-            X: =1125
-            Y: =105
+            Width: =190
+            X: =1116
+            Y: =93
             ZIndex: =6
 
         lblOrderNumber_1 As label:
@@ -119,6 +122,32 @@
             X: =47
             Y: =26
             ZIndex: =7
+
+        btnLogin_1 As button:
+            DisabledFill: =RGBA(168, 0, 0, 1)
+            Fill: =RGBA(255, 191, 0, 1)
+            Font: =Font.Lato
+            Height: =60
+            HoverFill: =ColorFade(RGBA(178, 0, 0, 1), -20%)
+            OnSelect: |-
+                =Set(ServerID, txtServerID.Text);
+                Set(FullName, LookUp(OrderingStaff, 'Order Staff ID' = ServerID && PIN = txtPIN.Text, 'Full Name'));
+                Set(TeamLead, LookUp(OrderingStaff, 'Order Staff ID' = ServerID && PIN = txtPIN.Text, 'Team Lead'));
+                
+                If(!IsBlank(FullName),
+                    Navigate('Logged In Landing Page Screen', Fade),
+                    Notify("The login information provided does not match anything in our records.", NotificationType.Error)
+                );
+                
+                Reset(txtPIN);
+                Reset(txtServerID);
+            Size: =22
+            Text: ="Reassign"
+            Visible: =If("Yes" in TeamLead, true, false)
+            Width: =190
+            X: =1116
+            Y: =18
+            ZIndex: =8
 
     txtOrdersListGalleryTitle As label:
         Align: =Align.Center

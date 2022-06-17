@@ -69,7 +69,7 @@
             Set(FullName, Blank());
             Set(TeamLead, Blank());
             Navigate('Login Screen', Fade);
-            Notify("You have logged out.", NotificationType.Information);
+            Notify("You have logged out.", NotificationType.Information, 1500);
         Size: =22
         Text: ="Logout"
         Width: =166

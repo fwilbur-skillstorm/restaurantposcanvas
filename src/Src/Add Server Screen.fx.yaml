@@ -270,7 +270,7 @@
 
     btnNewServerBackArrow As icon.Reset:
         BorderColor: =RGBA(255, 255, 255, 1)
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(0, 0, 0, 1)
         Icon: =Icon.Reset
         OnSelect: =Back();
         X: =40

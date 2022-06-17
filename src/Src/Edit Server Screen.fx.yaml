@@ -26,7 +26,7 @@
 
     BackIcon1_2 As icon.Reset:
         BorderColor: =RGBA(255, 255, 255, 1)
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(0, 0, 0, 1)
         Icon: =Icon.Reset
         OnSelect: =Navigate('Servers List Screen', Fade);
         X: =40
