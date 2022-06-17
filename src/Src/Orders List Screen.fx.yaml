@@ -43,6 +43,8 @@
             ZIndex: =1
 
         Separator1 As rectangle:
+            BorderColor: =RGBA(172, 62, 11, 1)
+            Fill: =RGBA(216, 59, 1, 1)
             Height: =1
             OnSelect: =Select(Parent)
             Width: =Parent.TemplateWidth
@@ -111,8 +113,9 @@
             ZIndex: =6
 
         lblOrderNumber_1 As label:
+            Color: =If(ThisItem.'Server ID' = Value(ServerID) && "Yes" in TeamLead, RGBA(240, 200, 0, 1), RGBA(0, 0, 0, 1))
             Font: =Font.Lato
-            Height: =43
+            Height: =52
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
@@ -121,8 +124,9 @@
             Size: =22
             Text: |-
                 ="Order number: " & ThisItem.'Order Number'
+            Underline: =If(ThisItem.'Server ID' = Value(ServerID) && "Yes" in TeamLead, true, false)
             VerticalAlign: =VerticalAlign.Top
-            Width: =843
+            Width: =334
             X: =47
             Y: =26
             ZIndex: =7
