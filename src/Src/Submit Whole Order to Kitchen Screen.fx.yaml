@@ -25,7 +25,7 @@
             Height: =35
             OnSelect: =Select(Parent)
             Text: |-
-                ="Order Number: " & ThisItem.'Order'.'Order Number'
+                ="Order Number: " & ThisItem.Order.'Order Number'
             Width: =210
             X: =32
             Y: =80
@@ -142,11 +142,12 @@
         Height: =60
         OnSelect: |-
             =ClearCollect(ItemsToSendToKitchen, galOrderDetailsToSend.AllItems);
-            Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp('Orders', 'Order Number' = ToEditOrderNumber)});
+            Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp(Orders, 'Order Number' = ToEditOrderNumber)});
             
             ForAll(ItemsToSendToKitchen,
                 Patch('Order Details', LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber)), {
-                'Kitchen Ticket': LookUp('Kitchen Tickets', Order.'Order Number' = ToEditOrderNumber)
+                'Kitchen Ticket': LookUp('Kitchen Tickets', Order.'Order Number' = ToEditOrderNumber),
+                'Sent to Kitchen': Now()
             }))
         Text: ="Button"
         Width: =188
