@@ -130,17 +130,8 @@
             Height: =60
             HoverFill: =ColorFade(RGBA(178, 0, 0, 1), -20%)
             OnSelect: |-
-                =Set(ServerID, txtServerID.Text);
-                Set(FullName, LookUp(OrderingStaff, 'Order Staff ID' = ServerID && PIN = txtPIN.Text, 'Full Name'));
-                Set(TeamLead, LookUp(OrderingStaff, 'Order Staff ID' = ServerID && PIN = txtPIN.Text, 'Team Lead'));
-                
-                If(!IsBlank(FullName),
-                    Navigate('Logged In Landing Page Screen', Fade),
-                    Notify("The login information provided does not match anything in our records.", NotificationType.Error)
-                );
-                
-                Reset(txtPIN);
-                Reset(txtServerID);
+                =Set(OrderToReassign, ThisItem.'Order Number');
+                Navigate('Change Table or Server Screen', Fade);
             Size: =22
             Text: ="Reassign"
             Visible: =If("Yes" in TeamLead, true, false)
