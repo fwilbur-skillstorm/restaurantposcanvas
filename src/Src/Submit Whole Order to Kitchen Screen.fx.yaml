@@ -110,10 +110,12 @@
             ZIndex: =5
 
         Label5 As label:
+            Height: =42
             OnSelect: =Select(Parent)
             Text: |-
                 =If(IsBlank(ThisItem.'Sent to Kitchen'), "Not yet sent...", "Sent At: " & ThisItem.'Sent to Kitchen')
-            X: =370
+            Width: =247
+            X: =272
             Y: =14
             ZIndex: =6
 
@@ -145,7 +147,7 @@
             Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp(Orders, 'Order Number' = ToEditOrderNumber)});
             
             ForAll(ItemsToSendToKitchen,
-                Patch('Order Details', LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber)), {
+                Patch('Order Details', LookUp('Order Details', 'Order ID' = ItemsToSendToKitchen[@'Order ID']), {
                 'Kitchen Ticket': LookUp('Kitchen Tickets', Order.'Order Number' = ToEditOrderNumber),
                 'Sent to Kitchen': Now()
             }))
