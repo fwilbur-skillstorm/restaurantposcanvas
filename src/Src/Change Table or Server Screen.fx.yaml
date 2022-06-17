@@ -29,7 +29,12 @@
         Font: =Font.Lato
         Height: =60
         HoverFill: =ColorFade(RGBA(178, 0, 0, 1), -20%)
-        OnSelect: =Set(OrderToReassign, Blank());
+        OnSelect: |
+            =SubmitForm(frmUpdateHostTables);
+            Navigate('Orders List Screen', Fade);
+            Notify("You have reassigned order #" & OrderToReassign & ".", Success);
+            Set(OrderToReassign, Blank());
+            Set(TableIDForUpdate, Blank());
         Size: =22
         Text: ="Reassign"
         Width: =213
@@ -42,87 +47,11 @@
         DataSource: =HostTables
         Height: =137
         Item: =LookUp('HostTables', 'Table ID' = TableIDForUpdate)
-        NumberOfColumns: =2
+        NumberOfColumns: =1
         Width: =826
         X: =284
         Y: =324
         ZIndex: =6
-
-        "'Table ID_DataCard2' As typedDataCard.textualEditCard":
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="host_name"
-            Default: =ThisItem.'Table ID'
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@HostTables],DataSourceInfo.DisplayName,"host_name")
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            MaxLength: =DataSourceInfo([@HostTables], DataSourceInfo.MaxLength, "host_name")
-            Required: =false
-            Update: =DataCardValue3.Text
-            Width: =413
-            X: =0
-            Y: =0
-            ZIndex: =1
-
-            DataCardKey3 As label:
-                AutoHeight: =true
-                Color: =RGBA(0, 0, 0, 1)
-                Font: =Font.Lato
-                Height: =34
-                Size: =22
-                Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue3 As text:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                Default: =Parent.Default
-                DelayOutput: =true
-                DisplayMode: =Parent.DisplayMode
-                Fill: =RGBA(226, 156, 126, 1)
-                Font: =Font.Lato
-                HintText: ="Enter Table Number"
-                HoverBorderColor: =RGBA(118, 0, 0, 1)
-                MaxLength: =Parent.MaxLength
-                PaddingLeft: =5
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Size: =16
-                Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey3.Y + DataCardKey3.Height + 5
-                ZIndex: =2
-
-            ErrorMessage7 As label:
-                AutoHeight: =true
-                Height: =10
-                Live: =Live.Assertive
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Error
-                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardValue3.Y + DataCardValue3.Height
-                ZIndex: =3
-
-            StarVisible7 As label:
-                Align: =Align.Center
-                Height: =DataCardKey3.Height
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                Wrap: =false
-                Y: =DataCardKey3.Y
-                ZIndex: =4
 
         "'Server ID_DataCard1' As typedDataCard.comboBoxEditCard":
             BorderStyle: =BorderStyle.Solid
@@ -134,8 +63,8 @@
             Height: =50
             Required: =false
             Update: =DataCardValue4.Selected
-            Width: =413
-            X: =1
+            Width: =826
+            X: =0
             Y: =0
             ZIndex: =1
 
@@ -218,9 +147,10 @@
         Font: =Font.Lato
         Height: =69
         Size: =28
-        Text: =OrderToReassign
-        Width: =466
-        X: =453
+        Text: |-
+            ="Server #" & OrderToReassign & " at Table #" & TableIDForUpdate
+        Width: =1364
+        X: =1
         Y: =229
         ZIndex: =8
 
