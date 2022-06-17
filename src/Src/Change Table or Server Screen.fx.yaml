@@ -27,6 +27,7 @@
         Font: =Font.Lato
         Height: =60
         HoverFill: =ColorFade(RGBA(178, 0, 0, 1), -20%)
+        OnSelect: =Set(OrderToReassign, Blank());
         Size: =22
         Text: ="Reassign"
         Width: =213
@@ -223,7 +224,7 @@
 
     Label5 As label:
         Height: =120
-        Text: =LookUp('Orders', 'Order Number' = 1004).Table.'Table ID'
+        Text: =LookUp('Orders', 'Order Number' = OrderToReassign).Table.'Table ID'
         Width: =243
         X: =1075
         Y: =166
