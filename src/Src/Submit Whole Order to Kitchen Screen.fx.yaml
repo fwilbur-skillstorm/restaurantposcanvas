@@ -1,15 +1,106 @@
 "'Submit Whole Order to Kitchen Screen' As screen":
-    Fill: =RGBA(216, 59, 1, 1)
+    Fill: =RGBA(237, 237, 237, 1)
+
+    "galOrderDetailsToSend As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+        Height: =512
+        Items: =Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber))
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =168
+        Width: =788
+        X: =56
+        Y: =136
+        ZIndex: =1
+
+        Title4 As label:
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Normal
+            Height: =38
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =18
+            Text: =ThisItem.'Menu Item'.Name
+            VerticalAlign: =VerticalAlign.Top
+            Width: =680
+            X: =32
+            Y: =16
+            ZIndex: =1
+
+        Body1 As label:
+            Height: =Self.Size * 4
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'Customization Request'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =680
+            X: =32
+            Y: =54
+            ZIndex: =3
+
+        NextArrow5 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: |-
+                =Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp(Orders, 'Order Number' = ToEditOrderNumber)});
+                UpdateIf('Order Details', 'Order ID' = Value(ToEditOrderNumber) && IsBlank('Sent to Kitchen'), {
+                    'Kitchen Ticket': LookUp('Kitchen Tickets', Order.'Order Number' = ToEditOrderNumber),
+                    'Sent to Kitchen': Now()
+                })
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator7 As rectangle:
+            Fill: =RGBA(118, 0, 0, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Label5 As label:
+            Height: =36
+            OnSelect: =Select(Parent)
+            Text: |-
+                =If(IsBlank(ThisItem.'Sent to Kitchen'), "Not yet sent...", "Sent At: " & ThisItem.'Sent to Kitchen')
+            Width: =261
+            X: =522
+            Y: =132
+            ZIndex: =6
+
+        Label10 As label:
+            Height: =36
+            OnSelect: =Select(Parent)
+            Text: |-
+                ="Kitchen #: " & ThisItem.'Kitchen Ticket'.'Ticket Number'
+            Width: =304
+            X: =32
+            Y: =132
+            ZIndex: =7
 
     Gallery4 As gallery.galleryVertical:
-        BorderThickness: =1
         Height: =687
         Items: =Filter('Kitchen Tickets', 'Status' = 'Status (Kitchen Tickets)'.Active && Order.'Order Number' = ToEditOrderNumber)
         Layout: =Layout.Vertical
         TemplateSize: =205
-        X: =684
+        Width: =420
+        X: =904
         Y: =52
-        ZIndex: =1
+        ZIndex: =2
 
         Label7 As label:
             Height: =42
@@ -31,101 +122,48 @@
             Y: =80
             ZIndex: =2
 
-    "galOrderDetailsToSend As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
-        Height: =512
-        Items: =Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber))
-        Layout: =Layout.Vertical
-        TemplatePadding: =0
-        TemplateSize: =168
-        Width: =597
-        X: =56
-        Y: =136
-        ZIndex: =1
+    btnSendToKitchen As button:
+        Height: =60
+        OnSelect: |-
+            =If(!IsBlank(LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber) && 'Sent to Kitchen' = Blank(), 'Menu Item'.Name)),
+                Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp(Orders, 'Order Number' = ToEditOrderNumber)}),
+                Notify("No new items to send to kitchen!", Error, 2500);
+            
+            UpdateIf('Order Details', 'Order ID' = Value(ToEditOrderNumber) && IsBlank('Sent to Kitchen'), {
+                'Kitchen Ticket': LookUp('Kitchen Tickets', Order.'Order Number' = ToEditOrderNumber),
+                'Sent to Kitchen': Now()
+            })
+        Text: ="Button"
+        Width: =188
+        X: =273
+        Y: =655
+        ZIndex: =3
 
-        Title4 As label:
-            Height: =38
-            OnSelect: =Select(Parent)
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            Text: =ThisItem.'Menu Item'.Name
-            VerticalAlign: =VerticalAlign.Top
-            Width: =338
-            X: =32
-            Y: =16
-            ZIndex: =1
+    lblEditOrderTopSeparator_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(216, 59, 1, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =45
+        Size: =22
+        Text: |-
+            ="Order #" & ToEditOrderNumber
+        Width: =1366
+        Y: =1
+        ZIndex: =4
 
-        Subtitle4 As label:
-            Height: =Self.Size * 1.8
-            OnSelect: =Select(Parent)
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            Text: |
-                =ThisItem.'Menu Item'.Description
-            VerticalAlign: =VerticalAlign.Top
-            Width: =Parent.TemplateWidth - 104
-            X: =32
-            Y: =Title4.Y + Title4.Height + 2
-            ZIndex: =2
-
-        Body1 As label:
-            Height: =Self.Size * 4
-            OnSelect: =Select(Parent)
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            Text: =ThisItem.'Customization Request'
-            VerticalAlign: =VerticalAlign.Top
-            Width: =338
-            X: =32
-            Y: =86
-            ZIndex: =3
-
-        NextArrow5 As icon.ChevronRight:
-            AccessibleLabel: =Self.Tooltip
-            Height: =60
-            Icon: =Icon.ChevronRight
-            OnSelect: =Select(Parent)
-            PaddingBottom: =10
-            PaddingLeft: =10
-            PaddingRight: =10
-            PaddingTop: =10
-            TabIndex: =0
-            Tooltip: ="View item details"
-            Width: =60
-            X: =Parent.TemplateWidth - Self.Width - 5
-            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-            ZIndex: =4
-
-        Separator7 As rectangle:
-            Fill: =RGBA(118, 0, 0, 1)
-            Height: =1
-            OnSelect: =Select(Parent)
-            Width: =Parent.TemplateWidth
-            Y: =Parent.TemplateHeight - 1
-            ZIndex: =5
-
-        Label5 As label:
-            Height: =42
-            OnSelect: =Select(Parent)
-            Text: |-
-                =If(IsBlank(ThisItem.'Sent to Kitchen'), "Not yet sent...", "Sent At: " & ThisItem.'Sent to Kitchen')
-            Width: =247
-            X: =272
-            Y: =14
-            ZIndex: =6
-
-        Label10 As label:
-            OnSelect: =Select(Parent)
-            Text: |-
-                ="Kitchen #: " & ThisItem.'Kitchen Ticket'.'Ticket Number'
-            X: =376
-            Y: =107
-            ZIndex: =7
+    lblEditOrderTopSeparator_3 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(216, 59, 1, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =45
+        Size: =22
+        Text: |-
+            ="Order #" & ToEditOrderNumber
+        Width: =1366
+        Y: =723
+        ZIndex: =5
 
     BackIcon1_6 As icon.Reset:
         BorderColor: =RGBA(255, 255, 255, 1)
@@ -136,22 +174,7 @@
             =Reset([@galCartItems]);
             Navigate('Add Items To Order Screen', Fade);
         Width: =41
-        X: =24
-        Y: =20
-        ZIndex: =2
-
-    btnSendToKitchen As button:
-        Height: =60
-        OnSelect: |-
-            =Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp(Orders, 'Order Number' = ToEditOrderNumber)});
-            
-            UpdateIf('Order Details', 'Order ID' = Value(ToEditOrderNumber) && IsBlank('Sent to Kitchen'), {
-                'Kitchen Ticket': LookUp('Kitchen Tickets', Order.'Order Number' = ToEditOrderNumber),
-                'Sent to Kitchen': Now()
-            })
-        Text: ="Button"
-        Width: =188
-        X: =273
-        Y: =665
-        ZIndex: =3
+        X: =15
+        Y: =1
+        ZIndex: =6
 

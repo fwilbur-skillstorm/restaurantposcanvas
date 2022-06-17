@@ -203,6 +203,7 @@
         OnSelect: =Navigate('Submit Whole Order to Kitchen Screen', Fade);
         Size: =25
         Text: ="Next"
+        Visible: =If(!IsBlank(LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber))), true, false)
         Width: =199
         X: =1149
         Y: =727
@@ -254,8 +255,11 @@
         FontWeight: =FontWeight.Semibold
         Height: =45
         Size: =25
-        Text: |
-            ="Subtotal: " & Text(Sum(Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber)), 'Menu Item'.Price), "$##.#0")
+        Text: |-
+            =If(!IsBlank(LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber))), 
+                "Subtotal: " & Text(Sum(Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber)), 'Menu Item'.Price), "$##.#0"), 
+                ""
+            )
         Width: =294
         X: =812
         Y: =723
