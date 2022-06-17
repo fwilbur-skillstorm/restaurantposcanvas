@@ -143,17 +143,15 @@
     btnSendToKitchen As button:
         Height: =60
         OnSelect: |-
-            =ClearCollect(ItemsToSendToKitchen, galOrderDetailsToSend.AllItems);
-            Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp(Orders, 'Order Number' = ToEditOrderNumber)});
+            =Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp(Orders, 'Order Number' = ToEditOrderNumber)});
             
-            ForAll(ItemsToSendToKitchen,
-                Patch('Order Details', LookUp('Order Details', 'Order ID' = ItemsToSendToKitchen[@'Order ID']), {
+            UpdateIf('Order Details', 'Order ID' = Value(ToEditOrderNumber) && IsBlank('Sent to Kitchen'), {
                 'Kitchen Ticket': LookUp('Kitchen Tickets', Order.'Order Number' = ToEditOrderNumber),
                 'Sent to Kitchen': Now()
-            }))
+            })
         Text: ="Button"
         Width: =188
         X: =273
-        Y: =679
+        Y: =665
         ZIndex: =3
 
