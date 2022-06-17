@@ -41,7 +41,7 @@
         BorderColor: =RGBA(118, 0, 0, 1)
         DataSource: =HostTables
         Height: =137
-        Item: =LookUp('HostTables', 'Table ID' = LookUp('Orders', 'Order ID' = OrOrderToReassign, )
+        Item: =LookUp('HostTables', 'Table ID' = TableIDForUpdate);
         NumberOfColumns: =2
         Width: =826
         X: =284
@@ -226,7 +226,7 @@
 
     Label5 As label:
         Height: =120
-        Text: =LookUp('Orders', 'Order Number' = OrderToReassign).Table.'Table ID'
+        Text: =
         Width: =243
         X: =1075
         Y: =166
