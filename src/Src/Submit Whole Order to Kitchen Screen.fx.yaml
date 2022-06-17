@@ -101,6 +101,8 @@
 
     btnSendToKitchen As button:
         Height: =60
+        OnSelect: |-
+            =Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: 
         Text: ="Button"
         Width: =188
         X: =273
