@@ -30,7 +30,7 @@
 
             lblNewServerFullName As label:
                 AutoHeight: =true
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =RGBA(0, 0, 0, 1)
                 Font: =Font.Lato
                 Height: =34
                 Size: =22
@@ -45,7 +45,7 @@
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 Default: =Parent.Default
                 DelayOutput: =true
-                DisabledBorderColor: =RGBA(190, 0, 0, 1)
+                DisabledBorderColor: =RGBA(153, 153, 153, 1)
                 DisplayMode: =Parent.DisplayMode
                 Fill: =RGBA(226, 156, 126, 1)
                 Font: =Font.Lato
@@ -107,7 +107,7 @@
 
             lblAddServerPin As label:
                 AutoHeight: =true
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =RGBA(0, 0, 0, 1)
                 Font: =Font.Lato
                 Height: =34
                 Size: =22
@@ -182,7 +182,7 @@
 
             lblNewServerTeamLead As label:
                 AutoHeight: =true
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =RGBA(0, 0, 0, 1)
                 Font: =Font.Lato
                 Height: =34
                 Size: =22
@@ -202,13 +202,13 @@
                 DisplayMode: =Parent.DisplayMode
                 Fill: =RGBA(226, 156, 126, 1)
                 Font: =Font.Lato
-                HoverFill: =RGBA(190, 0, 0, 1)
+                HoverFill: =RGBA(235, 252, 251, 1)
                 IsSearchable: =false
                 Items: =Choices('Team Lead (OrderingStaff)')
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["Value"]
                 SearchItems: =[]
-                SelectionFill: =RGBA(118, 0, 0, 1)
+                SelectionFill: =RGBA(235, 252, 251, 1)
                 SelectMultiple: =false
                 Size: =16
                 Tooltip: =Parent.DisplayName
@@ -243,7 +243,8 @@
                 ZIndex: =4
 
     btnSubmitNewServer As button:
-        Fill: =RGBA(54, 176, 75, 1)
+        Fill: =RGBA(118, 0, 0, 1)
+        Font: =Font.Lato
         Height: =63
         OnSelect: |-
             =SubmitForm(frmNewServer);
@@ -257,7 +258,6 @@
         ZIndex: =2
 
     txtCreateNewServerLabel As label:
-        Color: =RGBA(255, 255, 255, 1)
         Font: =Font.'Lato Black'
         FontWeight: =FontWeight.Bold
         Height: =143
