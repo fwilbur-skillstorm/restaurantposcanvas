@@ -86,9 +86,9 @@
             Height: =36
             OnSelect: =Select(Parent)
             Text: |-
-                ="Kitchen #: " & ThisItem.'Kitchen Ticket'.'Ticket Number'
+                =If(IsBlank(ThisItem.'Kitchen Ticket'), "Not sent to kitchen yet...", "Kitchen Ticket #" & ThisItem.'Kitchen Ticket'.'Ticket Number')
             Width: =304
-            X: =32
+            X: =25
             Y: =132
             ZIndex: =7
 
