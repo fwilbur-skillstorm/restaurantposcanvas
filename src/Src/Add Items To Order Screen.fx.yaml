@@ -200,6 +200,7 @@
 
     btnPlaceOrder As button:
         Height: =37
+        OnSelect: =Navigate('Submit Whole Order to Kitchen Screen', Fade);
         Size: =25
         Text: ="Next"
         Width: =199
@@ -227,6 +228,7 @@
         Icon: =Icon.Reset
         OnSelect: |
             =Reset([@galCartItems]);
+            Set(ToEditOrderNumber, Blank());
             Navigate('Orders List Screen', Fade);
         Width: =41
         Y: =1
