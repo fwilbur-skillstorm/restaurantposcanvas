@@ -140,7 +140,7 @@
             OnSelect: |-
                 =Set(OrderToReassign, ThisItem.'Order Number');
                 Set(ServerToReassign, ThisItem.'Server ID');
-                Set(TableIDForUpdate, LookUp('Orders', 'Order Number' = OrderToReassign, Table.'Table ID'));
+                Set(TableIDForUpdate, LookUp(Orders, 'Order Number' = OrderToReassign, Table.'Table ID'));
                 Navigate('Change Table or Server Screen', Fade);
             Size: =22
             Text: ="Reassign"
