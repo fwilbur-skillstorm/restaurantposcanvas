@@ -26,7 +26,8 @@
         HoverBorderColor: =RGBA(172, 62, 11, 1)
         HoverFill: =RGBA(238, 204, 204, 1)
         Size: =16
-        X: =1046
+        X: =520
+        Y: =294
         ZIndex: =2
 
     btnLogin As button:
