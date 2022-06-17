@@ -10,11 +10,7 @@
         BorderColor: =RGBA(216, 59, 1, 1)
         Fill: =RGBA(235, 235, 235, 1)
         Height: =640
-        Items: |-
-            =If("Yes" in TeamLead,
-                Filter(Orders, Status = 'Status (Orders)'.Active),
-                Filter(Orders, Status = 'Status (Orders)'.Active && 'Server ID' = Value(ServerID))
-            )
+        Items: =SortByColumns(Filter(Orders, Status = 'Status (Orders)'.Active), "kitchen_ordernumber", Ascending)
         Layout: =Layout.Vertical
         OnSelect: =Set(SelectedOrder,ThisItem)
         ShowScrollbar: =false
@@ -35,7 +31,7 @@
             PaddingTop: =0
             Size: =22
             Text: |-
-                ="Order number: " & ThisItem.'Order Number'
+                ="Table number: " & ThisItem.Table.'Table ID'
             VerticalAlign: =VerticalAlign.Top
             Width: =843
             X: =47
@@ -120,7 +116,7 @@
             PaddingTop: =0
             Size: =22
             Text: |-
-                ="Table number: " & ThisItem.Table.'Table ID'
+                ="Order number: " & ThisItem.'Order Number'
             VerticalAlign: =VerticalAlign.Top
             Width: =843
             X: =47
