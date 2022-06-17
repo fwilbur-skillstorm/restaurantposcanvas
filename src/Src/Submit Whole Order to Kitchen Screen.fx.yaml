@@ -134,7 +134,7 @@
                 Notify("No new items to send to kitchen!", Error, 2500));
             
             UpdateIf('Order Details', 'Order ID' = Value(ToEditOrderNumber) && IsBlank('Sent to Kitchen'), {
-                'Kitchen Ticket': LookUp('Kitchen Tickets', Order.'Order Number' = ToEditOrderNumber),
+                'Kitchen Ticket': LookUp(Sort('Kitchen Tickets', 'Ticket Number', Descending), Order.'Order Number' = ToEditOrderNumber),
                 'Sent to Kitchen': Now()
             })
         Size: =22
