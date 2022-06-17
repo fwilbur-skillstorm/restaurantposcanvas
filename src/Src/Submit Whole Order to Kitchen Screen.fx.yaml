@@ -1,25 +1,26 @@
 "'Submit Whole Order to Kitchen Screen' As screen":
     Fill: =RGBA(216, 59, 1, 1)
 
-    "Gallery2 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+    "galOrderDetailsToSend As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
         Items: =Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber))
         Layout: =Layout.Vertical
         TemplatePadding: =0
-        TemplateSize: =Min(168, Self.Height - 60)
+        TemplateSize: =168
+        Width: =810
         X: =47
         Y: =87
         ZIndex: =1
 
         Title4 As label:
-            Height: =Self.Size * 1.8
+            Height: =38
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Text: =ThisItem.Name
+            Text: =ThisItem.'Menu Item'.Name
             VerticalAlign: =VerticalAlign.Top
-            Width: =Parent.TemplateWidth - 104
+            Width: =338
             X: =32
             Y: =16
             ZIndex: =1
@@ -31,7 +32,8 @@
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Text: =ThisItem.'Created On'
+            Text: |
+                =ThisItem.'Menu Item'.Description
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
             X: =32
@@ -45,11 +47,11 @@
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Text: =ThisItem.'Exchange Rate'
+            Text: =ThisItem.'Customization Request'
             VerticalAlign: =VerticalAlign.Top
-            Width: =Parent.TemplateWidth - 104
-            X: =79
-            Y: =104
+            Width: =338
+            X: =32
+            Y: =86
             ZIndex: =3
 
         NextArrow5 As icon.ChevronRight:
@@ -69,11 +71,20 @@
             ZIndex: =4
 
         Separator7 As rectangle:
+            Fill: =RGBA(118, 0, 0, 1)
             Height: =1
             OnSelect: =Select(Parent)
             Width: =Parent.TemplateWidth
             Y: =Parent.TemplateHeight - 1
             ZIndex: =5
+
+        Label5 As label:
+            OnSelect: =Select(Parent)
+            Text: |-
+                =If(IsBlank(ThisItem.'Sent to Kitchen'), "Not yet sent...", "Sent At: " & ThisItem.'Sent to Kitchen')
+            X: =370
+            Y: =14
+            ZIndex: =6
 
     BackIcon1_6 As icon.Reset:
         BorderColor: =RGBA(255, 255, 255, 1)
@@ -87,4 +98,12 @@
         X: =24
         Y: =20
         ZIndex: =2
+
+    btnSendToKitchen As button:
+        Height: =60
+        Text: ="Button"
+        Width: =188
+        X: =273
+        Y: =679
+        ZIndex: =3
 
