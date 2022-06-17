@@ -10,7 +10,11 @@
         BorderColor: =RGBA(216, 59, 1, 1)
         Fill: =RGBA(235, 235, 235, 1)
         Height: =640
-        Items: =Filter(Orders, Status = 'Status (Orders)'.Active && 'Server ID' = Value(ServerID))
+        Items: |-
+            =If("Yes" in TeamLead,
+                Filter(Orders, Status = 'Status (Orders)'.Active),
+                Filter(Orders, Status = 'Status (Orders)'.Active && 'Server ID' = Value(ServerID))
+            )
         Layout: =Layout.Vertical
         OnSelect: =Set(SelectedOrder,ThisItem)
         ShowScrollbar: =false
