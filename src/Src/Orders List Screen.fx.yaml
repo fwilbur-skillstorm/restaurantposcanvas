@@ -150,6 +150,25 @@
             Y: =18
             ZIndex: =8
 
+        lblServerID As label:
+            Color: =RGBA(116, 116, 116, 1)
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Normal
+            Height: =52
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =22
+            Text: |-
+                =If("Yes" in TeamLead, "Server ID: " & ThisItem.'Server ID', "")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =334
+            X: =381
+            Y: =26
+            ZIndex: =9
+
     txtOrdersListGalleryTitle As label:
         Align: =Align.Center
         Fill: =RGBA(216, 59, 1, 1)
@@ -158,7 +177,8 @@
         Height: =64
         PaddingRight: =10
         Size: =26
-        Text: =If(!IsBlank(ServerID), ServerID & " — " & FullName & "'s Orders", "No Server Logged In!")
+        Text: |-
+            =If("No" in TeamLead, "Server #" & ServerID & " — " & FullName & "'s Orders", "Full Order List (Server: #" & ServerID & " — " & FullName & ")")
         Width: =Parent.Width
         ZIndex: =2
 
