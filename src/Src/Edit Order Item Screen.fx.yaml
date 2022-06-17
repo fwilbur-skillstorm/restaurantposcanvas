@@ -1,5 +1,5 @@
 "'Edit Order Item Screen' As screen":
-    Fill: =RGBA(168, 0, 0, 1)
+    Fill: =RGBA(216, 59, 1, 1)
 
     "galMenuItem As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
         Height: =603
@@ -77,10 +77,11 @@
     txtEditMenuItemLabel As label:
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Lato Black'
         FontWeight: =FontWeight.Bold
         Height: =143
         Size: =48
-        Text: ="Edit Menu Item Info"
+        Text: ="Change Table/Server"
         Width: =670
         X: =390
         Y: =12

@@ -104,16 +104,16 @@
 
     LightOutbg As rectangle:
         Fill: =RGBA(153, 153, 153, 0.4)
-        Height: =714
+        Height: =677
         Width: =1366
-        Y: =27
+        Y: =45
         ZIndex: =9
 
     Label4 As label:
         Align: =Align.Center
         Fill: =RGBA(216, 59, 1, 1)
         FontWeight: =FontWeight.Bold
-        Height: =27
+        Height: =45
         Size: =23
         Text: |-
             ="Order # " & Text(SelectedOrder.'Order Number')
@@ -131,9 +131,9 @@
 
     Rectangle2 As rectangle:
         Fill: =RGBA(216, 59, 1, 1)
-        Height: =27
+        Height: =45
         Width: =1366
-        Y: =741
+        Y: =723
         ZIndex: =12
 
     CashCreditWindow As rectangle:
