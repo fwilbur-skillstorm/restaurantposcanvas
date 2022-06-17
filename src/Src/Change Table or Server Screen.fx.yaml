@@ -16,7 +16,9 @@
         BorderColor: =RGBA(255, 255, 255, 1)
         Color: =RGBA(0, 0, 0, 1)
         Icon: =Icon.Reset
-        OnSelect: =Navigate('Orders List Screen', Fade);
+        OnSelect: |-
+            =Set(OrderToReassign, Blank());
+            Navigate('Orders List Screen', Fade);
         X: =40
         Y: =40
         ZIndex: =4
