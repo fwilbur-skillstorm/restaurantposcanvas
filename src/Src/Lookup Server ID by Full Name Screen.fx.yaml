@@ -77,7 +77,6 @@
         Align: =Align.Center
         BorderColor: =RGBA(118, 0, 0, 1)
         BorderStyle: =BorderStyle.Dotted
-        BorderThickness: =1
         Font: =Font.'Lato Black'
         Height: =124
         Size: =52
