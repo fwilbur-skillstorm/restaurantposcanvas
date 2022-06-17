@@ -1134,19 +1134,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Change Table or Server Screen'.frmUpdateHostTables.'Server ID_DataCard1'.DataCardValue4.AccessibleLabel"
+                  "fullyQualifiedName": "'Change Table or Server Screen'.frmUpdateHostTables.'Server ID_DataCard1'.ddServerList.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Change Table or Server Screen'.frmUpdateHostTables.'Server ID_DataCard1'.DataCardValue4.AccessibleLabel",
+                  "fullyQualifiedName": "'Change Table or Server Screen'.frmUpdateHostTables.'Server ID_DataCard1'.ddServerList.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Change Table or Server Screen",
-                "type": "'Change Table or Server Screen'.frmUpdateHostTables.'Server ID_DataCard1'.DataCardValue4"
+                "type": "'Change Table or Server Screen'.frmUpdateHostTables.'Server ID_DataCard1'.ddServerList"
               }
             }
           ],

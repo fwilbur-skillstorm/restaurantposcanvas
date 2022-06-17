@@ -31,7 +31,7 @@
         HoverFill: =ColorFade(RGBA(178, 0, 0, 1), -20%)
         OnSelect: |
             =SubmitForm(frmUpdateHostTables);
-            Patch(Orders, LookUp(Orders, 'Order Number' = OrderToReassign), {'Server ID': Value(DataCardValue4.Selected.'Order Staff ID')});
+            Patch(Orders, LookUp(Orders, 'Order Number' = OrderToReassign), {'Server ID': Value(ddServerList.Selected.'Order Staff ID')});
             Navigate('Orders List Screen', Fade);
             Notify("You have reassigned order #" & OrderToReassign & ".", Success);
             Set(OrderToReassign, Blank());
@@ -64,7 +64,7 @@
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
-            Update: =DataCardValue4.Selected
+            Update: =ddServerList.Selected
             Width: =826
             X: =0
             Y: =0
@@ -83,7 +83,7 @@
                 Y: =10
                 ZIndex: =1
 
-            DataCardValue4 As combobox:
+            ddServerList As combobox:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 ChevronBackground: =RGBA(118, 0, 0, 1)
                 DefaultSelectedItems: =Parent.Default
@@ -95,7 +95,7 @@
                 Items: =Choices([@HostTables].kitchen_ServerID)
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["order_fullname"]
-                SearchItems: =Search(Choices([@HostTables].kitchen_ServerID),DataCardValue4.SearchText,"order_fullname")
+                SearchItems: =Search(Choices([@HostTables].kitchen_ServerID),ddServerList.SearchText,"order_fullname")
                 SelectionFill: =RGBA(168, 0, 0, 1)
                 SelectMultiple: =false
                 Size: =16
@@ -117,7 +117,7 @@
                 Visible: =Parent.DisplayMode=DisplayMode.Edit
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardValue4.Y + DataCardValue4.Height
+                Y: =ddServerList.Y + ddServerList.Height
                 ZIndex: =3
 
             StarVisible8 As label:
