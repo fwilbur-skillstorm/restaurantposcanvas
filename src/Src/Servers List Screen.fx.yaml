@@ -1,6 +1,7 @@
 "'Servers List Screen' As screen.'tabletLayout_HeaderAndGallery_ver3.0'":
 
     "galServersList As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+        BorderColor: =RGBA(118, 0, 0, 1)
         Height: =722
         Items: =Filter(OrderingStaff, 'OrderingStaff (Views)'.'Active Ordering Staff')
         Layout: =Layout.Vertical
