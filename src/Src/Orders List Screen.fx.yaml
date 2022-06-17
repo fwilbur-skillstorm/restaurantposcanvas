@@ -22,7 +22,7 @@
 
         lblOrderNumber As label:
             Font: =Font.Lato
-            Height: =43
+            Height: =45
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
@@ -32,9 +32,9 @@
             Text: |-
                 ="Table number: " & ThisItem.Table.'Table ID'
             VerticalAlign: =VerticalAlign.Top
-            Width: =843
+            Width: =334
             X: =47
-            Y: =98
+            Y: =93
             ZIndex: =1
 
         Separator1 As rectangle:
