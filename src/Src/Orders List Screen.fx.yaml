@@ -128,7 +128,7 @@
         Height: =64
         PaddingRight: =10
         Size: =26
-        Text: =If(!IsBlank(ServerID), ServerID & " — " & FullName & "'s Orders", "No Server Logged In")
+        Text: =If(!IsBlank(ServerID), ServerID & " — " & FullName & "'s Orders", "No Server Logged In!")
         Width: =Parent.Width
         ZIndex: =2
 
