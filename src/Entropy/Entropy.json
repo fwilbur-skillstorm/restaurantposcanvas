@@ -93,6 +93,7 @@
     "Label1_3": 47,
     "Label1_4": 48,
     "Label1_5": 49,
+    "Label10": 230,
     "Label2": 80,
     "Label2_1": 87,
     "Label3": 64,
@@ -206,7 +207,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "06/17/2022 20:10:36",
+  "HeaderLastSavedDateTimeUTC": "06/17/2022 20:26:47",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,
@@ -299,7 +300,7 @@
     "btnPlaceOrder": 113,
     "btnPlaceOrder_1": 132,
     "btnReassignAction": 89,
-    "btnSendToKitchen": 187,
+    "btnSendToKitchen": 188,
     "btnSubmitNewServer": 46,
     "btnSubmitServerChange": 65,
     "btnUpdateCustomization": 109,
@@ -364,6 +365,7 @@
     "Label1_3": 129,
     "Label1_4": 130,
     "Label1_5": 131,
+    "Label10": 186,
     "Label2": 154,
     "Label2_1": 161,
     "Label3": 153,
@@ -436,7 +438,7 @@
     "Separator3": 27,
     "Separator4": 125,
     "Separator5": 145,
-    "Separator7": 186,
+    "Separator7": 187,
     "Server ID_DataCard1": 84,
     "Servers List Screen": 104,
     "StarVisible1": 32,
@@ -500,7 +502,7 @@
       "typedDataCard": 7
     },
     "DeserializationLoadTime": 3.4969691,
-    "ErrorCount": 2
+    "ErrorCount": 3
   },
   "WasLocalDatabaseReferencesEmpty": false
 }
