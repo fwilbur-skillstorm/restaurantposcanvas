@@ -224,11 +224,3 @@
         Y: =229
         ZIndex: =8
 
-    Label5 As label:
-        Height: =120
-        Text: =
-        Width: =243
-        X: =1075
-        Y: =166
-        ZIndex: =9
-
