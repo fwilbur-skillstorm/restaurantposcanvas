@@ -193,6 +193,7 @@
             drpNewServerTeamLead As combobox:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 ChevronBackground: =RGBA(118, 0, 0, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(190, 0, 0, 1), -20%)
                 DefaultSelectedItems: =[Parent.Default]
                 DisplayFields: =["Value"]
                 DisplayMode: =Parent.DisplayMode
