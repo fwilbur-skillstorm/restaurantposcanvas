@@ -142,7 +142,7 @@
         Height: =60
         OnSelect: |-
             =Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp('Orders', 'Order Number' = ToEditOrderNumber)});
-            Patch('Order Details', LookUp('Order Details', 'Order ID' = ToEditOrderNumber), {
+            Patch('Order Details', LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber)), {
                 'Kitchen Ticket': LookUp('Kitchen Tickets', Order.'Order Number' = ToEditOrderNumber)
             })
         Text: ="Button"
