@@ -41,7 +41,7 @@
         BorderColor: =RGBA(118, 0, 0, 1)
         DataSource: =HostTables
         Height: =137
-        Item: =LookUp('HostTables', 'Table ID' = TableIDForUpdate);
+        Item: =LookUp('HostTables', 'Table ID' = TableIDForUpdate)
         NumberOfColumns: =2
         Width: =826
         X: =284
