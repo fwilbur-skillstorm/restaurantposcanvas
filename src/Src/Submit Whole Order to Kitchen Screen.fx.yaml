@@ -49,13 +49,15 @@
             Icon: =Icon.ChevronRight
             OnSelect: |-
                 =UpdateContext({
-                OrderNumber: ThisItem.'Order ID',
-                TicketNumber: ThisItem.'Kitchen Ticket'.'Ticket Number',
-                MenuItemName: ThisItem.'Menu Item'.Name,
-                KitchenApproved: ThisItem.'Kitchen Approved',
-                Suggestions: ThisItem.'Kitchen Modifications',
-                ModificationsAccepted: ThisItem.'Kitchen Modifications Accepted',
-                FoodDelivered: ThisItem.'Food Delivered'
+                    orderNumber: ThisItem.'Order ID',
+                    ticketNumber: ThisItem.'Kitchen Ticket'.'Ticket Number',
+                    menuItemName: ThisItem.'Menu Item'.Name,
+                    customizationRequest: ThisItem.'Customization Request',
+                    kitchenApproved: ThisItem.'Kitchen Approved',
+                    suggestions: ThisItem.'Kitchen Modifications',
+                    modificationsAccepted: ThisItem.'Kitchen Modifications Accepted',
+                    foodDelivered: ThisItem.'Food Delivered'
+                
                 })
             PaddingBottom: =10
             PaddingLeft: =10
@@ -169,4 +171,47 @@
         X: =15
         Y: =1
         ZIndex: =6
+
+    Label9 As label:
+        Align: =Align.Center
+        Font: =Font.'Lato Black'
+        Height: =55
+        Size: =22
+        Text: =If(IsBlank(menuItemName), "(nothing selected)", menuItemName)
+        Width: =486
+        X: =880
+        Y: =72
+        ZIndex: =7
+
+    Label11 As label:
+        Align: =Align.Center
+        Size: =16
+        Text: |-
+            =If(IsBlank(orderNumber), "", "Order #" & orderNumber)
+        X: =1048
+        Y: =127
+        ZIndex: =8
+
+    Label11_1 As label:
+        Align: =Align.Center
+        Size: =16
+        Text: |-
+            =If(IsBlank(ticketNumber), "", "Ticket #" & ticketNumber)
+        X: =1048
+        Y: =167
+        ZIndex: =9
+
+    Body1_1 As label:
+        Height: =108
+        OnSelect: =Select(Parent)
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Text: =If(!IsBlank(customizationRequest), customizationRequest, "(No customizations).")
+        VerticalAlign: =VerticalAlign.Top
+        Width: =510
+        X: =856
+        Y: =207
+        ZIndex: =10
 
