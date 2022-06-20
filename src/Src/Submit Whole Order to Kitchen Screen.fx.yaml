@@ -5,11 +5,12 @@
         Height: =512
         Items: =Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber))
         Layout: =Layout.Vertical
+        ShowScrollbar: =false
         TemplatePadding: =0
         TemplateSize: =168
         Width: =788
-        X: =56
-        Y: =136
+        X: =68
+        Y: =106
         ZIndex: =1
 
         Title4 As label:
@@ -48,13 +49,17 @@
             Height: =60
             Icon: =Icon.ChevronRight
             OnSelect: |-
-                =If(!IsBlank(LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber) && 'Sent to Kitchen' = Blank(), 'Menu Item'.Name)),
-                    Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp(Orders, 'Order Number' = ToEditOrderNumber)}),
-                    Notify("No new items to send to kitchen!", Error, 2500));
+                =UpdateContext({
+                    ordDetailID: ThisItem.Name,
+                    orderNumber: ThisItem.'Order ID',
+                    ticketNumber: ThisItem.'Kitchen Ticket'.'Ticket Number',
+                    menuItemName: ThisItem.'Menu Item'.Name,
+                    customizationRequest: ThisItem.'Customization Request',
+                    kitchenApproved: ThisItem.'Kitchen Approved',
+                    suggestions: ThisItem.'Kitchen Modifications',
+                    modificationsAccepted: ThisItem.'Kitchen Modifications Accepted',
+                    foodDelivered: ThisItem.'Food Delivered'
                 
-                Patch('Order Details', ThisItem, {
-                    'Kitchen Ticket': LookUp(Sort('Kitchen Tickets', 'Ticket Number', Descending), Order.'Order Number' = ToEditOrderNumber),
-                    'Sent to Kitchen': Now()
                 })
             PaddingBottom: =10
             PaddingLeft: =10
@@ -95,35 +100,22 @@
             Y: =132
             ZIndex: =7
 
-    Gallery4 As gallery.galleryVertical:
-        Height: =687
-        Items: =Filter('Kitchen Tickets', Status = 'Status (Kitchen Tickets)'.Active && Order.'Order Number' = ToEditOrderNumber)
-        Layout: =Layout.Vertical
-        TemplateSize: =205
-        Width: =420
-        X: =904
-        Y: =52
-        ZIndex: =2
-
-        Label7 As label:
-            Height: =42
-            OnSelect: =Select(Parent)
-            Text: |-
-                =If(!IsBlank(ThisItem.'Kitchen Ticket'), "Ticket Number: " & ThisItem.'Ticket Number', "")
-            Width: =283
-            X: =32
-            Y: =24
-            ZIndex: =1
-
-        Label9 As label:
-            Height: =35
-            OnSelect: =Select(Parent)
-            Text: |-
-                =If(!IsBlank(ThisItem.'Kitchen Ticket'), "Order Number: " & ThisItem.Order.'Order Number', "")
-            Width: =210
-            X: =32
-            Y: =80
-            ZIndex: =2
+        Button5 As button:
+            Height: =30
+            OnSelect: |-
+                =If(!IsBlank(LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber) && 'Sent to Kitchen' = Blank(), 'Menu Item'.Name)),
+                    Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp(Orders, 'Order Number' = ToEditOrderNumber)}),
+                    Notify("No new items to send to kitchen!", Error, 2500));
+                
+                Patch('Order Details', ThisItem, {
+                    'Kitchen Ticket': LookUp(Sort('Kitchen Tickets', 'Ticket Number', Descending), Order.'Order Number' = ToEditOrderNumber),
+                    'Sent to Kitchen': Now()
+                })
+            Text: ="Send"
+            Width: =145
+            X: =299
+            Y: =132
+            ZIndex: =8
 
     btnSendToKitchen As button:
         Font: =Font.Lato
@@ -181,4 +173,142 @@
         X: =15
         Y: =1
         ZIndex: =6
+
+    Label9 As label:
+        Align: =Align.Center
+        Font: =Font.'Lato Black'
+        Height: =55
+        Size: =22
+        Text: =If(IsBlank(menuItemName), "(nothing selected)", menuItemName)
+        Width: =486
+        X: =880
+        Y: =72
+        ZIndex: =7
+
+    Label11 As label:
+        Align: =Align.Center
+        Size: =16
+        Text: |-
+            =If(IsBlank(orderNumber), "", "Order #" & orderNumber)
+        X: =1048
+        Y: =127
+        ZIndex: =8
+
+    Label11_1 As label:
+        Align: =Align.Center
+        Size: =16
+        Text: |-
+            =If(IsBlank(ticketNumber), "", "Ticket #" & ticketNumber)
+        X: =1048
+        Y: =167
+        ZIndex: =9
+
+    Body1_1 As label:
+        BorderThickness: =1
+        Font: =Font.Lato
+        Height: =108
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Text: =If(!IsBlank(customizationRequest), customizationRequest, "(No customizations).")
+        VerticalAlign: =VerticalAlign.Top
+        Width: =510
+        X: =856
+        Y: =207
+        ZIndex: =10
+
+    radKitchenApproved As radio:
+        Align: =Align.Center
+        Default: =kitchenApproved
+        DisplayMode: =DisplayMode.View
+        Font: =Font.Lato
+        Height: =62
+        Items: =Choices('Order Details'.'Kitchen Approved')
+        Layout: =Layout.Horizontal
+        Size: =16
+        Width: =434
+        X: =932
+        Y: =319
+        ZIndex: =11
+
+    Body1_2 As label:
+        BorderThickness: =1
+        Font: =Font.Lato
+        Height: =108
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Text: =If(!IsBlank(suggestions), suggestions, "(No suggestions yet).")
+        VerticalAlign: =VerticalAlign.Top
+        Width: =510
+        X: =856
+        Y: =381
+        ZIndex: =12
+
+    radModificationsAccepted As radio:
+        Default: =If(IsBlank(modificationsAccepted), "Accepted", modificationsAccepted)
+        Font: =Font.Lato
+        Height: =68
+        Items: =Choices('Order Details'.'Kitchen Modifications Accepted')
+        Layout: =Layout.Horizontal
+        Size: =16
+        Visible: =If(radKitchenApproved.SelectedText.Value = "No", true, false)
+        Width: =524
+        X: =842
+        Y: =489
+        ZIndex: =14
+
+    btnApproveMods As button:
+        OnSelect: |-
+            =Patch('Order Details', LookUp('Order Details',Name = ordDetailID),{'Kitchen Modifications Accepted': radModificationsAccepted.Selected});
+        Text: ="Approve"
+        X: =888
+        Y: =578
+        ZIndex: =15
+
+    btnCancelFoodItem As button:
+        OnSelect: |-
+            =Patch('Order Details', LookUp('Order Details',Name = ordDetailID),{Status:'Status (Order Details)'.Inactive,'Kitchen Modifications Accepted': radModificationsAccepted.Selected});
+            
+            UpdateContext({
+                ordDetailID: Blank(),
+                orderNumber: Blank(),
+                ticketNumber: Blank(),
+                menuItemName: Blank(),
+                customizationRequest: Blank(),
+                kitchenApproved: Blank(),
+                suggestions: Blank(),
+                modificationsAccepted: Blank(),
+                foodDelivered: Blank()
+            });
+        Text: ="Cancel"
+        X: =1157
+        Y: =578
+        ZIndex: =16
+
+    Icon4 As icon.ForkKnife:
+        Icon: =Icon.ForkKnife
+        OnSelect: |-
+            =Patch('Order Details', LookUp('Order Details',Name = ordDetailID),{Status:'Status (Order Details)'.Inactive,'Food Delivered': Now()});
+        Visible: |-
+            =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && ('Kitchen Approved' = radKitchenApproved.Selected.Value
+            
+            
+            'Kitchen Modifications Accepted')).Name), true, false)
+        X: =1205
+        Y: =638
+        ZIndex: =17
+
+    Label12 As label:
+        Align: =Align.Right
+        Font: =Font.'Lato Black'
+        Height: =34
+        Size: =20
+        Text: ="Deliver to table"
+        Width: =217
+        X: =995
+        Y: =655
+        ZIndex: =18
 
