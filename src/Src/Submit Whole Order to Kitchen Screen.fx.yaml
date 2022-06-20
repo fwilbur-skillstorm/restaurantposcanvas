@@ -261,6 +261,8 @@
         ZIndex: =14
 
     btnApproveMods As button:
+        OnSelect: |-
+            =Patch('Order Details', LookUp('Order Details',Name = ordDetailID),{'Kitchen Modifications Accepted': radModificationsAccepted.Selected});
         Text: ="Approve"
         X: =888
         Y: =578
@@ -288,6 +290,13 @@
 
     Icon4 As icon.ForkKnife:
         Icon: =Icon.ForkKnife
+        OnSelect: |-
+            =Patch('Order Details', LookUp('Order Details',Name = ordDetailID),{Status:'Status (Order Details)'.Inactive,'Food Delivered': Now()});
+        Visible: |-
+            =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && ('Kitchen Approved' = radKitchenApproved.Selected.Value
+            
+            
+            'Kitchen Modifications Accepted')).Name), true, false)
         X: =1205
         Y: =638
         ZIndex: =17
