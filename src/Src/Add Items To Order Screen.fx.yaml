@@ -10,7 +10,7 @@
 
     "galCartItems As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
         Height: =579
-        Items: =Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber))
+        Items: =Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber) && Status = 'Status (Order Details)'.Active)
         Layout: =Layout.Vertical
         ShowScrollbar: =false
         TemplatePadding: =0
