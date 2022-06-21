@@ -251,7 +251,7 @@
 
     btnApproveMods As button:
         OnSelect: |-
-            =Patch('Order Details', LookUp('Order Details',Name = ordDetailID), {'Kitchen Modifications Accepted': LookUp(Choices(kitchenmodificationstatus), Text(Value) = "Yes")})
+            =Patch('Order Details', LookUp('Order Details', Name = ordDetailID), {'Kitchen Modifications Accepted': kitchenmodificationstatus.Accepted})
         Text: ="Approve"
         Visible: =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && ('Kitchen Approved' = PendingYesNo.Yes || 'Kitchen Approved' = PendingYesNo.No), Name)), true, false)
         X: =888
@@ -260,7 +260,7 @@
 
     btnCancelFoodItem As button:
         OnSelect: |-
-            =Patch('Order Details', LookUp('Order Details',Name = ordDetailID),{Status:'Status (Order Details)'.Inactive, 'Kitchen Modifications Accepted': LookUp(Choices(kitchenmodificationstatus), Text(Value) = "No")});
+            =Patch('Order Details', LookUp('Order Details',Name = ordDetailID),{Status:'Status (Order Details)'.Inactive, 'Kitchen Modifications Accepted': kitchenmodificationstatus.Denied});
             
             UpdateContext({
                 ordDetailID: Blank(),
