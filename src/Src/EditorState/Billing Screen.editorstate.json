@@ -359,7 +359,14 @@
         "X",
         "Y",
         "Width",
-        "Height",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Height",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "ZIndex",
         "RadiusTopLeft",
         "RadiusTopRight",
@@ -649,7 +656,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnCash",
-      "ParentIndex": 33,
+      "ParentIndex": 34,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1441,7 +1448,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnCredit",
-      "ParentIndex": 34,
+      "ParentIndex": 35,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9057,7 +9064,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblDiscount",
-      "ParentIndex": 35,
+      "ParentIndex": 33,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
