@@ -347,7 +347,7 @@
                 DisplayMode: =Parent.DisplayMode
                 Font: =Font.Lato
                 IsSearchable: =false
-                Items: =Choices(kitchenmodificationstatus)
+                Items: =Filter(Choices(kitchenmodificationstatus), Value = kitchenmodificationstatus.Accepted || Value = kitchenmodificationstatus.Denied)
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["Value"]
                 SearchItems: =[]
@@ -452,6 +452,11 @@
         Size: =18
         Text: ="Place Order"
         VerticalAlign: =VerticalAlign.Bottom
+        Visible: |-
+            =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && 
+                                !IsBlank('Food Delivered') && 
+                                'Kitchen Modifications Accepted' = kitchenmodificationstatus.Accepted)
+                        .Name), true, false)
         Width: =151
         X: =1197
         Y: =687
