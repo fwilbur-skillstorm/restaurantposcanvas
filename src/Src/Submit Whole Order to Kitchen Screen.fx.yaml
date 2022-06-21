@@ -181,7 +181,7 @@
             Navigate('Add Items To Order Screen', Fade);
             
         Width: =41
-        X: =15
+        X: =27
         Y: =1
         ZIndex: =6
 
@@ -226,7 +226,7 @@
         Text: =If(!IsBlank(customizationRequest), customizationRequest, "(No customizations).")
         VerticalAlign: =VerticalAlign.Top
         Visible: =If(!IsBlank(menuItemName) && IsBlank(foodDelivered), true, false)
-        Width: =510
+        Width: =498
         X: =856
         Y: =207
         ZIndex: =10

@@ -184,7 +184,7 @@
         Icon: =Icon.Reset
         OnSelect: =Navigate('Logged In Landing Page Screen', Fade);
         Width: =33
-        X: =14
+        X: =30
         ZIndex: =4
 
     RectQuickActionBar1_1 As rectangle:
