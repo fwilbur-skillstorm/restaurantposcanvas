@@ -420,3 +420,12 @@
         Y: =124
         ZIndex: =10
 
+    Button4 As button:
+        OnSelect: =SubmitForm([@'Kitchen Mods Acceptance Form'])
+        Text: |-
+            ="Submit
+            "
+        X: =1028
+        Y: =531
+        ZIndex: =11
+
