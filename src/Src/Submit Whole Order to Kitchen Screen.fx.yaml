@@ -50,15 +50,7 @@
             Icon: =Icon.ChevronRight
             OnSelect: |-
                 =UpdateContext({
-                    ordDetailID: ThisItem.Name,
-                    orderNumber: ThisItem.'Order ID',
-                    ticketNumber: ThisItem.'Kitchen Ticket'.'Ticket Number',
-                    menuItemName: ThisItem.'Menu Item'.Name,
-                    customizationRequest: ThisItem.'Customization Request',
-                    kitchenApproved: ThisItem.'Kitchen Approved',
-                    suggestions: ThisItem.'Kitchen Modifications',
-                    modificationsAccepted: ThisItem.'Kitchen Modifications Accepted',
-                    foodDelivered: ThisItem.'Food Delivered'
+                    ordDetailID: ThisItem.Name
                 })
             PaddingBottom: =10
             PaddingLeft: =10
@@ -190,6 +182,7 @@
         Height: =362
         Item: =LookUp('Order Details', Name = ordDetailID)
         NumberOfColumns: =1
+        Visible: =If(IsBlank(LookUp('Order Details', Name = ordDetailID && IsBlank('Food Delivered')).Name), true, false)
         Width: =495
         X: =861
         Y: =169
@@ -322,6 +315,7 @@
             Height: =50
             Required: =false
             Update: =DataCardValue5.Selected.Value
+            Visible: =If(IsBlank(LookUp('Order Details', Name = ordDetailID && 'Kitchen Approved' = PendingYesNo.Pending).Name), true, false)
             Width: =495
             X: =0
             Y: =2
@@ -425,6 +419,7 @@
         Text: |-
             ="Submit
             "
+        Visible: =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && IsBlank('Food Delivered') && ('Kitchen Approved' = PendingYesNo.Yes || 'Kitchen Approved' = PendingYesNo.No)).Name), true, false)
         X: =1028
         Y: =531
         ZIndex: =11
