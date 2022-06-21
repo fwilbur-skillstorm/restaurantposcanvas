@@ -429,3 +429,31 @@
         Y: =531
         ZIndex: =11
 
+    Icon3 As icon.ForkKnife:
+        Color: =RGBA(118, 0, 0, 1)
+        Height: =120
+        Icon: =Icon.ForkKnife
+        OnSelect: |-
+            =Patch('Order Details', LookUp('Order Details', Name = ordDetailID), {'Food Delivered': Now()})
+        Visible: |-
+            =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && 
+                                !IsBlank('Food Delivered') && 
+                                'Kitchen Modifications Accepted' = kitchenmodificationstatus.Accepted)
+                        .Name), true, false)
+        Width: =160
+        X: =1188
+        Y: =567
+        ZIndex: =12
+
+    Label8 As label:
+        Align: =Align.Right
+        Font: =Font.'Lato Black'
+        Height: =37
+        Size: =18
+        Text: ="Place Order"
+        VerticalAlign: =VerticalAlign.Bottom
+        Width: =151
+        X: =1197
+        Y: =687
+        ZIndex: =13
+
