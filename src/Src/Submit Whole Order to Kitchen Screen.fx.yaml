@@ -182,7 +182,7 @@
         Height: =362
         Item: =LookUp('Order Details', Name = ordDetailID)
         NumberOfColumns: =1
-        Visible: =If(IsBlank(LookUp('Order Details', Name = ordDetailID && !IsBlank('Food Delivered')).Name), true, false)
+        Visible: =If(!IsBlank(ordDetailID), true, false)
         Width: =495
         X: =861
         Y: =169
@@ -385,6 +385,7 @@
         Size: =20
         Text: |-
             =LookUp('Order Details', Name = ordDetailID).'Menu Item'.Name & " (#" & ordDetailID & ")"
+        Visible: =If(!IsBlank(ordDetailID), true, false)
         Width: =495
         X: =861
         Y: =46
@@ -397,6 +398,7 @@
         Size: =14
         Text: |-
             ="Order #" & LookUp('Order Details', Name = ordDetailID).'Order ID'
+        Visible: =If(!IsBlank(ordDetailID), true, false)
         Width: =495
         X: =861
         Y: =96
@@ -409,6 +411,7 @@
         Size: =14
         Text: |-
             ="Ticket #" & LookUp('Order Details', Name = ordDetailID).'Kitchen Ticket'.'Ticket Number'
+        Visible: =If(!IsBlank(ordDetailID), true, false)
         Width: =495
         X: =861
         Y: =124
@@ -419,7 +422,7 @@
         Text: |-
             ="Submit
             "
-        Visible: =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && IsBlank('Food Delivered') && ('Kitchen Approved' = PendingYesNo.Yes || 'Kitchen Approved' = PendingYesNo.No)).Name), true, false)
+        Visible: =If(!IsBlank(ordDetailID), true, false)
         X: =1028
         Y: =531
         ZIndex: =11
@@ -430,11 +433,7 @@
         Icon: =Icon.ForkKnife
         OnSelect: |-
             =Patch('Order Details', LookUp('Order Details', Name = ordDetailID), {'Food Delivered': Now()})
-        Visible: |-
-            =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && 
-                                IsBlank('Food Delivered') && 
-                                'Kitchen Modifications Accepted' = kitchenmodificationstatus.Accepted)
-                        .Name), true, false)
+        Visible: =If(!IsBlank(ordDetailID), true, false)
         Width: =160
         X: =1188
         Y: =567
@@ -447,11 +446,7 @@
         Size: =18
         Text: ="Deliver Food"
         VerticalAlign: =VerticalAlign.Bottom
-        Visible: |-
-            =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && 
-                                IsBlank('Food Delivered') && 
-                                'Kitchen Modifications Accepted' = kitchenmodificationstatus.Accepted)
-                        .Name), true, false)
+        Visible: =If(!IsBlank(ordDetailID), true, false)
         Width: =151
         X: =1197
         Y: =687
@@ -463,7 +458,7 @@
         Icon: =Icon.CheckBadge
         OnSelect: |-
             =UpdateContext({ordDetailID: Blank()})
-        Visible: =If(IsBlank(LookUp('Order Details', Name = ordDetailID && IsBlank('Food Delivered')).Name), true, false)
+        Visible: =If(!IsBlank(ordDetailID), true, false)
         Width: =505
         X: =861
         Y: =169
@@ -477,7 +472,7 @@
         Text: |-
             ="Food Delivered at
             " & LookUp('Order Details', Name = ordDetailID).'Food Delivered'
-        Visible: =If(IsBlank(LookUp('Order Details', Name = ordDetailID && IsBlank('Food Delivered')).Name), true, false)
+        Visible: =If(!IsBlank(ordDetailID), true, false)
         Width: =470
         X: =878
         Y: =618
