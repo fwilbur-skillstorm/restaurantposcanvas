@@ -226,8 +226,8 @@
         Text: =If(!IsBlank(customizationRequest), customizationRequest, "(No customizations).")
         VerticalAlign: =VerticalAlign.Top
         Visible: =If(!IsBlank(menuItemName) && IsBlank(foodDelivered), true, false)
-        Width: =498
-        X: =856
+        Width: =485
+        X: =869
         Y: =207
         ZIndex: =10
 
@@ -257,8 +257,8 @@
         Text: =If(!IsBlank(suggestions), suggestions, "(No suggestions yet).")
         VerticalAlign: =VerticalAlign.Top
         Visible: =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && 'Kitchen Approved' = PendingYesNo.No).Name) && IsBlank(foodDelivered), true, false)
-        Width: =498
-        X: =856
+        Width: =484
+        X: =869
         Y: =381
         ZIndex: =12
 
