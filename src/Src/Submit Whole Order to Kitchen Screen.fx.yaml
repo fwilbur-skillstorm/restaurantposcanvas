@@ -463,6 +463,7 @@
         Icon: =Icon.CheckBadge
         OnSelect: |-
             =UpdateContext({ordDetailID: Blank()})
+        Visible: =If(IsBlank(LookUp('Order Details', Name = ordDetailID && IsBlank('Food Delivered')).Name), true, false)
         Width: =505
         X: =861
         Y: =169
@@ -476,6 +477,7 @@
         Text: |-
             ="Food Delivered at
             " & LookUp('Order Details', Name = ordDetailID).'Food Delivered'
+        Visible: =
         Width: =470
         X: =878
         Y: =618
