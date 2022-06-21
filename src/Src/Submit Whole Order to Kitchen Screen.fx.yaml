@@ -182,7 +182,7 @@
         Height: =362
         Item: =LookUp('Order Details', Name = ordDetailID)
         NumberOfColumns: =1
-        Visible: =If(IsBlank(LookUp('Order Details', Name = ordDetailID && IsBlank('Food Delivered')).Name), true, false)
+        Visible: =If(IsBlank(LookUp('Order Details', Name = ordDetailID && !IsBlank('Food Delivered')).Name), true, false)
         Width: =495
         X: =861
         Y: =169
