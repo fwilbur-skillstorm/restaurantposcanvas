@@ -3,7 +3,7 @@
 
     "galOrderDetailsToSend As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
         Height: =512
-        Items: =Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber))
+        Items: =Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber) && Status = 'Status (Order Details)'.Active)
         Layout: =Layout.Vertical
         ShowScrollbar: =false
         TemplatePadding: =0
@@ -243,7 +243,7 @@
         PaddingTop: =0
         Text: =If(!IsBlank(suggestions), suggestions, "(No suggestions yet).")
         VerticalAlign: =VerticalAlign.Top
-        Visible: =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && 'Kitchen Approved' = PendingYesNo.Yes).Name), true, false)
+        Visible: =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && 'Kitchen Approved' = PendingYesNo.No).Name), true, false)
         Width: =510
         X: =856
         Y: =381
@@ -260,7 +260,7 @@
 
     btnCancelFoodItem As button:
         OnSelect: |-
-            =Patch('Order Details', LookUp('Order Details',Name = ordDetailID),{Status:'Status (Order Details)'.Inactive, 'Kitchen Modifications Accepted': kitchenmodificationstatus.Denied});
+            =Patch('Order Details', LookUp('Order Details',Name = ordDetailID),{Status: 'Status (Order Details)'.Inactive, 'Kitchen Modifications Accepted': kitchenmodificationstatus.Denied});
             
             UpdateContext({
                 ordDetailID: Blank(),
