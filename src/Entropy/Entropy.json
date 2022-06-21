@@ -163,7 +163,6 @@
     "OrdersListGallery": 169,
     "Radio1": 43,
     "radKitchenApproved": 19,
-    "radModificationsAccepted": 21,
     "Rectangle1": 103,
     "Rectangle1_1": 32,
     "Rectangle2": 96,
@@ -216,7 +215,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "06/21/2022 12:04:55",
+  "HeaderLastSavedDateTimeUTC": "06/21/2022 12:35:12",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,
@@ -292,9 +291,9 @@
     "BackIcon1_5": 115,
     "BackIcon1_6": 175,
     "Billing Screen": 45,
-    "btnApproveMods": 192,
+    "btnApproveMods": 191,
     "btnBPay": 172,
-    "btnCancelFoodItem": 193,
+    "btnCancelFoodItem": 192,
     "btnCash": 156,
     "btnCredit": 155,
     "btnCreditSubmit": 166,
@@ -383,7 +382,7 @@
     "lblCreditCardNum": 158,
     "lblCustomizationsRequest": 180,
     "lblCustomizationsToKitchen": 188,
-    "lblDeliverToTableHelperText": 196,
+    "lblDeliverToTableHelperText": 193,
     "lblEditFullName": 52,
     "lblEditOrderItemName": 106,
     "lblEditOrderTopSeparator": 90,
@@ -416,7 +415,7 @@
     "lblRestaurantTitle": 0,
     "lblRestaurantTitle_1": 14,
     "lblRestaurantTitle_2": 8,
-    "lblSendToKitchenBottomSeparator": 197,
+    "lblSendToKitchenBottomSeparator": 196,
     "lblSendToKitchenTopSeparator": 174,
     "lblSentToKitchenAtTime": 184,
     "lblServerID": 73,
@@ -444,7 +443,6 @@
     "OrdersListGallery": 68,
     "Radio1": 128,
     "radKitchenApproved": 189,
-    "radModificationsAccepted": 191,
     "Rectangle1": 95,
     "Rectangle1_1": 117,
     "Rectangle2": 173,
@@ -520,7 +518,7 @@
       "typedDataCard": 7
     },
     "DeserializationLoadTime": 4.2528784,
-    "ErrorCount": 10
+    "ErrorCount": 2
   },
   "WasLocalDatabaseReferencesEmpty": false
 }

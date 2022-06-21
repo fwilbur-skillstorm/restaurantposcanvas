@@ -249,30 +249,18 @@
         Y: =381
         ZIndex: =12
 
-    radModificationsAccepted As radio:
-        Default: =If(IsBlank(modificationsAccepted), "Accepted", modificationsAccepted)
-        Font: =Font.Lato
-        Height: =68
-        Items: =Choices('Order Details'.'Kitchen Modifications Accepted')
-        Layout: =Layout.Horizontal
-        Size: =16
-        Visible: =If(radKitchenApproved.SelectedText.Value = "No", true, false)
-        Width: =524
-        X: =842
-        Y: =489
-        ZIndex: =14
-
     btnApproveMods As button:
         OnSelect: |-
-            =Patch('Order Details', LookUp('Order Details',Name = ordDetailID),{'Kitchen Modifications Accepted': radModificationsAccepted.Selected});
+            =Patch('Order Details', LookUp('Order Details',Name = ordDetailID), {'Kitchen Modifications Accepted': LookUp(Choices(kitchenmodificationstatus), Text(Value) = "Yes")})
         Text: ="Approve"
+        Visible: =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && ('Kitchen Approved' = PendingYesNo.Yes || 'Kitchen Approved' = PendingYesNo.No), Name)), true, false)
         X: =888
-        Y: =578
+        Y: =513
         ZIndex: =15
 
     btnCancelFoodItem As button:
         OnSelect: |-
-            =Patch('Order Details', LookUp('Order Details',Name = ordDetailID),{Status:'Status (Order Details)'.Inactive,'Kitchen Modifications Accepted': radModificationsAccepted.Selected});
+            =Patch('Order Details', LookUp('Order Details',Name = ordDetailID),{Status:'Status (Order Details)'.Inactive, 'Kitchen Modifications Accepted': LookUp(Choices(kitchenmodificationstatus), Text(Value) = "No")});
             
             UpdateContext({
                 ordDetailID: Blank(),
@@ -286,21 +274,32 @@
                 foodDelivered: Blank()
             });
         Text: ="Cancel"
+        Visible: =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && ('Kitchen Approved' = PendingYesNo.Yes || 'Kitchen Approved' = PendingYesNo.No), Name)), true, false)
         X: =1157
-        Y: =578
+        Y: =513
         ZIndex: =16
 
     icoDeliverToTable As icon.ForkKnife:
+        Height: =97
         Icon: =Icon.ForkKnife
         OnSelect: |-
-            =Patch('Order Details', LookUp('Order Details',Name = ordDetailID),{Status:'Status (Order Details)'.Inactive,'Food Delivered': Now()});
-        Visible: |-
-            =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && ('Kitchen Approved' = radKitchenApproved.Selected.Value
+            =Patch('Order Details', LookUp('Order Details', Name = ordDetailID), {'Food Delivered': Now()});
             
-            
-            'Kitchen Modifications Accepted')).Name), true, false)
-        X: =1205
-        Y: =638
+            UpdateContext({
+                ordDetailID: Blank(),
+                orderNumber: Blank(),
+                ticketNumber: Blank(),
+                menuItemName: Blank(),
+                customizationRequest: Blank(),
+                kitchenApproved: Blank(),
+                suggestions: Blank(),
+                modificationsAccepted: Blank(),
+                foodDelivered: Blank()
+            });
+        Visible: =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && 'Kitchen Modifications Accepted' = kitchenmodificationstatus.Accepted, Name)), true, false)
+        Width: =110
+        X: =1068
+        Y: =619
         ZIndex: =17
 
     lblDeliverToTableHelperText As label:
@@ -309,8 +308,9 @@
         Height: =34
         Size: =20
         Text: ="Deliver to table"
+        Visible: =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && 'Kitchen Modifications Accepted' = kitchenmodificationstatus.Accepted, Name)), true, false)
         Width: =217
-        X: =995
-        Y: =655
+        X: =1002
+        Y: =578
         ZIndex: =18
 
