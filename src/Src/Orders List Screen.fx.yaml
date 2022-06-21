@@ -49,9 +49,10 @@
         btnPay As button:
             Fill: =RGBA(141, 198, 63, 1)
             Height: =59
-            OnSelect: |-
+            OnSelect: |+
                 =Select(Parent);
                 Navigate('Billing Screen', None);
+                
             Size: =20
             Text: ="Pay"
             Width: =190

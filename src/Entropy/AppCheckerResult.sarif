@@ -2568,6 +2568,66 @@
           },
           "ruleId": "app-UnusedVariables",
           "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Billing Screen'.tipCustomSelected"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Billing Screen'.tipCustomSelected",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "tipCustomSelected",
+                "module": "Billing Screen",
+                "type": "'Billing Screen'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Billing Screen'.tipVal"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Billing Screen'.tipVal",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "tipVal",
+                "module": "Billing Screen",
+                "type": "'Billing Screen'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 4
         }
       ],
       "tool": {
