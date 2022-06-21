@@ -243,7 +243,7 @@
         PaddingTop: =0
         Text: =If(!IsBlank(suggestions), suggestions, "(No suggestions yet).")
         VerticalAlign: =VerticalAlign.Top
-        Visible: =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && 'Kitchen Approved' = PendingYesNo.No).Name), true, false)
+        Visible: =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && 'Kitchen Approved' = PendingYesNo.No).Name) && IsBlank(foodDelivered), true, false)
         Width: =510
         X: =856
         Y: =381
