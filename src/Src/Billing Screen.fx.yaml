@@ -2,7 +2,7 @@
 
     "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
         BorderColor: =RGBA(118, 0, 0, 1)
-        Height: =292
+        Height: =222
         Items: =Filter('Order Details', 'Order ID' = Value(SelectedOrder.'Order Number'))
         Layout: =Layout.Vertical
         TemplatePadding: =0
@@ -25,7 +25,7 @@
             X: =32
             ZIndex: =1
 
-        Subtitle2 As label:
+        lblPrice As label:
             Height: =25
             OnSelect: =Select(Parent)
             PaddingBottom: =0
@@ -53,6 +53,7 @@
         OnSelect: |
             =UpdateContext({BackgroundBlurVisble: true});
             UpdateContext({PTWindowVisible: true}); // PT = Payment Type
+            UpdateContext({tipVal: 0});
             Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Tip: Value(txtTipAmtInput.Text)});
         Text: ="Pay"
         Width: =184
@@ -88,28 +89,13 @@
         Y: =366
         ZIndex: =6
 
-    txtTipAmt As label:
-        Text: |-
-            ="Tip Amount: " 
-        Width: =120
-        X: =83
-        Y: =463
-        ZIndex: =7
-
-    txtTipAmtInput As text:
-        Default: ="0"
-        Format: =TextFormat.Number
-        Width: =116
-        X: =203
-        Y: =463
-        ZIndex: =8
-
     LightOutbg As rectangle:
-        Fill: =RGBA(153, 153, 153, 0.4)
-        Height: =215
+        Fill: =RGBA(153, 153, 153, 0.7)
+        Height: =248
+        OnSelect: =
         Visible: =BackgroundBlurVisble
         Width: =1366
-        ZIndex: =9
+        ZIndex: =7
 
     Label4 As label:
         Align: =Align.Center
@@ -120,7 +106,7 @@
         Text: |-
             ="Order # " & Text(SelectedOrder.'Order Number')
         Width: =1366
-        ZIndex: =10
+        ZIndex: =8
 
     Icon1 As icon.ArrowLeft:
         Height: =27
@@ -129,49 +115,49 @@
             =Navigate('Orders List Screen', None);
             Reset(txtTipAmtInput)
         Width: =61
-        ZIndex: =11
+        ZIndex: =9
 
     Rectangle2 As rectangle:
         Fill: =RGBA(216, 59, 1, 1)
         Height: =45
         Width: =1366
         Y: =723
-        ZIndex: =12
+        ZIndex: =10
 
     CashCreditWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
         BorderThickness: =5
         Fill: =RGBA(255, 255, 255, 1)
-        Height: =248
+        Height: =524
         Visible: =PTWindowVisible
         Width: =480
-        X: =443
-        Y: =260
-        ZIndex: =13
+        X: =452
+        Y: =72
+        ZIndex: =11
 
     btnCash As button:
-        Height: =162
+        Height: =66
         OnSelect: |-
             =UpdateContext({PTWindowVisible: false});
             UpdateContext({CashWindowVisible: true});
         Text: ="Cash"
         Visible: =PTWindowVisible
         Width: =181
-        X: =484
-        Y: =308
-        ZIndex: =14
+        X: =485
+        Y: =497
+        ZIndex: =12
 
     btnCredit As button:
-        Height: =162
+        Height: =66
         OnSelect: |-
             =UpdateContext({PTWindowVisible: false}); 
             UpdateContext({CreditWindowVisble: true});
         Text: ="Credit"
         Visible: =PTWindowVisible
         Width: =181
-        X: =710
-        Y: =303
-        ZIndex: =15
+        X: =716
+        Y: =497
+        ZIndex: =13
 
     Icon2 As icon.Cancel:
         Height: =27
@@ -181,9 +167,9 @@
             UpdateContext({BackgroundBlurVisble: false});
         Visible: =PTWindowVisible
         Width: =32
-        X: =891
-        Y: =260
-        ZIndex: =16
+        X: =897
+        Y: =80
+        ZIndex: =14
 
     CreditWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
@@ -194,7 +180,7 @@
         Width: =480
         X: =443
         Y: =265
-        ZIndex: =17
+        ZIndex: =15
 
     lblCreditCardNum As label:
         FontWeight: =FontWeight.Bold
@@ -204,7 +190,7 @@
         Width: =139
         X: =461
         Y: =337
-        ZIndex: =18
+        ZIndex: =16
 
     inputCreditCardNum As text:
         Default: =""
@@ -214,22 +200,34 @@
         Width: =299
         X: =603
         Y: =337
-        ZIndex: =19
+        ZIndex: =17
 
     btnCreditSubmit As button:
         OnSelect: |+
-            =If((Len(inputCreditCardNum.Text) = 16), 
+            =If(Len(inputCreditCardNum.Text) = 16,
             UpdateContext({CreditWindowVisble: false}) & 
-            UpdateContext({BackgroundBlurVisble: false});, 
+            UpdateContext({BackgroundBlurVisble: false}) &
+            CheckoutProcess.Run(SelectedOrder.Table.HostTables), // Once submit, change order status to inactive.
             
             UpdateContext({ErrorWindowVisble: true})
+            );
+            
+            // Note: can't seem to add patch function above.
+            If(Len(inputCreditCardNum.Text) = 16,
+                Patch(
+                    Orders, 
+                    LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), 
+                    {
+                        Status: 'Status (Orders)'.Inactive
+                    }
+                )
             );
             
         Text: ="Submit"
         Visible: =CreditWindowVisble
         X: =742
         Y: =439
-        ZIndex: =20
+        ZIndex: =18
 
     exitCreditWindow As icon.Cancel:
         Height: =24
@@ -237,11 +235,13 @@
         OnSelect: |-
             =UpdateContext({CreditWindowVisble: false});
             UpdateContext({BackgroundBlurVisble: false});
+            
+            Reset(inputCreditCardNum);
         Visible: =CreditWindowVisble
         Width: =34
         X: =889
         Y: =267
-        ZIndex: =21
+        ZIndex: =19
 
     ErrorWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
@@ -252,7 +252,7 @@
         Width: =339
         X: =513
         Y: =322
-        ZIndex: =22
+        ZIndex: =20
 
     lblError As label:
         Fill: =RGBA(255, 255, 255, 1)
@@ -264,7 +264,7 @@
         Width: =322
         X: =522
         Y: =338
-        ZIndex: =23
+        ZIndex: =21
 
     btnErrorConfirm As button:
         OnSelect: |-
@@ -273,7 +273,7 @@
         Visible: =ErrorWindowVisble
         X: =603
         Y: =386
-        ZIndex: =24
+        ZIndex: =22
 
     CashWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
@@ -284,9 +284,9 @@
         Width: =480
         X: =444
         Y: =262
-        ZIndex: =25
+        ZIndex: =23
 
-    Label2 As label:
+    lblBalance As label:
         FontWeight: =FontWeight.Bold
         Height: =47
         Text: |-
@@ -295,9 +295,9 @@
         Width: =183
         X: =493
         Y: =303
-        ZIndex: =26
+        ZIndex: =24
 
-    Label2_1 As label:
+    lblCashAmt As label:
         FontWeight: =FontWeight.Bold
         Height: =52
         Text: |-
@@ -306,9 +306,9 @@
         Width: =139
         X: =493
         Y: =347
-        ZIndex: =27
+        ZIndex: =25
 
-    TextInput1 As text:
+    inputCashAmt As text:
         Default: =""
         Format: =TextFormat.Number
         Height: =48
@@ -316,44 +316,175 @@
         Width: =192
         X: =648
         Y: =351
-        ZIndex: =28
+        ZIndex: =26
 
     exitCreditWindow_1 As icon.Cancel:
         Height: =24
         Icon: =Icon.Cancel
         OnSelect: |-
             =UpdateContext({CashWindowVisible: false});
+            Reset(inputCashAmt);
         Visible: =CashWindowVisible
         Width: =34
         X: =891
         Y: =267
-        ZIndex: =29
+        ZIndex: =27
 
-    Button1 As button:
-        OnSelect: |
+    btnCashSubmit As button:
+        OnSelect: |-
             =UpdateContext({CashWindowVisible: false});
+            UpdateContext({ChangeWindowVisible: true});
+            
+            // Once submit, change order status to inactive.
+            Patch(
+                Orders, 
+                LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), 
+                {
+                    Status: 'Status (Orders)'.Inactive
+                }
+            );
+            
+            // Runs a cloud flow to change "Availability Status" Column to empty in the "HostTables" Table.
+            CheckoutProcess.Run(SelectedOrder.Table.HostTables);
         Text: ="Submit"
         Visible: =CashWindowVisible
         X: =742
         Y: =439
-        ZIndex: =30
+        ZIndex: =28
 
-    Rectangle3 As rectangle:
+    ChangeWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
         BorderThickness: =5
         Fill: =RGBA(255, 255, 255, 1)
-        Height: =253
+        Height: =179
+        Visible: =ChangeWindowVisible
         Width: =220
         X: =582
-        Y: =260
+        Y: =297
+        ZIndex: =29
+
+    lblChange As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =63
+        Size: =18
+        Text: |-
+            ="Change: " & Text(inputCashAmt - SelectedOrder.'Grand Total', "$#0.#00)")
+        Visible: =ChangeWindowVisible
+        Width: =220
+        X: =582
+        Y: =314
+        ZIndex: =30
+
+    btnChange As button:
+        OnSelect: |-
+            =UpdateContext({ChangeWindowVisible: false});
+        Text: ="Confirm"
+        Visible: =ChangeWindowVisible
+        X: =612
+        Y: =391
         ZIndex: =31
 
-    Label3 As label:
-        Height: =80
-        Text: |-
-            ="Change: " & Text(CashAmountInput - SelectedOrder.'Grand Total', "$#0.#0")
-        Width: =220
-        X: =582
-        Y: =286
+    btnBPay_1 As button:
+        Height: =48
+        OnSelect: =
+        Text: ="Discount"
+        Width: =184
+        X: =61
+        Y: =611
         ZIndex: =32
+
+    txtBSubtotal_1 As label:
+        Text: |-
+            ="Subtotal: " & Text(SelectedOrder.'Base Total',"$##.#0")
+        Visible: =PTWindowVisible
+        X: =492
+        Y: =136
+        ZIndex: =33
+
+    txtBTax_1 As label:
+        Text: |-
+            ="Tax: " & Text(SelectedOrder.Tax,"$##.#0")
+        Visible: =PTWindowVisible
+        X: =492
+        Y: =167
+        ZIndex: =34
+
+    txtBTotal_1 As label:
+        Text: |-
+            ="Total: " & Text(SelectedOrder.'Grand Total',"$##.#0")
+        Visible: =PTWindowVisible
+        X: =492
+        Y: =383
+        ZIndex: =36
+
+    txtTipAmtInput As text:
+        Default: ="0"
+        Format: =TextFormat.Number
+        Height: =21
+        OnChange: =
+        OnSelect: |-
+            =UpdateContext({tipCustomSelected: true});
+        Visible: =PTWindowVisible
+        Width: =101
+        X: =587
+        Y: =304
+        ZIndex: =38
+
+    Button10 As button:
+        Height: =23
+        OnSelect: |-
+            =UpdateContext({tipVal: 10 * SelectedOrder.'Base Total'});
+            UpdateContext({tipCustomSelected: false});
+            Reset(txtTipAmtInput)
+        Text: ="10%"
+        Visible: =PTWindowVisible
+        Width: =89
+        X: =493
+        Y: =269
+        ZIndex: =39
+
+    Button10_1 As button:
+        Height: =23
+        OnSelect: |-
+            =UpdateContext({tipVal: 15 * SelectedOrder.'Base Total'});
+            UpdateContext({tipCustomSelected: false});
+            Reset(txtTipAmtInput)
+        Text: ="15%"
+        Visible: =PTWindowVisible
+        Width: =89
+        X: =587
+        Y: =269
+        ZIndex: =40
+
+    Button10_2 As button:
+        Height: =23
+        OnSelect: |-
+            =UpdateContext({tipVal: 20 * SelectedOrder.'Base Total'});
+            UpdateContext({tipCustomSelected: false});
+            Reset(txtTipAmtInput)
+        Text: ="20%"
+        Visible: =PTWindowVisible
+        Width: =89
+        X: =683
+        Y: =269
+        ZIndex: =41
+
+    Button10_3 As button:
+        DisplayMode: =DisplayMode.View
+        Height: =23
+        Text: ="Custom"
+        Visible: =PTWindowVisible
+        Width: =89
+        X: =492
+        Y: =304
+        ZIndex: =42
+
+    txtBTip_1 As label:
+        Text: |-
+            ="Tip: " & Text(Value(txtTipAmtInput.Text), "$#0.#00")
+        Visible: =PTWindowVisible
+        X: =493
+        Y: =227
+        ZIndex: =43
 

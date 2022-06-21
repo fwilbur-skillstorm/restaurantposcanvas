@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "cc4952b0-00a8-4075-98ec-1216e2d90f39",
+    "Name": "CheckoutProcess",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "2cad72ac-7bf1-ec11-bb3d-000d3a35318b"
+  }
+]
