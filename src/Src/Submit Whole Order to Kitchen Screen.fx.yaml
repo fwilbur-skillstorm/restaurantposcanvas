@@ -437,7 +437,7 @@
             =Patch('Order Details', LookUp('Order Details', Name = ordDetailID), {'Food Delivered': Now()})
         Visible: |-
             =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && 
-                                !IsBlank('Food Delivered') && 
+                                IsBlank('Food Delivered') && 
                                 'Kitchen Modifications Accepted' = kitchenmodificationstatus.Accepted)
                         .Name), true, false)
         Width: =160
@@ -454,7 +454,7 @@
         VerticalAlign: =VerticalAlign.Bottom
         Visible: |-
             =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && 
-                                !IsBlank('Food Delivered') && 
+                                IsBlank('Food Delivered') && 
                                 'Kitchen Modifications Accepted' = kitchenmodificationstatus.Accepted)
                         .Name), true, false)
         Width: =151
