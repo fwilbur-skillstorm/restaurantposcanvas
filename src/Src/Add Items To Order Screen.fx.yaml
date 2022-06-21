@@ -10,7 +10,7 @@
 
     "galCartItems As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
         Height: =579
-        Items: =Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber))
+        Items: =Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber) && Status = 'Status (Order Details)'.Active)
         Layout: =Layout.Vertical
         ShowScrollbar: =false
         TemplatePadding: =0
@@ -232,6 +232,7 @@
             Set(ToEditOrderNumber, Blank());
             Navigate('Orders List Screen', Fade);
         Width: =41
+        X: =26
         Y: =1
         ZIndex: =8
 
@@ -256,7 +257,7 @@
         Height: =45
         Size: =25
         Text: |-
-            =If(!IsBlank(LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber))), 
+            =If(!IsBlank(LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber) && Status = 'Status (Order Details)'.Active)), 
                 "Subtotal: " & Text(Sum(Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber)), 'Menu Item'.Price), "$##.#0"), 
                 ""
             )
