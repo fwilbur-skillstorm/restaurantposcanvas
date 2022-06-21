@@ -450,7 +450,7 @@
         Font: =Font.'Lato Black'
         Height: =37
         Size: =18
-        Text: ="Place Order"
+        Text: ="Deliver Food"
         VerticalAlign: =VerticalAlign.Bottom
         Visible: |-
             =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && 
