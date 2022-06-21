@@ -13,7 +13,7 @@
         Y: =106
         ZIndex: =1
 
-        Title4 As label:
+        lblMenuItemName As label:
             Font: =Font.Lato
             FontWeight: =FontWeight.Normal
             Height: =38
@@ -30,7 +30,7 @@
             Y: =16
             ZIndex: =1
 
-        Body1 As label:
+        lblCustomizationsRequest As label:
             Height: =Self.Size * 4
             OnSelect: =Select(Parent)
             PaddingBottom: =0
@@ -80,7 +80,7 @@
             Y: =Parent.TemplateHeight - 1
             ZIndex: =5
 
-        Label5 As label:
+        lblSentToKitchenAtTime As label:
             Height: =36
             OnSelect: =Select(Parent)
             Text: |-
@@ -90,7 +90,7 @@
             Y: =132
             ZIndex: =6
 
-        Label10 As label:
+        lblKitchenTicket As label:
             Height: =36
             OnSelect: =Select(Parent)
             Text: |-
@@ -100,7 +100,7 @@
             Y: =132
             ZIndex: =7
 
-        Button5 As button:
+        btnSendIndividItemToKitchen As button:
             Height: =30
             OnSelect: |-
                 =If(!IsBlank(LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber) && 'Sent to Kitchen' = Blank(), 'Menu Item'.Name)),
@@ -136,7 +136,7 @@
         Y: =655
         ZIndex: =3
 
-    lblEditOrderTopSeparator_2 As label:
+    lblSendToKitchenTopSeparator As label:
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
         Fill: =RGBA(216, 59, 1, 1)
@@ -149,7 +149,7 @@
         Y: =1
         ZIndex: =4
 
-    lblEditOrderTopSeparator_3 As label:
+    lblSendToKitchenBottomSeparator As label:
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
         Fill: =RGBA(216, 59, 1, 1)
@@ -167,14 +167,13 @@
         Height: =45
         Icon: =Icon.Reset
         OnSelect: |
-            =Reset([@galCartItems]);
-            Navigate('Add Items To Order Screen', Fade);
+            =Navigate('Add Items To Order Screen', Fade);
         Width: =41
         X: =15
         Y: =1
         ZIndex: =6
 
-    Label9 As label:
+    lblMenuItemNameToKitchen As label:
         Align: =Align.Center
         Font: =Font.'Lato Black'
         Height: =55
@@ -185,7 +184,7 @@
         Y: =72
         ZIndex: =7
 
-    Label11 As label:
+    lblOrderNumberToKitchen As label:
         Align: =Align.Center
         Size: =16
         Text: |-
@@ -194,7 +193,7 @@
         Y: =127
         ZIndex: =8
 
-    Label11_1 As label:
+    lblTicketNumberToKitchen As label:
         Align: =Align.Center
         Size: =16
         Text: |-
@@ -203,7 +202,7 @@
         Y: =167
         ZIndex: =9
 
-    Body1_1 As label:
+    lblCustomizationsToKitchen As label:
         BorderThickness: =1
         Font: =Font.Lato
         Height: =108
@@ -213,6 +212,7 @@
         PaddingTop: =0
         Text: =If(!IsBlank(customizationRequest), customizationRequest, "(No customizations).")
         VerticalAlign: =VerticalAlign.Top
+        Visible: =If(!IsBlank(menuItemName), true, false)
         Width: =510
         X: =856
         Y: =207
@@ -227,12 +227,13 @@
         Items: =Choices('Order Details'.'Kitchen Approved')
         Layout: =Layout.Horizontal
         Size: =16
+        Visible: =If(!IsBlank(menuItemName), true, false)
         Width: =434
         X: =932
         Y: =319
         ZIndex: =11
 
-    Body1_2 As label:
+    lblKitchenSuggestions As label:
         BorderThickness: =1
         Font: =Font.Lato
         Height: =108
@@ -242,6 +243,7 @@
         PaddingTop: =0
         Text: =If(!IsBlank(suggestions), suggestions, "(No suggestions yet).")
         VerticalAlign: =VerticalAlign.Top
+        Visible: =If(Text(radKitchenApproved.Selected.Value) = "No", true, false)
         Width: =510
         X: =856
         Y: =381
@@ -288,7 +290,7 @@
         Y: =578
         ZIndex: =16
 
-    Icon4 As icon.ForkKnife:
+    icoDeliverToTable As icon.ForkKnife:
         Icon: =Icon.ForkKnife
         OnSelect: |-
             =Patch('Order Details', LookUp('Order Details',Name = ordDetailID),{Status:'Status (Order Details)'.Inactive,'Food Delivered': Now()});
@@ -301,7 +303,7 @@
         Y: =638
         ZIndex: =17
 
-    Label12 As label:
+    lblDeliverToTableHelperText As label:
         Align: =Align.Right
         Font: =Font.'Lato Black'
         Height: =34
