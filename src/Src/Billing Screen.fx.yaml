@@ -220,7 +220,9 @@
         OnSelect: |+
             =If((Len(inputCreditCardNum.Text) = 16), 
             UpdateContext({CreditWindowVisble: false}) & 
-            UpdateContext({BackgroundBlurVisble: false});, 
+            UpdateContext({BackgroundBlurVisble: false}) &
+            CheckoutProcess.Run(SelectedOrder.Table.HostTables),
+            
             
             UpdateContext({ErrorWindowVisble: true})
             );
@@ -331,9 +333,21 @@
         ZIndex: =29
 
     Button1 As button:
-        OnSelect: |
+        OnSelect: |-
             =UpdateContext({CashWindowVisible: false});
             UpdateContext({ChangeWindowVisible: true});
+            
+            // Once submit, change order status to inactive.
+            Patch(
+                Orders, 
+                LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), 
+                {
+                    Status: 'Status (Orders)'.Inactive
+                }
+            );
+            
+            // Runs a cloud flow to change "Availability Status" Column to empty in the "HostTables" Table.
+            CheckoutProcess.Run(SelectedOrder.Table.HostTables);
         Text: ="Submit"
         Visible: =CashWindowVisible
         X: =742
