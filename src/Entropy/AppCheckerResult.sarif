@@ -2314,6 +2314,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Submit Whole Order to Kitchen Screen'.icoFoodDeliveredSuccess.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Submit Whole Order to Kitchen Screen'.icoFoodDeliveredSuccess.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Submit Whole Order to Kitchen Screen",
+                "type": "'Submit Whole Order to Kitchen Screen'.icoFoodDeliveredSuccess"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Submit Whole Order to Kitchen Screen'.icoFoodDeliveredSuccess.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Submit Whole Order to Kitchen Screen'.icoFoodDeliveredSuccess.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Submit Whole Order to Kitchen Screen",
+                "type": "'Submit Whole Order to Kitchen Screen'.icoFoodDeliveredSuccess"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.SelectedStaff"
                 }
               ],
@@ -2387,36 +2447,6 @@
                 "member": "menuItemDescrition",
                 "module": "Submit To Kitchen",
                 "type": "'Submit To Kitchen'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Submit Whole Order to Kitchen Screen'.foodDelivered"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Submit Whole Order to Kitchen Screen'.foodDelivered",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "foodDelivered",
-                "module": "Submit Whole Order to Kitchen Screen",
-                "type": "'Submit Whole Order to Kitchen Screen'"
               }
             }
           ],
