@@ -165,8 +165,21 @@
         Color: =RGBA(255, 255, 255, 1)
         Height: =45
         Icon: =Icon.Reset
-        OnSelect: |
-            =Navigate('Add Items To Order Screen', Fade);
+        OnSelect: |+
+            =UpdateContext({
+                ordDetailID: Blank(),
+                orderNumber: Blank(),
+                ticketNumber: Blank(),
+                menuItemName: Blank(),
+                customizationRequest: Blank(),
+                kitchenApproved: Blank(),
+                suggestions: Blank(),
+                modificationsAccepted: Blank(),
+                foodDelivered: Blank()
+            });
+            
+            Navigate('Add Items To Order Screen', Fade);
+            
         Width: =41
         X: =15
         Y: =1

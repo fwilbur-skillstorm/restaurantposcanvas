@@ -256,7 +256,7 @@
         Height: =45
         Size: =25
         Text: |-
-            =If(!IsBlank(LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber))), 
+            =If(!IsBlank(LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber) && Status = 'Status (Order Details)'.Active)), 
                 "Subtotal: " & Text(Sum(Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber)), 'Menu Item'.Price), "$##.#0"), 
                 ""
             )

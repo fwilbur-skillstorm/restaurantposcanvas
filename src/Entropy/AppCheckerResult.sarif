@@ -64,7 +64,7 @@
                 },
                 "region": {
                   "charLength": 86,
-                  "charOffset": 103,
+                  "charOffset": 147,
                   "snippet": {
                     "text": "Sum(Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber)), 'Menu Item'.Price)"
                   }
