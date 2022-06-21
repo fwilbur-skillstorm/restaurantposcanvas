@@ -477,7 +477,7 @@
         Text: |-
             ="Food Delivered at
             " & LookUp('Order Details', Name = ordDetailID).'Food Delivered'
-        Visible: =
+        Visible: =If(IsBlank(LookUp('Order Details', Name = ordDetailID && IsBlank('Food Delivered')).Name), true, false)
         Width: =470
         X: =878
         Y: =618
