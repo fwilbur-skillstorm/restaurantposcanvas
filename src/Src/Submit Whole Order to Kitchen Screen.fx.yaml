@@ -185,171 +185,238 @@
         Y: =1
         ZIndex: =6
 
-    lblMenuItemNameToKitchen As label:
-        Align: =Align.Center
-        Font: =Font.'Lato Black'
-        Height: =55
-        Size: =22
-        Text: |-
-            =If(IsBlank(menuItemName), "(nothing selected)", menuItemName & " (#" & ordDetailID & ")")
-        Width: =486
-        X: =880
-        Y: =72
+    "'Kitchen Mods Acceptance Form' As form":
+        DataSource: ='Order Details'
+        Height: =362
+        Item: =LookUp('Order Details', Name = ordDetailID)
+        NumberOfColumns: =1
+        Width: =495
+        X: =861
+        Y: =169
         ZIndex: =7
 
-    lblOrderNumberToKitchen As label:
-        Align: =Align.Center
-        Size: =16
-        Text: |-
-            =If(IsBlank(orderNumber), "", "Order #" & orderNumber)
-        X: =1048
-        Y: =127
-        ZIndex: =8
+        "'Kitchen Approved_DataCard4' As typedDataCard.comboBoxOptionSetSingleViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="kitchen_kitchenapproved"
+            Default: =ThisItem.'Kitchen Approved'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Order Details'],DataSourceInfo.DisplayName,"kitchen_kitchenapproved")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue11.Selected
+            Width: =495
+            X: =0
+            Y: =0
+            ZIndex: =1
 
-    lblTicketNumberToKitchen As label:
-        Align: =Align.Center
-        Size: =16
-        Text: |-
-            =If(IsBlank(ticketNumber), "", "Ticket #" & ticketNumber)
-        X: =1048
-        Y: =167
-        ZIndex: =9
+            DataCardKey12 As label:
+                AutoHeight: =true
+                Color: =RGBA(0, 0, 0, 1)
+                Font: =Font.'Lato Black'
+                Height: =34
+                Size: =16
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
 
-    lblCustomizationsToKitchen As label:
-        BorderThickness: =1
-        Font: =Font.Lato
-        Height: =108
-        PaddingBottom: =0
-        PaddingLeft: =0
-        PaddingRight: =0
-        PaddingTop: =0
-        Text: =If(!IsBlank(customizationRequest), customizationRequest, "(No customizations).")
-        VerticalAlign: =VerticalAlign.Top
-        Visible: =If(!IsBlank(menuItemName) && IsBlank(foodDelivered), true, false)
-        Width: =485
-        X: =869
-        Y: =207
-        ZIndex: =10
+            DataCardValue11 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =[Parent.Default]
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                IsSearchable: =false
+                Items: =Choices(PendingYesNo)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectMultiple: =false
+                Size: =14
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey12.Y + DataCardKey12.Height + 5
+                ZIndex: =2
 
-    radKitchenApproved As radio:
-        Align: =Align.Center
-        Default: =kitchenApproved
-        DisplayMode: =DisplayMode.View
-        Font: =Font.Lato
-        Height: =62
-        Items: =Choices('Order Details'.'Kitchen Approved')
-        Layout: =Layout.Horizontal
-        Size: =16
-        Visible: =If(!IsBlank(menuItemName) && IsBlank(foodDelivered), true, false)
-        Width: =434
-        X: =932
-        Y: =319
-        ZIndex: =11
+            ErrorMessage14 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue11.Y + DataCardValue11.Height
+                ZIndex: =3
 
-    lblKitchenSuggestions As label:
-        BorderThickness: =1
-        Font: =Font.Lato
-        Height: =108
-        PaddingBottom: =0
-        PaddingLeft: =0
-        PaddingRight: =0
-        PaddingTop: =0
-        Text: =If(!IsBlank(suggestions), suggestions, "(No suggestions yet).")
-        VerticalAlign: =VerticalAlign.Top
-        Visible: =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && 'Kitchen Approved' = PendingYesNo.No).Name) && IsBlank(foodDelivered), true, false)
-        Width: =484
-        X: =869
-        Y: =381
-        ZIndex: =12
+            StarVisible14 As label:
+                Align: =Align.Center
+                Height: =DataCardKey12.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey12.Y
+                ZIndex: =4
 
-    btnApproveMods As button:
-        OnSelect: |-
-            =Patch('Order Details', LookUp('Order Details', Name = ordDetailID), {'Kitchen Modifications Accepted': kitchenmodificationstatus.Accepted})
-        Text: ="Approve"
-        Visible: =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && ('Kitchen Approved' = PendingYesNo.Yes || 'Kitchen Approved' = PendingYesNo.No), Name)) && IsBlank(foodDelivered), true, false)
-        X: =888
-        Y: =513
-        ZIndex: =15
+        "'Kitchen Modifications_DataCard2' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="kitchen_kitchenmodifications"
+            Default: =ThisItem.'Kitchen Modifications'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Order Details'],DataSourceInfo.DisplayName,"kitchen_kitchenmodifications")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =149
+            Required: =false
+            Width: =495
+            X: =0
+            Y: =1
+            ZIndex: =1
 
-    btnCancelFoodItem As button:
-        OnSelect: |-
-            =Patch('Order Details', LookUp('Order Details',Name = ordDetailID),{Status: 'Status (Order Details)'.Inactive, 'Kitchen Modifications Accepted': kitchenmodificationstatus.Denied});
-            
-            UpdateContext({
-                ordDetailID: Blank(),
-                orderNumber: Blank(),
-                ticketNumber: Blank(),
-                menuItemName: Blank(),
-                customizationRequest: Blank(),
-                kitchenApproved: Blank(),
-                suggestions: Blank(),
-                modificationsAccepted: Blank(),
-                foodDelivered: Blank()
-            });
-        Text: ="Cancel"
-        Visible: =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && ('Kitchen Approved' = PendingYesNo.Yes || 'Kitchen Approved' = PendingYesNo.No), Name)) && IsBlank(foodDelivered), true, false)
-        X: =1157
-        Y: =513
-        ZIndex: =16
+            DataCardKey9 As label:
+                AutoHeight: =true
+                Color: =RGBA(0, 0, 0, 1)
+                Font: =Font.'Lato Black'
+                Height: =34
+                Size: =16
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
 
-    icoDeliverToTable As icon.ForkKnife:
-        Color: =RGBA(118, 0, 0, 1)
-        Height: =105
-        Icon: =Icon.ForkKnife
-        OnSelect: |-
-            =Patch('Order Details', LookUp('Order Details', Name = ordDetailID), {'Food Delivered': Now()});
-            
-            UpdateContext({
-                ordDetailID: Blank(),
-                orderNumber: Blank(),
-                ticketNumber: Blank(),
-                menuItemName: Blank(),
-                customizationRequest: Blank(),
-                kitchenApproved: Blank(),
-                suggestions: Blank(),
-                modificationsAccepted: Blank(),
-                foodDelivered: Blank()
-            });
-        Visible: =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && 'Kitchen Modifications Accepted' = kitchenmodificationstatus.Accepted, Name)) && IsBlank(foodDelivered), true, false)
-        Width: =122
-        X: =1056
-        Y: =618
-        ZIndex: =17
+            DataCardValue8 As label:
+                BorderColor: =RGBA(116, 116, 116, 1)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =1
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                Font: =Font.Lato
+                Height: =100
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Parent.Default
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey9.Y + DataCardKey9.Height + 5
+                ZIndex: =2
 
-    lblDeliverToTableHelperText As label:
+        "'Kitchen Modifications Accepted_DataCard1' As typedDataCard.comboBoxOptionSetSingleEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="kitchen_kitchenmodificationaccepted"
+            Default: =ThisItem.'Kitchen Modifications Accepted'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Order Details'],DataSourceInfo.DisplayName,"kitchen_kitchenmodificationaccepted")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue5.Selected.Value
+            Width: =495
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey6 As label:
+                AutoHeight: =true
+                Color: =RGBA(0, 0, 0, 1)
+                Font: =Font.'Lato Black'
+                Height: =34
+                Size: =16
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue5 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =[Parent.Default]
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.Lato
+                IsSearchable: =false
+                Items: =Choices(kitchenmodificationstatus)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectMultiple: =false
+                Size: =14
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey6.Y + DataCardKey6.Height + 5
+                ZIndex: =2
+
+            ErrorMessage10 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue5.Y + DataCardValue5.Height
+                ZIndex: =3
+
+            StarVisible10 As label:
+                Align: =Align.Center
+                Height: =DataCardKey6.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey6.Y
+                ZIndex: =4
+
+    Label6 As label:
         Align: =Align.Center
         Font: =Font.'Lato Black'
-        Height: =79
+        Height: =50
         Size: =20
         Text: |-
-            =If(IsBlank(foodDelivered), "Deliver to table", "Delivered to table at
-            " & foodDelivered & "!")
-        VerticalAlign: =VerticalAlign.Top
-        Visible: =If(!IsBlank(LookUp('Order Details', Name = ordDetailID && 'Kitchen Modifications Accepted' = kitchenmodificationstatus.Accepted, Name)), true, false)
-        Width: =324
-        X: =949
-        Y: =576
-        ZIndex: =18
+            =LookUp('Order Details', Name = ordDetailID).'Menu Item'.Name & " (#" & ordDetailID & ")"
+        Width: =495
+        X: =861
+        Y: =46
+        ZIndex: =8
 
-    icoFoodDeliveredSuccess As icon.CheckBadge:
-        Color: =RGBA(54, 176, 75, 1)
-        Height: =323
-        Icon: =Icon.CheckBadge
-        OnSelect: |-
-            =UpdateContext({
-                ordDetailID: Blank(),
-                orderNumber: Blank(),
-                ticketNumber: Blank(),
-                menuItemName: Blank(),
-                customizationRequest: Blank(),
-                kitchenApproved: Blank(),
-                suggestions: Blank(),
-                modificationsAccepted: Blank(),
-                foodDelivered: Blank()
-            });
-        Visible: =If(!IsBlank(foodDelivered), true, false)
-        Width: =324
-        X: =949
-        Y: =223
-        ZIndex: =19
+    Label7 As label:
+        Align: =Align.Center
+        Font: =Font.Lato
+        Height: =28
+        Size: =14
+        Text: |-
+            ="Order #" & LookUp('Order Details', Name = ordDetailID).'Order ID'
+        Width: =495
+        X: =861
+        Y: =96
+        ZIndex: =9
+
+    Label7_1 As label:
+        Align: =Align.Center
+        Font: =Font.Lato
+        Height: =33
+        Size: =14
+        Text: |-
+            ="Ticket #" & LookUp('Order Details', Name = ordDetailID).'Kitchen Ticket'.'Ticket Number'
+        Width: =495
+        X: =861
+        Y: =124
+        ZIndex: =10
 
