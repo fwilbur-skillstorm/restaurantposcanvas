@@ -200,7 +200,8 @@
 
     btnPlaceOrder As button:
         Height: =37
-        OnSelect: =Navigate('Submit Whole Order to Kitchen Screen', Fade);
+        OnSelect: |
+            =Navigate('Submit Whole Order to Kitchen Screen', Fade);
         Size: =25
         Text: ="Next"
         Visible: =If(!IsBlank(LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber))), true, false)

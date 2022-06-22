@@ -1,7 +1,9 @@
 "'Billing Screen' As screen":
+    Fill: =RGBA(235, 235, 235, 1)
 
     txtTipAmtInput As text:
         Default: =""
+        Font: =Font.Lato
         Format: =TextFormat.Number
         Height: =34
         OnChange: |-
@@ -15,6 +17,7 @@
 
     Button10_3 As button:
         DisplayMode: =DisplayMode.View
+        Font: =Font.Lato
         Height: =34
         Text: ="Custom"
         Width: =89
@@ -23,6 +26,7 @@
         ZIndex: =2
 
     Button10_2 As button:
+        Font: =Font.Lato
         Height: =34
         OnSelect: |-
             =UpdateContext({tipVal: .20 * SelectedOrder.'Base Total'});
@@ -35,6 +39,7 @@
         ZIndex: =3
 
     Button10_1 As button:
+        Font: =Font.Lato
         Height: =34
         OnSelect: |-
             =UpdateContext({tipVal: .15 * SelectedOrder.'Base Total'});
@@ -47,6 +52,7 @@
         ZIndex: =4
 
     Button10 As button:
+        Font: =Font.Lato
         Height: =34
         OnSelect: |-
             =UpdateContext({tipVal: .10 * SelectedOrder.'Base Total'});
@@ -59,18 +65,18 @@
         ZIndex: =5
 
     lblDiscount As label:
-        Height: =37
+        Font: =Font.Lato
         LineHeight: =1.5
         Text: |-
             ="Discount: " & 
-                Text(SelectedOrder.'Base Total' * SelectedOrder.Discount,"$#0.#0 ") &
-                Text(SelectedOrder.Discount * 100, "(#0%)")
-        Width: =204
+                Text(discountedPrice, "-$#0.#0 ") &
+                Text(Discount * 100, "(#0%)")
+        Width: =237
         X: =951
         Y: =397
         ZIndex: =6
 
-    "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+    "OrderListGal As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
         BorderColor: =RGBA(118, 0, 0, 1)
         Height: =322
         Items: =Filter('Order Details', 'Order ID' = Value(SelectedOrder.'Order Number'))
@@ -82,6 +88,7 @@
         ZIndex: =7
 
         Title2 As label:
+            Font: =Font.Lato
             Height: =25
             OnSelect: =Select(Parent)
             PaddingBottom: =0
@@ -96,6 +103,7 @@
             ZIndex: =1
 
         lblPrice As label:
+            Font: =Font.Lato
             Height: =25
             OnSelect: =Select(Parent)
             PaddingBottom: =0
@@ -119,6 +127,7 @@
             ZIndex: =4
 
     btnBPay As button:
+        Font: =Font.Lato
         Height: =48
         OnSelect: |
             =UpdateContext({BackgroundBlurVisble: true});
@@ -132,14 +141,16 @@
         ZIndex: =8
 
     txtBTotal As label:
+        Font: =Font.Lato
         LineHeight: =1.5
         Text: |-
-            ="Total: " & Text(Sum(SelectedOrder.'Grand Total', tipVal), "$##.00")
+            ="Total: " & Text(Sum(SelectedOrder.'Grand Total', tipVal), "$#0.#0")
         X: =951
         Y: =500
         ZIndex: =9
 
     txtBTip As label:
+        Font: =Font.Lato
         LineHeight: =1.5
         Text: |-
             ="Tip: " & Text(Value(tipVal), "$#0.#0")
@@ -148,6 +159,7 @@
         ZIndex: =10
 
     txtBTax As label:
+        Font: =Font.Lato
         LineHeight: =1.5
         Text: |-
             ="Tax: " & Text(SelectedOrder.Tax,"$##.#0")
@@ -156,6 +168,7 @@
         ZIndex: =11
 
     txtBSubtotal As label:
+        Font: =Font.Lato
         LineHeight: =1.5
         Text: |-
             ="Subtotal: " & Text(SelectedOrder.'Base Total',"$##.#0")
@@ -166,6 +179,7 @@
     Label4 As label:
         Align: =Align.Center
         Fill: =RGBA(216, 59, 1, 1)
+        Font: =Font.Lato
         FontWeight: =FontWeight.Bold
         Height: =45
         Size: =23
@@ -175,8 +189,9 @@
         ZIndex: =13
 
     btnBPay_1 As button:
+        Font: =Font.Lato
         Height: =30
-        OnSelect: |-
+        OnSelect: |
             =UpdateContext({DiscountWindowVisble: true});
             UpdateContext({BackgroundBlurVisble: true});
         Text: ="Apply Discount"
@@ -196,7 +211,7 @@
 
     LightOutbg As rectangle:
         Fill: =RGBA(153, 153, 153, 0.7)
-        Height: =768
+        Height: =238
         OnSelect: =
         Visible: =BackgroundBlurVisble
         Width: =1366
@@ -221,6 +236,7 @@
         ZIndex: =18
 
     btnCash As button:
+        Font: =Font.Lato
         Height: =66
         OnSelect: |-
             =UpdateContext({PTWindowVisible: false});
@@ -233,6 +249,7 @@
         ZIndex: =19
 
     btnCredit As button:
+        Font: =Font.Lato
         Height: =66
         OnSelect: |-
             =UpdateContext({PTWindowVisible: false}); 
@@ -268,6 +285,7 @@
         ZIndex: =22
 
     lblCreditCardNum As label:
+        Font: =Font.Lato
         FontWeight: =FontWeight.Bold
         Text: |-
             ="Credit Card #"
@@ -279,6 +297,7 @@
 
     inputCreditCardNum As text:
         Default: =""
+        Font: =Font.Lato
         Format: =TextFormat.Number
         MaxLength: =16
         Visible: =CreditWindowVisble
@@ -288,11 +307,12 @@
         ZIndex: =24
 
     btnCreditSubmit As button:
+        Font: =Font.Lato
         OnSelect: |+
             =If(Len(inputCreditCardNum.Text) = 16,
-            UpdateContext({CreditWindowVisble: false}) & 
-            UpdateContext({BackgroundBlurVisble: false}) &
-            CheckoutProcess.Run(SelectedOrder.Table.HostTables), // Once submit, change order status to inactive.
+                UpdateContext({CreditWindowVisble: false, BackgroundBlurVisble: false, PaymentSuccessWindowVisble: true}) & 
+                Reset(inputCreditCardNum);
+                CheckoutProcess.Run(SelectedOrder.Table.HostTables), // Once submit, change order status to inactive.
             
             UpdateContext({ErrorWindowVisble: true})
             );
@@ -303,7 +323,7 @@
                     Orders, 
                     LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), 
                     {
-                        Status: 'Status (Orders)'.Active
+                        Status: 'Status (Orders)'.Inactive
                     }
                 )
             );
@@ -340,18 +360,21 @@
         ZIndex: =27
 
     lblError As label:
+        Align: =Align.Center
         Fill: =RGBA(255, 255, 255, 1)
+        Font: =Font.Lato
         FontWeight: =FontWeight.Bold
         Height: =29
         Text: |-
             ="Error: Invalid credit card number"
         Visible: =ErrorWindowVisble
         Width: =322
-        X: =522
-        Y: =338
+        X: =521
+        Y: =346
         ZIndex: =28
 
     btnErrorConfirm As button:
+        Font: =Font.Lato
         OnSelect: |-
             =UpdateContext({ErrorWindowVisble: false})
         Text: ="Confirm"
@@ -372,6 +395,7 @@
         ZIndex: =30
 
     lblBalance As label:
+        Font: =Font.Lato
         FontWeight: =FontWeight.Bold
         Height: =47
         Text: |-
@@ -383,6 +407,7 @@
         ZIndex: =31
 
     lblCashAmt As label:
+        Font: =Font.Lato
         FontWeight: =FontWeight.Bold
         Height: =52
         Text: |-
@@ -395,6 +420,7 @@
 
     inputCashAmt As text:
         Default: =""
+        Font: =Font.Lato
         Format: =TextFormat.Number
         Height: =48
         Visible: =CashWindowVisible
@@ -408,6 +434,7 @@
         Icon: =Icon.Cancel
         OnSelect: |-
             =UpdateContext({CashWindowVisible: false});
+            UpdateContext({BackgroundBlurVisble: false});
             Reset(inputCashAmt);
         Visible: =CashWindowVisible
         Width: =34
@@ -416,6 +443,7 @@
         ZIndex: =34
 
     btnCashSubmit As button:
+        Font: =Font.Lato
         OnSelect: |-
             =UpdateContext({CashWindowVisible: false});
             UpdateContext({ChangeWindowVisible: true});
@@ -425,7 +453,7 @@
                 Orders, 
                 LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), 
                 {
-                    Status: 'Status (Orders)'.Active
+                    Status: 'Status (Orders)'.Inactive
                 }
             );
             
@@ -450,6 +478,7 @@
 
     lblChange As label:
         Align: =Align.Center
+        Font: =Font.Lato
         FontWeight: =FontWeight.Semibold
         Height: =63
         Size: =18
@@ -462,6 +491,7 @@
         ZIndex: =37
 
     btnChange As button:
+        Font: =Font.Lato
         OnSelect: |-
             =UpdateContext({ChangeWindowVisible: false});
             UpdateContext({BackgroundBlurVisble: false});
@@ -485,7 +515,8 @@
     Button10_4 As button:
         Height: =34
         OnSelect: |-
-            =UpdateContext({Discount: 10});
+            =UpdateContext({Discount: 10/100});
+            UpdateContext({discountedPrice: SelectedOrder.'Base Total' * (Discount)});
             UpdateContext({CustomizeClicked: false});
             Reset(inputCustomDiscount);
         Text: ="10%"
@@ -498,7 +529,8 @@
     Button10_5 As button:
         Height: =34
         OnSelect: |-
-            =UpdateContext({Discount: 25});
+            =UpdateContext({Discount: 25/100});
+            UpdateContext({discountedPrice: SelectedOrder.'Base Total' * (Discount)});
             UpdateContext({CustomizeClicked: false});
             Reset(inputCustomDiscount);
         Text: ="25%"
@@ -511,7 +543,8 @@
     Button10_6 As button:
         Height: =34
         OnSelect: |-
-            =UpdateContext({Discount: 50});
+            =UpdateContext({Discount: 50/100});
+            UpdateContext({discountedPrice: SelectedOrder.'Base Total' * (Discount)});
             UpdateContext({CustomizeClicked: false});
             Reset(inputCustomDiscount);
         Text: ="50%"
@@ -532,9 +565,15 @@
         ZIndex: =43
 
     inputCustomDiscount As text:
+        ContentLanguage: =
         Default: =""
         Format: =TextFormat.Number
         Height: =34
+        OnChange: |
+            =UpdateContext({Discount: Value(inputCustomDiscount.Text)});
+            UpdateContext({discountedPrice: SelectedOrder.'Base Total' * (Discount)});
+        OnSelect: |-
+            =UpdateContext({CustomizeClicked: true});
         Visible: =DiscountWindowVisble
         Width: =94
         X: =648
@@ -543,11 +582,11 @@
 
     Button10_8 As button:
         Height: =34
-        OnSelect: |-
+        OnSelect: |
             =
             If(CustomizeClicked = true,
-                Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Discount: inputCustomDiscount/100}),
-                Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Discount: Discount/100});
+                Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Discount: Value(inputCustomDiscount.Text)}),
+                Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Discount: Discount});
             );
             
             UpdateContext({DiscountWindowVisble: false});
@@ -565,6 +604,7 @@
         OnSelect: |-
             =UpdateContext({DiscountWindowVisble: false});
             UpdateContext({BackgroundBlurVisble: false});
+            Reset(inputCustomDiscount);
         Visible: =DiscountWindowVisble
         Width: =39
         X: =860
@@ -576,7 +616,7 @@
         BorderThickness: =5
         Fill: =RGBA(255, 255, 255, 1)
         Height: =123
-        Visible: =ErrorWindowVisble
+        Visible: =PaymentSuccessWindowVisble
         Width: =339
         X: =512
         Y: =322
@@ -585,23 +625,37 @@
     lblPaymentSuccess As label:
         Align: =Align.Center
         Fill: =RGBA(255, 255, 255, 1)
+        Font: =Font.Lato
         FontWeight: =FontWeight.Bold
         Height: =29
         Text: ="Payment success!"
-        Visible: =ErrorWindowVisble
+        Visible: =PaymentSuccessWindowVisble
         Width: =322
         X: =521
         Y: =342
         ZIndex: =48
 
     btnSuccessConfirm As button:
+        Font: =Font.Lato
         OnSelect: |-
             =UpdateContext({ErrorWindowVisble: false});
             UpdateContext({CreditWindowVisble: false}); 
             UpdateContext({BackgroundBlurVisble: false});
+            UpdateContext({PaymentSuccessWindowVisble: false});
         Text: ="Confirm"
-        Visible: =ErrorWindowVisble
+        Visible: =PaymentSuccessWindowVisble
         X: =604
         Y: =386
         ZIndex: =49
+
+    Label3 As label:
+        Font: =Font.Lato
+        Height: =51
+        Size: =20
+        Text: |-
+            ="Tip Amount:"
+        Width: =255
+        X: =61
+        Y: =375
+        ZIndex: =50
 

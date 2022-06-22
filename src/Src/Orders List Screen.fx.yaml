@@ -51,6 +51,11 @@
             Height: =59
             OnSelect: |+
                 =Select(Parent);
+                Set(ToEditOrderNumber, ThisItem.'Order Number');
+                
+                Set(subtotalVal,Text(Sum(Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber)), 'Menu Item'.Price), "$##.#0"));
+                Patch(Orders, LookUp(Orders, 'Order Number' = ThisItem.'Order Number'), {'Base Total': Value(subtotalVal)});
+                
                 Navigate('Billing Screen', None);
                 
             Size: =20
