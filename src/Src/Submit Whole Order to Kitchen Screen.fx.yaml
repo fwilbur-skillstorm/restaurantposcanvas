@@ -92,7 +92,9 @@
             ZIndex: =7
 
         btnSendIndividItemToKitchen As button:
+            Fill: =RGBA(118, 0, 0, 1)
             Height: =30
+            HoverFill: =ColorFade(RGBA(191, 0, 0, 1), -20%)
             OnSelect: |-
                 =If(!IsBlank(LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber) && 'Sent to Kitchen' = Blank(), 'Menu Item'.Name)),
                     Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp(Orders, 'Order Number' = ToEditOrderNumber)}),
@@ -119,8 +121,10 @@
             ZIndex: =9
 
     btnSendToKitchen As button:
+        Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
         Height: =60
+        HoverFill: =ColorFade(RGBA(191, 0, 0, 1), -20%)
         OnSelect: |-
             =If(!IsBlank(LookUp('Order Details', 'Order ID' = Value(ToEditOrderNumber) && 'Sent to Kitchen' = Blank(), 'Menu Item'.Name)),
                 Patch('Kitchen Tickets', Defaults('Kitchen Tickets'), {Order: LookUp(Orders, 'Order Number' = ToEditOrderNumber)}),
@@ -139,9 +143,8 @@
 
     lblSendToKitchenTopSeparator As label:
         Align: =Align.Center
-        Color: =RGBA(255, 255, 255, 1)
         Fill: =RGBA(216, 59, 1, 1)
-        FontWeight: =FontWeight.Bold
+        Font: =Font.'Lato Black'
         Height: =45
         Size: =22
         Text: |-
@@ -164,7 +167,7 @@
 
     BackIcon1_6 As icon.Reset:
         BorderColor: =RGBA(255, 255, 255, 1)
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(0, 0, 0, 1)
         Height: =45
         Icon: =Icon.Reset
         OnSelect: |+
@@ -426,7 +429,7 @@
         ZIndex: =11
 
     Icon6 As icon.Home:
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(0, 0, 0, 1)
         Height: =46
         Icon: =Icon.Home
         OnSelect: |-

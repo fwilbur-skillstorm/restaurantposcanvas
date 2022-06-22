@@ -195,8 +195,7 @@
     lblMainOrderNumber As label:
         Align: =Align.Center
         Fill: =RGBA(216, 59, 1, 1)
-        Font: =Font.Lato
-        FontWeight: =FontWeight.Bold
+        Font: =Font.'Lato Black'
         Height: =45
         Size: =23
         Text: |-
