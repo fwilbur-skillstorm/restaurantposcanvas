@@ -108,6 +108,16 @@
             Y: =132
             ZIndex: =8
 
+        Label2 As label:
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Lato Light'
+            OnSelect: =Select(Parent)
+            Size: =14
+            Text: |-
+                ="Item #" & ThisItem.Name
+            X: =633
+            ZIndex: =9
+
     btnSendToKitchen As button:
         Font: =Font.Lato
         Height: =60
@@ -158,19 +168,7 @@
         Height: =45
         Icon: =Icon.Reset
         OnSelect: |+
-            =UpdateContext({
-                ordDetailID: Blank(),
-                orderNumber: Blank(),
-                ticketNumber: Blank(),
-                menuItemName: Blank(),
-                customizationRequest: Blank(),
-                kitchenApproved: Blank(),
-                suggestions: Blank(),
-                modificationsAccepted: Blank(),
-                foodDelivered: Blank()
-            });
-            
-            Navigate('Add Items To Order Screen', Fade);
+            =Navigate('Add Items To Order Screen', Fade);
             
         Width: =41
         X: =27
@@ -427,54 +425,14 @@
         Y: =531
         ZIndex: =11
 
-    Icon3 As icon.ForkKnife:
-        Color: =RGBA(118, 0, 0, 1)
-        Height: =120
-        Icon: =Icon.ForkKnife
+    Icon6 As icon.Home:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =46
+        Icon: =Icon.Home
         OnSelect: |-
-            =Patch('Order Details', LookUp('Order Details', Name = ordDetailID), {'Food Delivered': Now()})
-        Visible: =If(!IsBlank(ordDetailID), true, false)
-        Width: =160
-        X: =1188
-        Y: =567
-        ZIndex: =12
-
-    Label8 As label:
-        Align: =Align.Right
-        Font: =Font.'Lato Black'
-        Height: =37
-        Size: =18
-        Text: ="Deliver Food"
-        VerticalAlign: =VerticalAlign.Bottom
-        Visible: =If(!IsBlank(ordDetailID), true, false)
-        Width: =151
-        X: =1197
-        Y: =687
-        ZIndex: =13
-
-    Icon4 As icon.CheckBadge:
-        Color: =RGBA(54, 176, 75, 1)
-        Height: =449
-        Icon: =Icon.CheckBadge
-        OnSelect: |-
-            =UpdateContext({ordDetailID: Blank()})
-        Visible: =If(!IsBlank(ordDetailID), true, false)
-        Width: =505
-        X: =861
-        Y: =169
-        ZIndex: =14
-
-    Label9 As label:
-        Align: =Align.Center
-        Font: =Font.'Lato Black'
-        Height: =97
-        Size: =22
-        Text: |-
-            ="Food Delivered at
-            " & LookUp('Order Details', Name = ordDetailID).'Food Delivered'
-        Visible: =If(!IsBlank(ordDetailID), true, false)
-        Width: =470
-        X: =878
-        Y: =618
-        ZIndex: =15
+            =Set(ToEditOrderNumber,Blank());
+            Navigate('Orders List Screen',Fade)
+        Width: =46
+        X: =92
+        ZIndex: =16
 

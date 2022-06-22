@@ -1,15 +1,85 @@
 "'Billing Screen' As screen":
 
+    txtTipAmtInput As text:
+        Default: =""
+        Format: =TextFormat.Number
+        Height: =34
+        OnChange: |-
+            =UpdateContext({tipVal: Value(txtTipAmtInput.Text)})
+        OnSelect: |-
+            =UpdateContext({tipCustomSelected: true});
+        Width: =101
+        X: =160
+        Y: =483
+        ZIndex: =1
+
+    Button10_3 As button:
+        DisplayMode: =DisplayMode.View
+        Height: =34
+        Text: ="Custom"
+        Width: =89
+        X: =61
+        Y: =483
+        ZIndex: =2
+
+    Button10_2 As button:
+        Height: =34
+        OnSelect: |-
+            =UpdateContext({tipVal: .20 * SelectedOrder.'Base Total'});
+            UpdateContext({tipCustomSelected: false});
+            Reset(txtTipAmtInput)
+        Text: ="20%"
+        Width: =89
+        X: =261
+        Y: =435
+        ZIndex: =3
+
+    Button10_1 As button:
+        Height: =34
+        OnSelect: |-
+            =UpdateContext({tipVal: .15 * SelectedOrder.'Base Total'});
+            UpdateContext({tipCustomSelected: false});
+            Reset(txtTipAmtInput)
+        Text: ="15%"
+        Width: =89
+        X: =160
+        Y: =435
+        ZIndex: =4
+
+    Button10 As button:
+        Height: =34
+        OnSelect: |-
+            =UpdateContext({tipVal: .10 * SelectedOrder.'Base Total'});
+            UpdateContext({tipCustomSelected: false});
+            Reset(txtTipAmtInput)
+        Text: ="10%"
+        Width: =89
+        X: =61
+        Y: =434
+        ZIndex: =5
+
+    lblDiscount As label:
+        Height: =37
+        LineHeight: =1.5
+        Text: |-
+            ="Discount: " & 
+                Text(SelectedOrder.'Base Total' * SelectedOrder.Discount,"$#0.#0 ") &
+                Text(SelectedOrder.Discount * 100, "(#0%)")
+        Width: =204
+        X: =951
+        Y: =397
+        ZIndex: =6
+
     "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
         BorderColor: =RGBA(118, 0, 0, 1)
-        Height: =222
+        Height: =322
         Items: =Filter('Order Details', 'Order ID' = Value(SelectedOrder.'Order Number'))
         Layout: =Layout.Vertical
         TemplatePadding: =0
         TemplateSize: =28
         Width: =1366
         Y: =45
-        ZIndex: =1
+        ZIndex: =7
 
         Title2 As label:
             Height: =25
@@ -57,45 +127,41 @@
             Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Tip: Value(txtTipAmtInput.Text)});
         Text: ="Pay"
         Width: =184
-        X: =948
-        Y: =526
-        ZIndex: =2
+        X: =955
+        Y: =547
+        ZIndex: =8
 
     txtBTotal As label:
+        LineHeight: =1.5
         Text: |-
-            ="Total: " & Text(SelectedOrder.'Grand Total',"$##.#0")
-        X: =948
-        Y: =486
-        ZIndex: =3
+            ="Total: " & Text(Sum(SelectedOrder.'Grand Total', tipVal), "$##.00")
+        X: =951
+        Y: =500
+        ZIndex: =9
 
     txtBTip As label:
+        LineHeight: =1.5
         Text: |-
-            ="Tip: " & Text(Value(txtTipAmtInput.Text), "$#0.#00")
-        X: =948
-        Y: =446
-        ZIndex: =4
+            ="Tip: " & Text(Value(tipVal), "$#0.#0")
+        X: =951
+        Y: =466
+        ZIndex: =10
 
     txtBTax As label:
+        LineHeight: =1.5
         Text: |-
             ="Tax: " & Text(SelectedOrder.Tax,"$##.#0")
-        X: =948
-        Y: =406
-        ZIndex: =5
+        X: =951
+        Y: =431
+        ZIndex: =11
 
     txtBSubtotal As label:
+        LineHeight: =1.5
         Text: |-
             ="Subtotal: " & Text(SelectedOrder.'Base Total',"$##.#0")
-        X: =948
+        X: =951
         Y: =366
-        ZIndex: =6
-
-    LightOutbg As rectangle:
-        Fill: =RGBA(153, 153, 153, 0.7)
-        Height: =248
-        OnSelect: =
-        Visible: =BackgroundBlurVisble
-        Width: =1366
-        ZIndex: =7
+        ZIndex: =12
 
     Label4 As label:
         Align: =Align.Center
@@ -106,7 +172,18 @@
         Text: |-
             ="Order # " & Text(SelectedOrder.'Order Number')
         Width: =1366
-        ZIndex: =8
+        ZIndex: =13
+
+    btnBPay_1 As button:
+        Height: =30
+        OnSelect: |-
+            =UpdateContext({DiscountWindowVisble: true});
+            UpdateContext({BackgroundBlurVisble: true});
+        Text: ="Apply Discount"
+        Width: =193
+        X: =1155
+        Y: =9
+        ZIndex: =14
 
     Icon1 As icon.ArrowLeft:
         Height: =27
@@ -115,25 +192,33 @@
             =Navigate('Orders List Screen', None);
             Reset(txtTipAmtInput)
         Width: =61
-        ZIndex: =9
+        ZIndex: =15
+
+    LightOutbg As rectangle:
+        Fill: =RGBA(153, 153, 153, 0.7)
+        Height: =768
+        OnSelect: =
+        Visible: =BackgroundBlurVisble
+        Width: =1366
+        ZIndex: =16
 
     Rectangle2 As rectangle:
         Fill: =RGBA(216, 59, 1, 1)
         Height: =45
         Width: =1366
         Y: =723
-        ZIndex: =10
+        ZIndex: =17
 
     CashCreditWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
         BorderThickness: =5
         Fill: =RGBA(255, 255, 255, 1)
-        Height: =524
+        Height: =189
         Visible: =PTWindowVisible
         Width: =480
-        X: =452
-        Y: =72
-        ZIndex: =11
+        X: =461
+        Y: =337
+        ZIndex: =18
 
     btnCash As button:
         Height: =66
@@ -143,9 +228,9 @@
         Text: ="Cash"
         Visible: =PTWindowVisible
         Width: =181
-        X: =485
-        Y: =497
-        ZIndex: =12
+        X: =506
+        Y: =403
+        ZIndex: =19
 
     btnCredit As button:
         Height: =66
@@ -155,9 +240,9 @@
         Text: ="Credit"
         Visible: =PTWindowVisible
         Width: =181
-        X: =716
-        Y: =497
-        ZIndex: =13
+        X: =718
+        Y: =403
+        ZIndex: =20
 
     Icon2 As icon.Cancel:
         Height: =27
@@ -167,9 +252,9 @@
             UpdateContext({BackgroundBlurVisble: false});
         Visible: =PTWindowVisible
         Width: =32
-        X: =897
-        Y: =80
-        ZIndex: =14
+        X: =902
+        Y: =340
+        ZIndex: =21
 
     CreditWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
@@ -180,7 +265,7 @@
         Width: =480
         X: =443
         Y: =265
-        ZIndex: =15
+        ZIndex: =22
 
     lblCreditCardNum As label:
         FontWeight: =FontWeight.Bold
@@ -190,7 +275,7 @@
         Width: =139
         X: =461
         Y: =337
-        ZIndex: =16
+        ZIndex: =23
 
     inputCreditCardNum As text:
         Default: =""
@@ -200,7 +285,7 @@
         Width: =299
         X: =603
         Y: =337
-        ZIndex: =17
+        ZIndex: =24
 
     btnCreditSubmit As button:
         OnSelect: |+
@@ -218,7 +303,7 @@
                     Orders, 
                     LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), 
                     {
-                        Status: 'Status (Orders)'.Inactive
+                        Status: 'Status (Orders)'.Active
                     }
                 )
             );
@@ -227,7 +312,7 @@
         Visible: =CreditWindowVisble
         X: =742
         Y: =439
-        ZIndex: =18
+        ZIndex: =25
 
     exitCreditWindow As icon.Cancel:
         Height: =24
@@ -241,7 +326,7 @@
         Width: =34
         X: =889
         Y: =267
-        ZIndex: =19
+        ZIndex: =26
 
     ErrorWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
@@ -252,7 +337,7 @@
         Width: =339
         X: =513
         Y: =322
-        ZIndex: =20
+        ZIndex: =27
 
     lblError As label:
         Fill: =RGBA(255, 255, 255, 1)
@@ -264,7 +349,7 @@
         Width: =322
         X: =522
         Y: =338
-        ZIndex: =21
+        ZIndex: =28
 
     btnErrorConfirm As button:
         OnSelect: |-
@@ -273,7 +358,7 @@
         Visible: =ErrorWindowVisble
         X: =603
         Y: =386
-        ZIndex: =22
+        ZIndex: =29
 
     CashWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
@@ -284,7 +369,7 @@
         Width: =480
         X: =444
         Y: =262
-        ZIndex: =23
+        ZIndex: =30
 
     lblBalance As label:
         FontWeight: =FontWeight.Bold
@@ -295,7 +380,7 @@
         Width: =183
         X: =493
         Y: =303
-        ZIndex: =24
+        ZIndex: =31
 
     lblCashAmt As label:
         FontWeight: =FontWeight.Bold
@@ -306,7 +391,7 @@
         Width: =139
         X: =493
         Y: =347
-        ZIndex: =25
+        ZIndex: =32
 
     inputCashAmt As text:
         Default: =""
@@ -316,7 +401,7 @@
         Width: =192
         X: =648
         Y: =351
-        ZIndex: =26
+        ZIndex: =33
 
     exitCreditWindow_1 As icon.Cancel:
         Height: =24
@@ -328,7 +413,7 @@
         Width: =34
         X: =891
         Y: =267
-        ZIndex: =27
+        ZIndex: =34
 
     btnCashSubmit As button:
         OnSelect: |-
@@ -340,7 +425,7 @@
                 Orders, 
                 LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), 
                 {
-                    Status: 'Status (Orders)'.Inactive
+                    Status: 'Status (Orders)'.Active
                 }
             );
             
@@ -350,7 +435,7 @@
         Visible: =CashWindowVisible
         X: =742
         Y: =439
-        ZIndex: =28
+        ZIndex: =35
 
     ChangeWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
@@ -361,7 +446,7 @@
         Width: =220
         X: =582
         Y: =297
-        ZIndex: =29
+        ZIndex: =36
 
     lblChange As label:
         Align: =Align.Center
@@ -369,122 +454,154 @@
         Height: =63
         Size: =18
         Text: |-
-            ="Change: " & Text(inputCashAmt - SelectedOrder.'Grand Total', "$#0.#00)")
+            ="Change: " & Text(inputCashAmt - SelectedOrder.'Grand Total', "$#0.#0")
         Visible: =ChangeWindowVisible
         Width: =220
         X: =582
         Y: =314
-        ZIndex: =30
+        ZIndex: =37
 
     btnChange As button:
         OnSelect: |-
             =UpdateContext({ChangeWindowVisible: false});
+            UpdateContext({BackgroundBlurVisble: false});
         Text: ="Confirm"
         Visible: =ChangeWindowVisible
         X: =612
         Y: =391
-        ZIndex: =31
-
-    btnBPay_1 As button:
-        Height: =48
-        OnSelect: =
-        Text: ="Discount"
-        Width: =184
-        X: =61
-        Y: =611
-        ZIndex: =32
-
-    txtBSubtotal_1 As label:
-        Text: |-
-            ="Subtotal: " & Text(SelectedOrder.'Base Total',"$##.#0")
-        Visible: =PTWindowVisible
-        X: =492
-        Y: =136
-        ZIndex: =33
-
-    txtBTax_1 As label:
-        Text: |-
-            ="Tax: " & Text(SelectedOrder.Tax,"$##.#0")
-        Visible: =PTWindowVisible
-        X: =492
-        Y: =167
-        ZIndex: =34
-
-    txtBTotal_1 As label:
-        Text: |-
-            ="Total: " & Text(SelectedOrder.'Grand Total',"$##.#0")
-        Visible: =PTWindowVisible
-        X: =492
-        Y: =383
-        ZIndex: =36
-
-    txtTipAmtInput As text:
-        Default: ="0"
-        Format: =TextFormat.Number
-        Height: =21
-        OnChange: =
-        OnSelect: |-
-            =UpdateContext({tipCustomSelected: true});
-        Visible: =PTWindowVisible
-        Width: =101
-        X: =587
-        Y: =304
         ZIndex: =38
 
-    Button10 As button:
-        Height: =23
-        OnSelect: |-
-            =UpdateContext({tipVal: 10 * SelectedOrder.'Base Total'});
-            UpdateContext({tipCustomSelected: false});
-            Reset(txtTipAmtInput)
-        Text: ="10%"
-        Visible: =PTWindowVisible
-        Width: =89
-        X: =493
-        Y: =269
+    Rectangle3 As rectangle:
+        BorderColor: =RGBA(216, 59, 1, 1)
+        BorderThickness: =5
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =220
+        Visible: =DiscountWindowVisble
+        Width: =392
+        X: =507
+        Y: =267
         ZIndex: =39
 
-    Button10_1 As button:
-        Height: =23
+    Button10_4 As button:
+        Height: =34
         OnSelect: |-
-            =UpdateContext({tipVal: 15 * SelectedOrder.'Base Total'});
-            UpdateContext({tipCustomSelected: false});
-            Reset(txtTipAmtInput)
-        Text: ="15%"
-        Visible: =PTWindowVisible
+            =UpdateContext({Discount: 10});
+            UpdateContext({CustomizeClicked: false});
+            Reset(inputCustomDiscount);
+        Text: ="10%"
+        Visible: =DiscountWindowVisble
         Width: =89
-        X: =587
-        Y: =269
+        X: =540
+        Y: =317
         ZIndex: =40
 
-    Button10_2 As button:
-        Height: =23
+    Button10_5 As button:
+        Height: =34
         OnSelect: |-
-            =UpdateContext({tipVal: 20 * SelectedOrder.'Base Total'});
-            UpdateContext({tipCustomSelected: false});
-            Reset(txtTipAmtInput)
-        Text: ="20%"
-        Visible: =PTWindowVisible
+            =UpdateContext({Discount: 25});
+            UpdateContext({CustomizeClicked: false});
+            Reset(inputCustomDiscount);
+        Text: ="25%"
+        Visible: =DiscountWindowVisble
         Width: =89
-        X: =683
-        Y: =269
+        X: =653
+        Y: =317
         ZIndex: =41
 
-    Button10_3 As button:
-        DisplayMode: =DisplayMode.View
-        Height: =23
-        Text: ="Custom"
-        Visible: =PTWindowVisible
+    Button10_6 As button:
+        Height: =34
+        OnSelect: |-
+            =UpdateContext({Discount: 50});
+            UpdateContext({CustomizeClicked: false});
+            Reset(inputCustomDiscount);
+        Text: ="50%"
+        Visible: =DiscountWindowVisble
         Width: =89
-        X: =492
-        Y: =304
+        X: =769
+        Y: =316
         ZIndex: =42
 
-    txtBTip_1 As label:
-        Text: |-
-            ="Tip: " & Text(Value(txtTipAmtInput.Text), "$#0.#00")
-        Visible: =PTWindowVisible
-        X: =493
-        Y: =227
+    Button10_7 As button:
+        DisplayMode: =DisplayMode.View
+        Height: =34
+        Text: ="Custom"
+        Visible: =DiscountWindowVisble
+        Width: =89
+        X: =540
+        Y: =386
         ZIndex: =43
+
+    inputCustomDiscount As text:
+        Default: =""
+        Format: =TextFormat.Number
+        Height: =34
+        Visible: =DiscountWindowVisble
+        Width: =94
+        X: =648
+        Y: =386
+        ZIndex: =44
+
+    Button10_8 As button:
+        Height: =34
+        OnSelect: |-
+            =
+            If(CustomizeClicked = true,
+                Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Discount: inputCustomDiscount/100}),
+                Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Discount: Discount/100});
+            );
+            
+            UpdateContext({DiscountWindowVisble: false});
+            UpdateContext({BackgroundBlurVisble: false});
+        Text: ="Confirm"
+        Visible: =DiscountWindowVisble
+        Width: =89
+        X: =771
+        Y: =432
+        ZIndex: =45
+
+    Icon5 As icon.Cancel:
+        Height: =32
+        Icon: =Icon.Cancel
+        OnSelect: |-
+            =UpdateContext({DiscountWindowVisble: false});
+            UpdateContext({BackgroundBlurVisble: false});
+        Visible: =DiscountWindowVisble
+        Width: =39
+        X: =860
+        Y: =265
+        ZIndex: =46
+
+    PaymentSuccessWindow As rectangle:
+        BorderColor: =RGBA(216, 59, 1, 1)
+        BorderThickness: =5
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =123
+        Visible: =ErrorWindowVisble
+        Width: =339
+        X: =512
+        Y: =322
+        ZIndex: =47
+
+    lblPaymentSuccess As label:
+        Align: =Align.Center
+        Fill: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =29
+        Text: ="Payment success!"
+        Visible: =ErrorWindowVisble
+        Width: =322
+        X: =521
+        Y: =342
+        ZIndex: =48
+
+    btnSuccessConfirm As button:
+        OnSelect: |-
+            =UpdateContext({ErrorWindowVisble: false});
+            UpdateContext({CreditWindowVisble: false}); 
+            UpdateContext({BackgroundBlurVisble: false});
+        Text: ="Confirm"
+        Visible: =ErrorWindowVisble
+        X: =604
+        Y: =386
+        ZIndex: =49
 
