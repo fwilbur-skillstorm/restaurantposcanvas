@@ -444,3 +444,9 @@
         X: =92
         ZIndex: =16
 
+    Button1 As button:
+        Text: ="Button"
+        X: =1028
+        Y: =627
+        ZIndex: =17
+
