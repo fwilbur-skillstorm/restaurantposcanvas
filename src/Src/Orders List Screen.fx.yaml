@@ -172,6 +172,7 @@
 
     txtOrdersListGalleryTitle As label:
         Align: =Align.Center
+        Color: =RGBA(0, 0, 0, 1)
         Fill: =RGBA(216, 59, 1, 1)
         Font: =Font.'Lato Black'
         FontWeight: =FontWeight.Bold
@@ -185,7 +186,7 @@
 
     icnOrderListBack As icon.Reset:
         BorderColor: =RGBA(255, 255, 255, 1)
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(0, 0, 0, 1)
         Height: =45
         Icon: =Icon.Reset
         OnSelect: =Navigate('Logged In Landing Page Screen', Fade);

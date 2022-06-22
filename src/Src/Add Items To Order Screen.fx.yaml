@@ -232,7 +232,7 @@
             =Reset([@galCartItems]);
             Set(ToEditOrderNumber, Blank());
             Navigate('Orders List Screen', Fade);
-        Width: =41
+        Width: =36
         X: =26
         Y: =1
         ZIndex: =8

@@ -17,8 +17,11 @@
 
     btnTipCustom As button:
         DisplayMode: =DisplayMode.View
+        Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
         Height: =34
+        HoverFill: =ColorFade(RGBA(191, 0, 0, 1), -20%)
+        Size: =16
         Text: ="Custom"
         Width: =89
         X: =61
@@ -26,12 +29,15 @@
         ZIndex: =2
 
     "'btnTip20%' As button":
+        Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
         Height: =34
+        HoverFill: =ColorFade(RGBA(191, 0, 0, 1), -20%)
         OnSelect: |-
             =UpdateContext({tipVal: .20 * SelectedOrder.'Base Total'});
             UpdateContext({tipCustomSelected: false});
             Reset(txtTipAmtInput)
+        Size: =16
         Text: ="20%"
         Width: =89
         X: =261
@@ -39,12 +45,15 @@
         ZIndex: =3
 
     "'btnTip15%' As button":
+        Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
         Height: =34
+        HoverFill: =ColorFade(RGBA(191, 0, 0, 1), -20%)
         OnSelect: |-
             =UpdateContext({tipVal: .15 * SelectedOrder.'Base Total'});
             UpdateContext({tipCustomSelected: false});
             Reset(txtTipAmtInput)
+        Size: =16
         Text: ="15%"
         Width: =89
         X: =160
@@ -52,12 +61,15 @@
         ZIndex: =4
 
     "'btnTip10%' As button":
+        Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
         Height: =34
+        HoverFill: =ColorFade(RGBA(191, 0, 0, 1), -20%)
         OnSelect: |-
             =UpdateContext({tipVal: .10 * SelectedOrder.'Base Total'});
             UpdateContext({tipCustomSelected: false});
             Reset(txtTipAmtInput)
+        Size: =16
         Text: ="10%"
         Width: =89
         X: =61
@@ -127,12 +139,15 @@
             ZIndex: =4
 
     btnBPay As button:
+        Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
         Height: =48
+        HoverFill: =ColorFade(RGBA(191, 0, 0, 1), -20%)
         OnSelect: |
             =UpdateContext({BackgroundBlurVisble: true});
             UpdateContext({PTWindowVisible: true}); // PT = Payment Type
             Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Tip: Value(txtTipAmtInput.Text)});
+        Size: =16
         Text: ="Pay"
         Width: =184
         X: =955
@@ -190,25 +205,19 @@
         ZIndex: =13
 
     btnApplyDiscount As button:
+        Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
         Height: =30
+        HoverFill: =ColorFade(RGBA(191, 0, 0, 1), -20%)
         OnSelect: |
             =UpdateContext({DiscountWindowVisble: true});
             UpdateContext({BackgroundBlurVisble: true});
+        Size: =16
         Text: ="Apply Discount"
         Width: =193
         X: =1155
         Y: =9
         ZIndex: =14
-
-    icnMainScreenBack As icon.ArrowLeft:
-        Height: =27
-        Icon: =Icon.ArrowLeft
-        OnSelect: |-
-            =Navigate('Orders List Screen', None);
-            Reset(txtTipAmtInput)
-        Width: =61
-        ZIndex: =15
 
     bgLightOutbg As rectangle:
         Fill: =RGBA(153, 153, 153, 0.7)
@@ -712,4 +721,16 @@
         X: =493
         Y: =448
         ZIndex: =55
+
+    icnOrderListBack_1 As icon.Reset:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =45
+        Icon: =Icon.Reset
+        OnSelect: |-
+            =Navigate('Orders List Screen', None);
+            Reset(txtTipAmtInput)
+        Width: =33
+        X: =28
+        ZIndex: =56
 
