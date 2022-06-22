@@ -108,6 +108,12 @@
             Y: =132
             ZIndex: =8
 
+        Label2 As label:
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Name
+            X: =633
+            ZIndex: =9
+
     btnSendToKitchen As button:
         Font: =Font.Lato
         Height: =60
