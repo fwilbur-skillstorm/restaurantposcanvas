@@ -109,6 +109,8 @@
             ZIndex: =8
 
         Label2 As label:
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Lato Black'
             OnSelect: =Select(Parent)
             Text: =ThisItem.Name
             X: =633
