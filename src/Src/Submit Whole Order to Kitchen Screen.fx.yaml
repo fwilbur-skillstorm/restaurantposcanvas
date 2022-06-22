@@ -121,6 +121,27 @@
             X: =633
             ZIndex: =9
 
+        Icon1 As icon.ForkKnife:
+            Color: =RGBA(0, 0, 0, 1)
+            Height: =37
+            Icon: =Icon.ForkKnife
+            OnSelect: |-
+                =Patch('Order Details',galOrderDetailsToSend.Selected,{'Food Delivered':Now()})
+            Visible: =If(ThisItem.'Food Delivered'=Blank(),true,false)
+            Width: =46
+            X: =642
+            Y: =65
+            ZIndex: =10
+
+        Icon2 As icon.CheckBadge:
+            Color: =RGBA(152, 208, 70, 1)
+            DisplayMode: =DisplayMode.View
+            Icon: =Icon.CheckBadge
+            Visible: =If(ThisItem.'Food Delivered'=Blank(),false,true)
+            X: =633
+            Y: =52
+            ZIndex: =11
+
     btnSendToKitchen As button:
         Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
@@ -443,10 +464,4 @@
         Width: =46
         X: =92
         ZIndex: =16
-
-    Button1 As button:
-        Text: ="Button"
-        X: =1028
-        Y: =627
-        ZIndex: =17
 
