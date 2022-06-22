@@ -421,8 +421,10 @@
 
     Button4 As button:
         Fill: =RGBA(118, 0, 0, 1)
+        Font: =Font.Lato
         HoverFill: =ColorFade(RGBA(191, 0, 0, 1), -20%)
         OnSelect: =SubmitForm([@'Kitchen Mods Acceptance Form'])
+        Size: =16
         Text: |-
             ="Submit
             "
