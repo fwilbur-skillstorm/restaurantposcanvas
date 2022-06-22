@@ -61,5 +61,22 @@
       "33ac0997-de58-4369-964f-527d6d91d078"
     ],
     "id": "9a896b2f-498d-4b08-a902-c2aa3aee8bb9"
+  },
+  "c1c700b4-de0d-47b3-8c38-042f7afdd438": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "displayName": "Outlook.com",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1567/1.0.1567.2748/outlook/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_outlook"
+    },
+    "datasets": {},
+    "dataSources": [
+      "Outlook.com"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "c1c700b4-de0d-47b3-8c38-042f7afdd438"
   }
 }
