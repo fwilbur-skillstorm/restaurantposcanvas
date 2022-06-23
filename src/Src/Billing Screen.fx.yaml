@@ -706,7 +706,7 @@
         Font: =Font.Lato
         Height: =44
         Text: |-
-            ="Tax: "& "$" & LookUp(Orders,'Order Number'= SelectedOrder.'Order Number','Tax')
+            ="Tax: "& "$" & LookUp(Orders,'Order Number'= SelectedOrder.'Order Number',Tax)
         Width: =141
         X: =951
         Y: =432
