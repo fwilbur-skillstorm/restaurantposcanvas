@@ -55,20 +55,6 @@
     "OverridableProperties": {},
     "Version": "2.4.0"
   },
-  "dropdown": {
-    "CustomGroupControlTemplateName": "",
-    "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/dropdown",
-    "IsComponentTemplate": false,
-    "IsCustomGroupControlTemplate": false,
-    "IsPcfControl": false,
-    "IsPremiumPcfControl": false,
-    "IsWidgetTemplate": true,
-    "LastModifiedTimestamp": "0",
-    "Name": "dropdown",
-    "OverridableProperties": {},
-    "Version": "2.3.1"
-  },
   "form": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
@@ -148,20 +134,6 @@
     "Name": "label",
     "OverridableProperties": {},
     "Version": "2.5.0"
-  },
-  "radio": {
-    "CustomGroupControlTemplateName": "",
-    "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/radio",
-    "IsComponentTemplate": false,
-    "IsCustomGroupControlTemplate": false,
-    "IsPcfControl": false,
-    "IsPremiumPcfControl": false,
-    "IsWidgetTemplate": true,
-    "LastModifiedTimestamp": "0",
-    "Name": "radio",
-    "OverridableProperties": {},
-    "Version": "2.3.0"
   },
   "rectangle": {
     "CustomGroupControlTemplateName": "",
