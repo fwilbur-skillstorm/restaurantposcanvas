@@ -80,9 +80,11 @@
         Font: =Font.Lato
         LineHeight: =1.5
         Text: |-
-            ="Discount: " & 
-                Text(discountedPrice, "-$#0.#0 ") &
-                Text(Discount * 100, "(#0%)")
+            =//"Discount: " & 
+            //   Text(discountedPrice, "-$#0.#0 ") &
+            //   Text(Discount * 100, "(#0%)")
+            
+            "Discount: " & Text(LookUp(Orders,'Order Number'= SelectedOrder.'Order Number', Discount) * LookUp(Orders,'Order Number'= SelectedOrder.'Order Number', 'Base Total'), "$#0.#0")
         Width: =237
         X: =951
         Y: =397
@@ -157,10 +159,11 @@
     txtBTotal As label:
         Font: =Font.Lato
         LineHeight: =1.5
-        Text: |+
+        Text: |
             =
-            "Total: " & Text(Sum(SelectedOrder.'Base Total' - discountedPrice, tipVal), "$#0.#0")
+            //"Total: " & Text(Sum(SelectedOrder.'Base Total' - discountedPrice, tipVal), "$#0.#0")
             
+            "Total: " & Text(LookUp(Orders,'Order Number'= SelectedOrder.'Order Number','Grand Total') + tipVal, "$#0.#0")
         X: =951
         Y: =500
         ZIndex: =9
@@ -178,7 +181,9 @@
         Font: =Font.Lato
         LineHeight: =1.5
         Text: |-
-            ="Subtotal: " & Text(SelectedOrder.'Base Total',"$##.#0")
+            =//"Subtotal: " & Text(SelectedOrder.'Base Total',"$##.#0")
+            
+            "Tax: "& "$" & LookUp(Orders,'Order Number'= SelectedOrder.'Order Number','Base Total')
         X: =951
         Y: =366
         ZIndex: =12
@@ -367,7 +372,8 @@
         FontWeight: =FontWeight.Bold
         Height: =47
         Text: |-
-            ="Balance: " & Text(Sum(SelectedOrder.'Base Total' - discountedPrice, tipVal), "$#0.#0")
+            =//"Balance: " & Text(Sum(SelectedOrder.'Base Total' - discountedPrice, tipVal), "$#0.#0")
+            "Balance: "& "$" & LookUp(Orders,'Order Number'= SelectedOrder.'Order Number','Grand Total')
         Visible: =CashWindowVisible
         Width: =183
         X: =493
@@ -451,7 +457,9 @@
         Height: =63
         Size: =18
         Text: |-
-            ="Change: " & Text(txtCashAmt - Sum(SelectedOrder.'Base Total' - discountedPrice, tipVal), "$#0.#0")
+            =//"Change: " & Text(txtCashAmt - Sum(SelectedOrder.'Base Total' - discountedPrice, tipVal), "$#0.#0")
+            
+            "Change: "& "$" & txtCashAmt - LookUp(Orders,'Order Number'= SelectedOrder.'Order Number','Grand Total')
         Visible: =ChangeWindowVisible
         Width: =220
         X: =582
@@ -673,6 +681,7 @@
             
             'Outlook.com'.SendEmail(txtEmail.Text, "Customer Receipt #: " & Text(SelectedOrder.'Order Number'), "https://sethsbrew.powerappsportals.com/receipt/?id=" & SelectedOrder.Order);
             Reset(txtEmail);
+            Navigate('Orders List Screen', None);
         Text: ="Submit"
         Visible: =SendEmailWindowVisble
         X: =728
@@ -684,6 +693,7 @@
         OnSelect: |-
             =UpdateContext({SendEmailWindowVisble: false, BackgroundBlurVisble: false});
             Reset(txtEmail);
+            Navigate('Orders List Screen', None);
         Text: ="No Receipt"
         Visible: =SendEmailWindowVisble
         X: =493
@@ -706,7 +716,7 @@
         Font: =Font.Lato
         Height: =44
         Text: |-
-            ="Tax: "& "$" & LookUp(Orders,'Order Number'= SelectedOrder.'Order Number',Tax)
+            ="Tax: "& "$" & Text(LookUp(Orders,'Order Number'= SelectedOrder.'Order Number',Tax), $"#0.#0")
         Width: =141
         X: =951
         Y: =432

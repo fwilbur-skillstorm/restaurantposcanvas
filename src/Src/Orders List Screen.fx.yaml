@@ -52,6 +52,8 @@
             Height: =59
             OnSelect: |+
                 =Select(Parent);
+                Set(SelectedOrder,ThisItem);
+                
                 Set(ToEditOrderNumber, ThisItem.'Order Number');
                 
                 Set(subtotalVal,Text(Sum(Filter('Order Details', 'Order ID' = Value(ToEditOrderNumber)), 'Menu Item'.Price), "$##.#0"));

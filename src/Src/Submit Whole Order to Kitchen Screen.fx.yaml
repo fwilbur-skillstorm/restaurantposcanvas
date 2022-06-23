@@ -127,7 +127,7 @@
             Icon: =Icon.ForkKnife
             OnSelect: |-
                 =Patch('Order Details',galOrderDetailsToSend.Selected,{'Food Delivered':Now()})
-            Visible: =If(ThisItem.'Food Delivered'=Blank(),true,false)
+            Visible: =If(ThisItem.'Food Delivered'=Blank() && (ThisItem.'Kitchen Approved'=PendingYesNo.Yes || ThisItem.'Kitchen Modifications Accepted' = kitchenmodificationstatus.Accepted),true,false)
             Width: =46
             X: =642
             Y: =65
@@ -159,8 +159,8 @@
         Size: =22
         Text: ="Send to Kitchen"
         Width: =261
-        X: =246
-        Y: =655
+        X: =138
+        Y: =640
         ZIndex: =3
 
     lblSendToKitchenTopSeparator As label:
@@ -464,4 +464,19 @@
         Width: =46
         X: =92
         ZIndex: =16
+
+    Button3 As button:
+        Fill: =RGBA(118, 0, 0, 1)
+        Font: =Font.Lato
+        Height: =60
+        OnSelect: |-
+            =UpdateIf('Order Details', 'Order ID' = Value(ToEditOrderNumber) && IsBlank('Food Delivered') && ('Kitchen Approved' = PendingYesNo.Yes || 'Kitchen Modifications Accepted' = kitchenmodificationstatus.Accepted), {
+            'Food Delivered': Now()
+            })
+        Size: =22
+        Text: ="Delivered All"
+        Width: =261
+        X: =529
+        Y: =640
+        ZIndex: =17
 
