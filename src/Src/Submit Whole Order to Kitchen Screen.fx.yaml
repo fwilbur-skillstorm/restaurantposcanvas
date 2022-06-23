@@ -127,7 +127,7 @@
             Icon: =Icon.ForkKnife
             OnSelect: |-
                 =Patch('Order Details',galOrderDetailsToSend.Selected,{'Food Delivered':Now()})
-            Visible: =If(ThisItem.'Food Delivered'=Blank(),true,false)
+            Visible: =If(ThisItem.'Food Delivered'=Blank() && ThisItem.'Kitchen Approved'=PendingYesNo.Yes,true,false)
             Width: =46
             X: =642
             Y: =65
