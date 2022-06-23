@@ -245,6 +245,7 @@
         ZIndex: =18
 
     btnPTCash As button:
+        Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
         Height: =66
         OnSelect: |-
@@ -258,6 +259,7 @@
         ZIndex: =19
 
     btnPTCredit As button:
+        Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
         Height: =66
         OnSelect: |-
@@ -316,6 +318,7 @@
         ZIndex: =24
 
     btnCreditSubmit As button:
+        Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
         OnSelect: |+
             =If(Len(txtCreditCardNum.Text) = 16,
@@ -447,11 +450,12 @@
             Reset(txtCashAmt);
         Visible: =CashWindowVisible
         Width: =34
-        X: =891
+        X: =876
         Y: =267
         ZIndex: =34
 
     btnCashSubmit As button:
+        Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
         OnSelect: |-
             =UpdateContext({CashWindowVisible: false});
@@ -600,6 +604,7 @@
             
             UpdateContext({DiscountWindowVisble: false});
             UpdateContext({BackgroundBlurVisble: false});
+            Navigate('Billing Screen');
         Text: ="Confirm"
         Visible: =DiscountWindowVisble
         Width: =89
