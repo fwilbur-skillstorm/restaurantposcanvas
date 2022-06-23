@@ -236,7 +236,7 @@
     frmPTWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
         BorderThickness: =5
-        Fill: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(235, 235, 235, 1)
         Height: =189
         Visible: =PTWindowVisible
         Width: =480
@@ -287,7 +287,7 @@
     frmCreditWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
         BorderThickness: =5
-        Fill: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(235, 235, 235, 1)
         Height: =248
         Visible: =CreditWindowVisble
         Width: =480
@@ -326,7 +326,7 @@
                 Reset(txtCreditCardNum) &
                 CheckoutProcess.Run(SelectedOrder.Table.HostTables), // Once submit, change order status to inactive.
             
-            UpdateContext({ErrorWindowVisble: true})
+                Notify("Error: Invalid credit card number");
             );
             
             // Note: can't seem to add patch function above.
@@ -335,7 +335,7 @@
                     Orders, 
                     LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), 
                     {
-                        Status: 'Status (Orders)'.Active
+                        Status: 'Status (Orders)'.Inactive
                     }
                 )
             );
@@ -360,45 +360,10 @@
         Y: =267
         ZIndex: =26
 
-    frmErrorWindow As rectangle:
-        BorderColor: =RGBA(216, 59, 1, 1)
-        BorderThickness: =5
-        Fill: =RGBA(255, 255, 255, 1)
-        Height: =123
-        Visible: =ErrorWindowVisble
-        Width: =339
-        X: =513
-        Y: =322
-        ZIndex: =27
-
-    lblError As label:
-        Align: =Align.Center
-        Fill: =RGBA(255, 255, 255, 1)
-        Font: =Font.Lato
-        FontWeight: =FontWeight.Bold
-        Height: =29
-        Text: |-
-            ="Error: Invalid credit card number"
-        Visible: =ErrorWindowVisble
-        Width: =322
-        X: =521
-        Y: =346
-        ZIndex: =28
-
-    btnErrorConfirm As button:
-        Font: =Font.Lato
-        OnSelect: |-
-            =UpdateContext({ErrorWindowVisble: false})
-        Text: ="Confirm"
-        Visible: =ErrorWindowVisble
-        X: =603
-        Y: =386
-        ZIndex: =29
-
     frmCashWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
         BorderThickness: =5
-        Fill: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(235, 235, 235, 1)
         Height: =248
         Visible: =CashWindowVisible
         Width: =480
@@ -457,21 +422,20 @@
     btnCashSubmit As button:
         Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
-        OnSelect: |-
-            =UpdateContext({CashWindowVisible: false});
-            UpdateContext({ChangeWindowVisible: true});
-            
-            // Once submit, change order status to inactive.
+        OnSelect: |
+            =
+            If(Value(txtCashAmt.Text) < Sum(SelectedOrder.'Base Total' - discountedPrice, tipVal),
+            Notify("Error: insignificant amount."),
             Patch(
                 Orders, 
                 LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), 
                 {
-                    Status: 'Status (Orders)'.Active
+                    Status: 'Status (Orders)'.Inactive
                 }
             );
-            
-            // Runs a cloud flow to change "Availability Status" Column to empty in the "HostTables" Table.
+            UpdateContext({CashWindowVisible: false, ChangeWindowVisible: true});
             CheckoutProcess.Run(SelectedOrder.Table.HostTables);
+            );
         Text: ="Submit"
         Visible: =CashWindowVisible
         X: =742
@@ -481,7 +445,7 @@
     frmChangeWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
         BorderThickness: =5
-        Fill: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(235, 235, 235, 1)
         Height: =179
         Visible: =ChangeWindowVisible
         Width: =220
@@ -504,6 +468,7 @@
         ZIndex: =37
 
     btnChange As button:
+        Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
         OnSelect: |-
             =UpdateContext({ChangeWindowVisible: false});
@@ -517,7 +482,7 @@
     frmDiscountWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
         BorderThickness: =5
-        Fill: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(235, 235, 235, 1)
         Height: =220
         Visible: =DiscountWindowVisble
         Width: =392
@@ -526,6 +491,7 @@
         ZIndex: =39
 
     "'btnDiscount10%' As button":
+        Fill: =RGBA(118, 0, 0, 1)
         Height: =34
         OnSelect: |-
             =UpdateContext({Discount: 10/100});
@@ -540,6 +506,7 @@
         ZIndex: =40
 
     "'btnDiscount25%' As button":
+        Fill: =RGBA(118, 0, 0, 1)
         Height: =34
         OnSelect: |-
             =UpdateContext({Discount: 25/100});
@@ -554,6 +521,7 @@
         ZIndex: =41
 
     "'btnDiscount50%' As button":
+        Fill: =RGBA(118, 0, 0, 1)
         Height: =34
         OnSelect: |-
             =UpdateContext({Discount: 50/100});
@@ -569,6 +537,7 @@
 
     btnCustom As button:
         DisplayMode: =DisplayMode.View
+        Fill: =RGBA(118, 0, 0, 1)
         Height: =34
         Text: ="Custom"
         Visible: =DiscountWindowVisble
@@ -594,6 +563,7 @@
         ZIndex: =44
 
     btnDiscountConfirm As button:
+        Fill: =RGBA(118, 0, 0, 1)
         Height: =34
         OnSelect: |
             =
@@ -604,7 +574,7 @@
             
             UpdateContext({DiscountWindowVisble: false});
             UpdateContext({BackgroundBlurVisble: false});
-            Navigate('Billing Screen');
+            Navigate('Orders List Screen');
         Text: ="Confirm"
         Visible: =DiscountWindowVisble
         Width: =89
@@ -629,7 +599,7 @@
     frmPaymentSuccessWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
         BorderThickness: =5
-        Fill: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(235, 235, 235, 1)
         Height: =123
         Visible: =PaymentSuccessWindowVisble
         Width: =339
@@ -639,7 +609,7 @@
 
     lblPaymentSuccess As label:
         Align: =Align.Center
-        Fill: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(235, 235, 235, 1)
         Font: =Font.Lato
         FontWeight: =FontWeight.Bold
         Height: =29
@@ -651,6 +621,7 @@
         ZIndex: =48
 
     btnSuccessConfirm As button:
+        Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
         OnSelect: |-
             =UpdateContext({ErrorWindowVisble: false});
@@ -677,7 +648,7 @@
     frmEmailWindow As rectangle:
         BorderColor: =RGBA(216, 59, 1, 1)
         BorderThickness: =5
-        Fill: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(235, 235, 235, 1)
         Height: =253
         Visible: =SendEmailWindowVisble
         Width: =481
@@ -705,10 +676,11 @@
         ZIndex: =53
 
     btnSendEmail As button:
+        Fill: =RGBA(118, 0, 0, 1)
         OnSelect: |-
             =UpdateContext({SendEmailWindowVisble: false, BackgroundBlurVisble: false});
             
-            'Outlook.com'.SendEmail(txtEmail.Text, "Customer Receipt #: " & Text(SelectedOrder.'Order Number'), "https://sethsbrew.powerappsportals.com/receipt/");
+            'Outlook.com'.SendEmail(txtEmail.Text, "Customer Receipt #: " & Text(SelectedOrder.'Order Number'), "https://sethsbrew.powerappsportals.com/receipt/?id=" & SelectedOrder.Order);
             Reset(txtEmail);
         Text: ="Submit"
         Visible: =SendEmailWindowVisble
@@ -717,6 +689,7 @@
         ZIndex: =54
 
     btnNoReceipt As button:
+        Fill: =RGBA(118, 0, 0, 1)
         OnSelect: |-
             =UpdateContext({SendEmailWindowVisble: false, BackgroundBlurVisble: false});
             Reset(txtEmail);
