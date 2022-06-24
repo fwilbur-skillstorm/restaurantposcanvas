@@ -194,7 +194,7 @@
         Font: =Font.Lato
         LineHeight: =1.5
         Text: |+
-            ="Subtotal: " & Text(SelectedOrder.'Base Total',"$##.#0")
+            ="Subtotal: "& "$" & Text(LookUp(Orders,'Order Number'= SelectedOrder.'Order Number','Base Total'), $"#0.#0")
             
         X: =951
         Y: =366
@@ -735,4 +735,13 @@
         X: =951
         Y: =432
         ZIndex: =57
+
+    Icon3 As icon.Reload:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =45
+        Icon: =Icon.Reload
+        OnSelect: =Refresh(Orders)
+        Width: =33
+        X: =94
+        ZIndex: =58
 
