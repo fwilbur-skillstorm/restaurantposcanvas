@@ -7,7 +7,9 @@
         Format: =TextFormat.Number
         Height: =34
         OnChange: |-
-            =UpdateContext({tipVal: Value(txtTipAmtInput.Text)})
+            =UpdateContext({tipVal: Value(txtTipAmtInput.Text)});
+            
+            //Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Tip: tipVal});
         OnSelect: |-
             =UpdateContext({tipCustomSelected: true});
         Width: =101
@@ -36,6 +38,9 @@
         OnSelect: |-
             =UpdateContext({tipVal: .20 * SelectedOrder.'Base Total'});
             UpdateContext({tipCustomSelected: false});
+            
+            //Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Tip: tipVal});
+            
             Reset(txtTipAmtInput)
         Size: =16
         Text: ="20%"
@@ -52,6 +57,9 @@
         OnSelect: |-
             =UpdateContext({tipVal: .15 * SelectedOrder.'Base Total'});
             UpdateContext({tipCustomSelected: false});
+            
+            //Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Tip: tipVal});
+            
             Reset(txtTipAmtInput)
         Size: =16
         Text: ="15%"
@@ -65,10 +73,14 @@
         Font: =Font.Lato
         Height: =34
         HoverFill: =ColorFade(RGBA(191, 0, 0, 1), -20%)
-        OnSelect: |-
+        OnSelect: |+
             =UpdateContext({tipVal: .10 * SelectedOrder.'Base Total'});
             UpdateContext({tipCustomSelected: false});
+            
+            //Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Tip: tipVal});
+            
             Reset(txtTipAmtInput)
+            
         Size: =16
         Text: ="10%"
         Width: =89
@@ -148,7 +160,7 @@
         OnSelect: |
             =UpdateContext({BackgroundBlurVisble: true});
             UpdateContext({PTWindowVisible: true}); // PT = Payment Type
-            Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Tip: Value(txtTipAmtInput.Text)});
+            Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Tip: tipVal});
         Size: =16
         Text: ="Pay"
         Width: =184
@@ -171,8 +183,9 @@
     txtBTip As label:
         Font: =Font.Lato
         LineHeight: =1.5
-        Text: |-
+        Text: |+
             ="Tip: " & Text(Value(tipVal), "$#0.#0")
+            
         X: =951
         Y: =466
         ZIndex: =10
@@ -180,10 +193,9 @@
     txtBSubtotal As label:
         Font: =Font.Lato
         LineHeight: =1.5
-        Text: |-
-            =//"Subtotal: " & Text(SelectedOrder.'Base Total',"$##.#0")
+        Text: |+
+            ="Subtotal: " & Text(SelectedOrder.'Base Total',"$##.#0")
             
-            "Tax: "& "$" & LookUp(Orders,'Order Number'= SelectedOrder.'Order Number','Base Total')
         X: =951
         Y: =366
         ZIndex: =12
@@ -432,6 +444,7 @@
             );
             UpdateContext({CashWindowVisible: false, ChangeWindowVisible: true});
             CheckoutProcess.Run(SelectedOrder.Table.HostTables);
+            Reset(txtCashAmt);
             );
         Text: ="Submit"
         Visible: =CashWindowVisible
@@ -679,7 +692,8 @@
         OnSelect: |-
             =UpdateContext({SendEmailWindowVisble: false, BackgroundBlurVisble: false});
             
-            'Outlook.com'.SendEmail(txtEmail.Text, "Customer Receipt #: " & Text(SelectedOrder.'Order Number'), "https://sethsbrew.powerappsportals.com/receipt/?id=" & SelectedOrder.Order);
+            'Outlook.com'.SendEmail(txtEmail.Text, "Customer Receipt #: " & Text(SelectedOrder.'Order Number'), "Thank you for dining with us! Follow the link for receipt here: https://sethsbrew.powerappsportals.com/receipt/?id=" & SelectedOrder.Order & " and a survey link here: sethsbrews.powerappsportals.com/survey/");
+            
             Reset(txtEmail);
             Navigate('Orders List Screen', None);
         Text: ="Submit"
