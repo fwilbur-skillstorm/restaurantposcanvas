@@ -18,11 +18,12 @@
         ZIndex: =1
 
     btnTipCustom As button:
-        DisplayMode: =DisplayMode.View
         Fill: =RGBA(118, 0, 0, 1)
         Font: =Font.Lato
         Height: =34
         HoverFill: =ColorFade(RGBA(191, 0, 0, 1), -20%)
+        OnSelect: |
+            =Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Tip: tipVal});
         Size: =16
         Text: ="Custom"
         Width: =89
@@ -39,7 +40,7 @@
             =UpdateContext({tipVal: .20 * SelectedOrder.'Base Total'});
             UpdateContext({tipCustomSelected: false});
             
-            //Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Tip: tipVal});
+            Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Tip: tipVal});
             
             Reset(txtTipAmtInput)
         Size: =16
@@ -58,7 +59,7 @@
             =UpdateContext({tipVal: .15 * SelectedOrder.'Base Total'});
             UpdateContext({tipCustomSelected: false});
             
-            //Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Tip: tipVal});
+            Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Tip: tipVal});
             
             Reset(txtTipAmtInput)
         Size: =16
@@ -77,7 +78,7 @@
             =UpdateContext({tipVal: .10 * SelectedOrder.'Base Total'});
             UpdateContext({tipCustomSelected: false});
             
-            //Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Tip: tipVal});
+            Patch(Orders, LookUp(Orders, 'Order Number' = SelectedOrder.'Order Number'), {Tip: tipVal});
             
             Reset(txtTipAmtInput)
             
@@ -184,7 +185,8 @@
         Font: =Font.Lato
         LineHeight: =1.5
         Text: |+
-            ="Tip: " & Text(Value(tipVal), "$#0.#0")
+            =//"Tip: " & Text(Value(tipVal), "$#0.#0")
+            "Tip: "& "$" & Text(LookUp(Orders,'Order Number'= SelectedOrder.'Order Number',Tip), $"#0.#0")
             
         X: =951
         Y: =466
