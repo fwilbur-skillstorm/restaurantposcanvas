@@ -193,10 +193,9 @@
     txtBSubtotal As label:
         Font: =Font.Lato
         LineHeight: =1.5
-        Text: |-
-            =//"Subtotal: " & Text(SelectedOrder.'Base Total',"$##.#0")
+        Text: |+
+            ="Subtotal: " & Text(SelectedOrder.'Base Total',"$##.#0")
             
-            "Subtotal: "& "$" & LookUp(Orders,'Order Number'= SelectedOrder.'Order Number','Base Total')
         X: =951
         Y: =366
         ZIndex: =12
@@ -693,7 +692,7 @@
         OnSelect: |-
             =UpdateContext({SendEmailWindowVisble: false, BackgroundBlurVisble: false});
             
-            'Outlook.com'.SendEmail(txtEmail.Text, "Customer Receipt #: " & Text(SelectedOrder.'Order Number'), "Following the link for receipt here: https://sethsbrew.powerappsportals.com/receipt/?id=" & SelectedOrder.Order & " and a survey link here: sethsbrews.powerappsportals.com/survey/");
+            'Outlook.com'.SendEmail(txtEmail.Text, "Customer Receipt #: " & Text(SelectedOrder.'Order Number'), "Thank you for dining with us! Follow the link for receipt here: https://sethsbrew.powerappsportals.com/receipt/?id=" & SelectedOrder.Order & " and a survey link here: sethsbrews.powerappsportals.com/survey/");
             
             Reset(txtEmail);
             Navigate('Orders List Screen', None);
